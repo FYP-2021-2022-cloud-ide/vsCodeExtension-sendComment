@@ -9,7 +9,7 @@ import { DockerClient } from './proto/dockerGet/dockerGet_grpc_pb';
 
 function sendNotification(title:string, body:string)
 {
-	var target= 'api:50051';
+	var target= process.env.APIIP!;
 	var client = new DockerClient(
 		target,
 		grpc.credentials.createInsecure());

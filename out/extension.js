@@ -8,7 +8,7 @@ const grpc = require("@grpc/grpc-js");
 const dockerGet_pb_1 = require("./proto/dockerGet/dockerGet_pb");
 const dockerGet_grpc_pb_1 = require("./proto/dockerGet/dockerGet_grpc_pb");
 function sendNotification(title, body) {
-    var target = 'api:50051';
+    var target = process.env.APIIP;
     var client = new dockerGet_grpc_pb_1.DockerClient(target, grpc.credentials.createInsecure());
     var docReq = new dockerGet_pb_1.SendNotificationRequest();
     docReq.setTitle(title);
