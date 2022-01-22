@@ -4,7 +4,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import * as grpc from '@grpc/grpc-js'
+import * as grpc from "@grpc/grpc-js";
 import * as dockerGet_pb from "./dockerGet_pb";
 
 interface IDockerService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
@@ -19,6 +19,7 @@ interface IDockerService extends grpc.ServiceDefinition<grpc.UntypedServiceImple
     instantAddContainer: IDockerService_IinstantAddContainer;
     removeContainer: IDockerService_IremoveContainer;
     submitFiles: IDockerService_IsubmitFiles;
+    getContainerTime: IDockerService_IgetContainerTime;
     addTemplate: IDockerService_IaddTemplate;
     updateTemplate: IDockerService_IupdateTemplate;
     activateTemplate: IDockerService_IactivateTemplate;
@@ -36,6 +37,15 @@ interface IDockerService extends grpc.ServiceDefinition<grpc.UntypedServiceImple
     removeNotification: IDockerService_IremoveNotification;
     updateNotificationToken: IDockerService_IupdateNotificationToken;
     updateSubscription: IDockerService_IupdateSubscription;
+    listFolders: IDockerService_IlistFolders;
+    makeFolder: IDockerService_ImakeFolder;
+    downloadFile: IDockerService_IdownloadFile;
+    uploadFile: IDockerService_IuploadFile;
+    removeFile: IDockerService_IremoveFile;
+    moveFile: IDockerService_ImoveFile;
+    googleOAuth: IDockerService_IgoogleOAuth;
+    requestAccessToken: IDockerService_IrequestAccessToken;
+    googleListFile: IDockerService_IgoogleListFile;
 }
 
 interface IDockerService_Ilogin extends grpc.MethodDefinition<dockerGet_pb.LoginRequest, dockerGet_pb.ListReply> {
@@ -136,6 +146,15 @@ interface IDockerService_IsubmitFiles extends grpc.MethodDefinition<dockerGet_pb
     requestDeserialize: grpc.deserialize<dockerGet_pb.SubmitFilesRequest>;
     responseSerialize: grpc.serialize<dockerGet_pb.SuccessStringReply>;
     responseDeserialize: grpc.deserialize<dockerGet_pb.SuccessStringReply>;
+}
+interface IDockerService_IgetContainerTime extends grpc.MethodDefinition<dockerGet_pb.RemoveContainerRequest, dockerGet_pb.ContainerTimeReply> {
+    path: "/dockerGet.Docker/getContainerTime";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<dockerGet_pb.RemoveContainerRequest>;
+    requestDeserialize: grpc.deserialize<dockerGet_pb.RemoveContainerRequest>;
+    responseSerialize: grpc.serialize<dockerGet_pb.ContainerTimeReply>;
+    responseDeserialize: grpc.deserialize<dockerGet_pb.ContainerTimeReply>;
 }
 interface IDockerService_IaddTemplate extends grpc.MethodDefinition<dockerGet_pb.AddTemplateRequest, dockerGet_pb.AddTemplateReply> {
     path: "/dockerGet.Docker/addTemplate";
@@ -290,6 +309,87 @@ interface IDockerService_IupdateSubscription extends grpc.MethodDefinition<docke
     responseSerialize: grpc.serialize<dockerGet_pb.SuccessStringReply>;
     responseDeserialize: grpc.deserialize<dockerGet_pb.SuccessStringReply>;
 }
+interface IDockerService_IlistFolders extends grpc.MethodDefinition<dockerGet_pb.UserIdRequest, dockerGet_pb.ListFolderReply> {
+    path: "/dockerGet.Docker/listFolders";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<dockerGet_pb.UserIdRequest>;
+    requestDeserialize: grpc.deserialize<dockerGet_pb.UserIdRequest>;
+    responseSerialize: grpc.serialize<dockerGet_pb.ListFolderReply>;
+    responseDeserialize: grpc.deserialize<dockerGet_pb.ListFolderReply>;
+}
+interface IDockerService_ImakeFolder extends grpc.MethodDefinition<dockerGet_pb.PathRequest, dockerGet_pb.SuccessStringReply> {
+    path: "/dockerGet.Docker/makeFolder";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<dockerGet_pb.PathRequest>;
+    requestDeserialize: grpc.deserialize<dockerGet_pb.PathRequest>;
+    responseSerialize: grpc.serialize<dockerGet_pb.SuccessStringReply>;
+    responseDeserialize: grpc.deserialize<dockerGet_pb.SuccessStringReply>;
+}
+interface IDockerService_IdownloadFile extends grpc.MethodDefinition<dockerGet_pb.DownloadRequest, dockerGet_pb.DownloadReply> {
+    path: "/dockerGet.Docker/downloadFile";
+    requestStream: false;
+    responseStream: true;
+    requestSerialize: grpc.serialize<dockerGet_pb.DownloadRequest>;
+    requestDeserialize: grpc.deserialize<dockerGet_pb.DownloadRequest>;
+    responseSerialize: grpc.serialize<dockerGet_pb.DownloadReply>;
+    responseDeserialize: grpc.deserialize<dockerGet_pb.DownloadReply>;
+}
+interface IDockerService_IuploadFile extends grpc.MethodDefinition<dockerGet_pb.UploadRequest, dockerGet_pb.UploadReply> {
+    path: "/dockerGet.Docker/uploadFile";
+    requestStream: true;
+    responseStream: false;
+    requestSerialize: grpc.serialize<dockerGet_pb.UploadRequest>;
+    requestDeserialize: grpc.deserialize<dockerGet_pb.UploadRequest>;
+    responseSerialize: grpc.serialize<dockerGet_pb.UploadReply>;
+    responseDeserialize: grpc.deserialize<dockerGet_pb.UploadReply>;
+}
+interface IDockerService_IremoveFile extends grpc.MethodDefinition<dockerGet_pb.PathRequest, dockerGet_pb.SuccessStringReply> {
+    path: "/dockerGet.Docker/removeFile";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<dockerGet_pb.PathRequest>;
+    requestDeserialize: grpc.deserialize<dockerGet_pb.PathRequest>;
+    responseSerialize: grpc.serialize<dockerGet_pb.SuccessStringReply>;
+    responseDeserialize: grpc.deserialize<dockerGet_pb.SuccessStringReply>;
+}
+interface IDockerService_ImoveFile extends grpc.MethodDefinition<dockerGet_pb.MoveFileRequest, dockerGet_pb.SuccessStringReply> {
+    path: "/dockerGet.Docker/moveFile";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<dockerGet_pb.MoveFileRequest>;
+    requestDeserialize: grpc.deserialize<dockerGet_pb.MoveFileRequest>;
+    responseSerialize: grpc.serialize<dockerGet_pb.SuccessStringReply>;
+    responseDeserialize: grpc.deserialize<dockerGet_pb.SuccessStringReply>;
+}
+interface IDockerService_IgoogleOAuth extends grpc.MethodDefinition<dockerGet_pb.EmptyRequest, dockerGet_pb.SuccessStringReply> {
+    path: "/dockerGet.Docker/googleOAuth";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<dockerGet_pb.EmptyRequest>;
+    requestDeserialize: grpc.deserialize<dockerGet_pb.EmptyRequest>;
+    responseSerialize: grpc.serialize<dockerGet_pb.SuccessStringReply>;
+    responseDeserialize: grpc.deserialize<dockerGet_pb.SuccessStringReply>;
+}
+interface IDockerService_IrequestAccessToken extends grpc.MethodDefinition<dockerGet_pb.CodeRequest, dockerGet_pb.SuccessStringReply> {
+    path: "/dockerGet.Docker/requestAccessToken";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<dockerGet_pb.CodeRequest>;
+    requestDeserialize: grpc.deserialize<dockerGet_pb.CodeRequest>;
+    responseSerialize: grpc.serialize<dockerGet_pb.SuccessStringReply>;
+    responseDeserialize: grpc.deserialize<dockerGet_pb.SuccessStringReply>;
+}
+interface IDockerService_IgoogleListFile extends grpc.MethodDefinition<dockerGet_pb.ListFilesRequest, dockerGet_pb.ChildrenReply> {
+    path: "/dockerGet.Docker/googleListFile";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<dockerGet_pb.ListFilesRequest>;
+    requestDeserialize: grpc.deserialize<dockerGet_pb.ListFilesRequest>;
+    responseSerialize: grpc.serialize<dockerGet_pb.ChildrenReply>;
+    responseDeserialize: grpc.deserialize<dockerGet_pb.ChildrenReply>;
+}
 
 export const DockerService: IDockerService;
 
@@ -305,6 +405,7 @@ export interface IDockerServer {
     instantAddContainer: grpc.handleUnaryCall<dockerGet_pb.InstantAddContainerRequest, dockerGet_pb.AddContainerReply>;
     removeContainer: grpc.handleUnaryCall<dockerGet_pb.RemoveContainerRequest, dockerGet_pb.SuccessStringReply>;
     submitFiles: grpc.handleUnaryCall<dockerGet_pb.SubmitFilesRequest, dockerGet_pb.SuccessStringReply>;
+    getContainerTime: grpc.handleUnaryCall<dockerGet_pb.RemoveContainerRequest, dockerGet_pb.ContainerTimeReply>;
     addTemplate: grpc.handleUnaryCall<dockerGet_pb.AddTemplateRequest, dockerGet_pb.AddTemplateReply>;
     updateTemplate: grpc.handleUnaryCall<dockerGet_pb.UpdateTemplateRequest, dockerGet_pb.SuccessStringReply>;
     activateTemplate: grpc.handleUnaryCall<dockerGet_pb.TemplateIdRequest, dockerGet_pb.SuccessStringReply>;
@@ -322,6 +423,15 @@ export interface IDockerServer {
     removeNotification: grpc.handleUnaryCall<dockerGet_pb.RemoveNotificationRequest, dockerGet_pb.SuccessStringReply>;
     updateNotificationToken: grpc.handleUnaryCall<dockerGet_pb.UpdateNotificationTokenRequest, dockerGet_pb.SuccessStringReply>;
     updateSubscription: grpc.handleUnaryCall<dockerGet_pb.UpdateSubscriptionRequest, dockerGet_pb.SuccessStringReply>;
+    listFolders: grpc.handleUnaryCall<dockerGet_pb.UserIdRequest, dockerGet_pb.ListFolderReply>;
+    makeFolder: grpc.handleUnaryCall<dockerGet_pb.PathRequest, dockerGet_pb.SuccessStringReply>;
+    downloadFile: grpc.handleServerStreamingCall<dockerGet_pb.DownloadRequest, dockerGet_pb.DownloadReply>;
+    uploadFile: grpc.handleClientStreamingCall<dockerGet_pb.UploadRequest, dockerGet_pb.UploadReply>;
+    removeFile: grpc.handleUnaryCall<dockerGet_pb.PathRequest, dockerGet_pb.SuccessStringReply>;
+    moveFile: grpc.handleUnaryCall<dockerGet_pb.MoveFileRequest, dockerGet_pb.SuccessStringReply>;
+    googleOAuth: grpc.handleUnaryCall<dockerGet_pb.EmptyRequest, dockerGet_pb.SuccessStringReply>;
+    requestAccessToken: grpc.handleUnaryCall<dockerGet_pb.CodeRequest, dockerGet_pb.SuccessStringReply>;
+    googleListFile: grpc.handleUnaryCall<dockerGet_pb.ListFilesRequest, dockerGet_pb.ChildrenReply>;
 }
 
 export interface IDockerClient {
@@ -358,6 +468,9 @@ export interface IDockerClient {
     submitFiles(request: dockerGet_pb.SubmitFilesRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
     submitFiles(request: dockerGet_pb.SubmitFilesRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
     submitFiles(request: dockerGet_pb.SubmitFilesRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    getContainerTime(request: dockerGet_pb.RemoveContainerRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.ContainerTimeReply) => void): grpc.ClientUnaryCall;
+    getContainerTime(request: dockerGet_pb.RemoveContainerRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.ContainerTimeReply) => void): grpc.ClientUnaryCall;
+    getContainerTime(request: dockerGet_pb.RemoveContainerRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.ContainerTimeReply) => void): grpc.ClientUnaryCall;
     addTemplate(request: dockerGet_pb.AddTemplateRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.AddTemplateReply) => void): grpc.ClientUnaryCall;
     addTemplate(request: dockerGet_pb.AddTemplateRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.AddTemplateReply) => void): grpc.ClientUnaryCall;
     addTemplate(request: dockerGet_pb.AddTemplateRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.AddTemplateReply) => void): grpc.ClientUnaryCall;
@@ -409,6 +522,33 @@ export interface IDockerClient {
     updateSubscription(request: dockerGet_pb.UpdateSubscriptionRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
     updateSubscription(request: dockerGet_pb.UpdateSubscriptionRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
     updateSubscription(request: dockerGet_pb.UpdateSubscriptionRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    listFolders(request: dockerGet_pb.UserIdRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.ListFolderReply) => void): grpc.ClientUnaryCall;
+    listFolders(request: dockerGet_pb.UserIdRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.ListFolderReply) => void): grpc.ClientUnaryCall;
+    listFolders(request: dockerGet_pb.UserIdRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.ListFolderReply) => void): grpc.ClientUnaryCall;
+    makeFolder(request: dockerGet_pb.PathRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    makeFolder(request: dockerGet_pb.PathRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    makeFolder(request: dockerGet_pb.PathRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    downloadFile(request: dockerGet_pb.DownloadRequest, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<dockerGet_pb.DownloadReply>;
+    downloadFile(request: dockerGet_pb.DownloadRequest, metadata?: grpc.Metadata, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<dockerGet_pb.DownloadReply>;
+    uploadFile(callback: (error: grpc.ServiceError | null, response: dockerGet_pb.UploadReply) => void): grpc.ClientWritableStream<dockerGet_pb.UploadRequest>;
+    uploadFile(metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.UploadReply) => void): grpc.ClientWritableStream<dockerGet_pb.UploadRequest>;
+    uploadFile(options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.UploadReply) => void): grpc.ClientWritableStream<dockerGet_pb.UploadRequest>;
+    uploadFile(metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.UploadReply) => void): grpc.ClientWritableStream<dockerGet_pb.UploadRequest>;
+    removeFile(request: dockerGet_pb.PathRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    removeFile(request: dockerGet_pb.PathRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    removeFile(request: dockerGet_pb.PathRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    moveFile(request: dockerGet_pb.MoveFileRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    moveFile(request: dockerGet_pb.MoveFileRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    moveFile(request: dockerGet_pb.MoveFileRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    googleOAuth(request: dockerGet_pb.EmptyRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    googleOAuth(request: dockerGet_pb.EmptyRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    googleOAuth(request: dockerGet_pb.EmptyRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    requestAccessToken(request: dockerGet_pb.CodeRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    requestAccessToken(request: dockerGet_pb.CodeRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    requestAccessToken(request: dockerGet_pb.CodeRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    googleListFile(request: dockerGet_pb.ListFilesRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.ChildrenReply) => void): grpc.ClientUnaryCall;
+    googleListFile(request: dockerGet_pb.ListFilesRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.ChildrenReply) => void): grpc.ClientUnaryCall;
+    googleListFile(request: dockerGet_pb.ListFilesRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.ChildrenReply) => void): grpc.ClientUnaryCall;
 }
 
 export class DockerClient extends grpc.Client implements IDockerClient {
@@ -446,6 +586,9 @@ export class DockerClient extends grpc.Client implements IDockerClient {
     public submitFiles(request: dockerGet_pb.SubmitFilesRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
     public submitFiles(request: dockerGet_pb.SubmitFilesRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
     public submitFiles(request: dockerGet_pb.SubmitFilesRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    public getContainerTime(request: dockerGet_pb.RemoveContainerRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.ContainerTimeReply) => void): grpc.ClientUnaryCall;
+    public getContainerTime(request: dockerGet_pb.RemoveContainerRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.ContainerTimeReply) => void): grpc.ClientUnaryCall;
+    public getContainerTime(request: dockerGet_pb.RemoveContainerRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.ContainerTimeReply) => void): grpc.ClientUnaryCall;
     public addTemplate(request: dockerGet_pb.AddTemplateRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.AddTemplateReply) => void): grpc.ClientUnaryCall;
     public addTemplate(request: dockerGet_pb.AddTemplateRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.AddTemplateReply) => void): grpc.ClientUnaryCall;
     public addTemplate(request: dockerGet_pb.AddTemplateRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.AddTemplateReply) => void): grpc.ClientUnaryCall;
@@ -497,4 +640,31 @@ export class DockerClient extends grpc.Client implements IDockerClient {
     public updateSubscription(request: dockerGet_pb.UpdateSubscriptionRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
     public updateSubscription(request: dockerGet_pb.UpdateSubscriptionRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
     public updateSubscription(request: dockerGet_pb.UpdateSubscriptionRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    public listFolders(request: dockerGet_pb.UserIdRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.ListFolderReply) => void): grpc.ClientUnaryCall;
+    public listFolders(request: dockerGet_pb.UserIdRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.ListFolderReply) => void): grpc.ClientUnaryCall;
+    public listFolders(request: dockerGet_pb.UserIdRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.ListFolderReply) => void): grpc.ClientUnaryCall;
+    public makeFolder(request: dockerGet_pb.PathRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    public makeFolder(request: dockerGet_pb.PathRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    public makeFolder(request: dockerGet_pb.PathRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    public downloadFile(request: dockerGet_pb.DownloadRequest, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<dockerGet_pb.DownloadReply>;
+    public downloadFile(request: dockerGet_pb.DownloadRequest, metadata?: grpc.Metadata, options?: Partial<grpc.CallOptions>): grpc.ClientReadableStream<dockerGet_pb.DownloadReply>;
+    public uploadFile(callback: (error: grpc.ServiceError | null, response: dockerGet_pb.UploadReply) => void): grpc.ClientWritableStream<dockerGet_pb.UploadRequest>;
+    public uploadFile(metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.UploadReply) => void): grpc.ClientWritableStream<dockerGet_pb.UploadRequest>;
+    public uploadFile(options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.UploadReply) => void): grpc.ClientWritableStream<dockerGet_pb.UploadRequest>;
+    public uploadFile(metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.UploadReply) => void): grpc.ClientWritableStream<dockerGet_pb.UploadRequest>;
+    public removeFile(request: dockerGet_pb.PathRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    public removeFile(request: dockerGet_pb.PathRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    public removeFile(request: dockerGet_pb.PathRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    public moveFile(request: dockerGet_pb.MoveFileRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    public moveFile(request: dockerGet_pb.MoveFileRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    public moveFile(request: dockerGet_pb.MoveFileRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    public googleOAuth(request: dockerGet_pb.EmptyRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    public googleOAuth(request: dockerGet_pb.EmptyRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    public googleOAuth(request: dockerGet_pb.EmptyRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    public requestAccessToken(request: dockerGet_pb.CodeRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    public requestAccessToken(request: dockerGet_pb.CodeRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    public requestAccessToken(request: dockerGet_pb.CodeRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    public googleListFile(request: dockerGet_pb.ListFilesRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.ChildrenReply) => void): grpc.ClientUnaryCall;
+    public googleListFile(request: dockerGet_pb.ListFilesRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.ChildrenReply) => void): grpc.ClientUnaryCall;
+    public googleListFile(request: dockerGet_pb.ListFilesRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.ChildrenReply) => void): grpc.ClientUnaryCall;
 }

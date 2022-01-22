@@ -48,9 +48,9 @@ export function activate(context: vscode.ExtensionContext) {
 		// Display a message box to the user
 		vscode.window.showInformationMessage('sendComment from commentOnCode_v1!');
 		const editor = vscode.window.activeTextEditor;
-		let cursorPosition = editor!.selection.start;
-		 var ter=process.env
-		 console.log(ter)
+		// let cursorPosition = editor!.selection.start;
+		//  var ter=process.env
+		//  console.log(ter)
 		// let wordRange = editor!.document.getWordRangeAtPosition(cursorPosition);
 		let highlight = editor!.document.getText(editor!.selection);
 		var firstLine = ( editor!.selection.start.line+1).toString()
@@ -76,6 +76,36 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 
 	context.subscriptions.push(disposable);
+
+
+	var is_exam =process.env.ISEXAM!
+	if( is_exam =="true"){
+		var timeLimit = Number(process.env.TIMELIMIT!)
+		// var timeLimit = 1
+		var timeRemain=timeLimit
+		context.subscriptions.push(
+			vscode.window.setStatusBarMessage(
+				`Exam Time Remaining: ${timeRemain} minutes`
+			)
+		);
+		var refreshId = setInterval(()=>{
+			if (timeRemain>1){
+				timeRemain=timeRemain-1
+				context.subscriptions.push(
+					vscode.window.setStatusBarMessage(
+						`Exam Time Remaining: ${timeRemain} minutes`
+					)
+				);
+			}else{
+				context.subscriptions.push(
+				vscode.window.setStatusBarMessage(
+						`Exam Time is up`
+					)
+				);
+				clearInterval(refreshId);
+			}
+		},1000*60)
+	}
 }
 
 // this method is called when your extension is deactivated

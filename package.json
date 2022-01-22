@@ -1,6 +1,6 @@
 {
   "name": "commentoncode-v1",
-  "displayName": "commentOnCode_v1",
+  "displayName": "Student Pack",
   "description": "",
   "version": "0.0.1",
   "engines": {
@@ -10,7 +10,8 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:commentoncode-v1.sendComment"
+    "onCommand:commentoncode-v1.sendComment",
+    "onStartupFinished"
   ],
   "main": "./out/extension.js",
   "contributes": {
