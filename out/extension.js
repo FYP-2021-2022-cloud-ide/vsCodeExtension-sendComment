@@ -13,11 +13,10 @@ function sendNotification(title, body) {
     var docReq = new dockerGet_pb_1.SendNotificationRequest();
     docReq.setTitle(title);
     docReq.setBody(body);
-    // docReq.setSender("7fac6d26-4f01-41c8-9b40-a9f372c7a691")
-    // docReq.setReceiver("7fac6d26-4f01-41c8-9b40-a9f372c7a691")
     docReq.setSender(process.env.USER_THIS);
     docReq.setReceiver(process.env.USER_RESPONSIBLE);
     docReq.setAllowReply(true);
+    docReq.setSessionKey(process.env.SESSION_KEY);
     client.sendNotification(docReq, function (err, GoLangResponse) {
         if (!GoLangResponse.getSuccess()) {
             vscode.window.showInformationMessage("Failed to send Comment, Reason: " + GoLangResponse.getMessage());
@@ -26,6 +25,44 @@ function sendNotification(title, body) {
             vscode.window.showInformationMessage("Comment Sent!");
         }
     });
+}
+function getContainerTime() {
+    var target = process.env.APIIP;
+    var client = new dockerGet_grpc_pb_1.DockerClient(target, grpc.credentials.createInsecure());
+    var docReq = new dockerGet_pb_1.RemoveContainerRequest();
+    docReq.setContainerid(process.env.THIS_CONTAINER_ID);
+    docReq.setSub(process.env.USER_SUB);
+    docReq.setSessionKey(process.env.SESSION_KEY);
+    client.getContainerTime(docReq, function (err, GoLangResponse) {
+        if (!GoLangResponse.getSuccess()) {
+            vscode.window.showInformationMessage("Failed to get container time, Reason: " + GoLangResponse.getMessage());
+            return {
+                Success: false,
+                Message: GoLangResponse.getMessage(),
+            };
+        }
+        else {
+            vscode.window.showInformationMessage("Container Time got!");
+            return {
+                Success: true,
+                Message: "",
+                IsExam: GoLangResponse.getIsExam(),
+                TimeLimit: GoLangResponse.getTimeLimit(),
+                CreatedAt: GoLangResponse.getCreatedAt(),
+            };
+        }
+    });
+    return {
+        Success: false,
+        Message: "other error",
+    };
+    // return {
+    // 	Success:true,
+    // 	Message:"",
+    // 	IsExam:true,
+    // 	TimeLimit:"300",
+    // 	CreatedAt:"2022-02-15 04:43:15 +0000 UTC",
+    // }
 }
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -66,22 +103,25 @@ function activate(context) {
         }
     });
     context.subscriptions.push(disposable);
-    var is_exam = process.env.ISEXAM;
-    if (is_exam == "true") {
-        var timeLimit = Number(process.env.TIMELIMIT);
-        // var timeLimit = 1
-        var timeRemain = timeLimit;
-        context.subscriptions.push(vscode.window.setStatusBarMessage(`Exam Time Remaining: ${timeRemain} minutes`));
-        var refreshId = setInterval(() => {
-            if (timeRemain > 1) {
-                timeRemain = timeRemain - 1;
-                context.subscriptions.push(vscode.window.setStatusBarMessage(`Exam Time Remaining: ${timeRemain} minutes`));
-            }
-            else {
-                context.subscriptions.push(vscode.window.setStatusBarMessage(`Exam Time is up`));
-                clearInterval(refreshId);
-            }
-        }, 1000 * 60);
+    var ContaienrTimeInfo = getContainerTime();
+    if (ContaienrTimeInfo.Success) {
+        if (ContaienrTimeInfo.IsExam) {
+            var timeLimit = parseInt(ContaienrTimeInfo.TimeLimit);
+            var timePassed = (Date.now() - Date.parse(ContaienrTimeInfo.CreatedAt)) / (1000 * 60);
+            // console.log(timeLimit,timePassed)
+            var timeRemain = Math.ceil(timeLimit - timePassed);
+            context.subscriptions.push(vscode.window.setStatusBarMessage(`Exam Time Remaining: ${timeRemain} minutes`));
+            var refreshId = setInterval(() => {
+                if (timeRemain > 1) {
+                    timeRemain = timeRemain - 1;
+                    context.subscriptions.push(vscode.window.setStatusBarMessage(`Exam Time Remaining: ${timeRemain} minutes`));
+                }
+                else {
+                    context.subscriptions.push(vscode.window.setStatusBarMessage(`Exam Time is up`));
+                    clearInterval(refreshId);
+                }
+            }, 1000 * 60);
+        }
     }
 }
 exports.activate = activate;

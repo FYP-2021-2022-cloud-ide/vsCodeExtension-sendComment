@@ -19,6 +19,12 @@ goog.exportSymbol('proto.dockerGet.AddContainerReply', null, global);
 goog.exportSymbol('proto.dockerGet.AddContainerRequest', null, global);
 goog.exportSymbol('proto.dockerGet.AddEnvironmentReply', null, global);
 goog.exportSymbol('proto.dockerGet.AddEnvironmentRequest', null, global);
+goog.exportSymbol('proto.dockerGet.AddSandBoxImageReply', null, global);
+goog.exportSymbol('proto.dockerGet.AddSandBoxImageRequest', null, global);
+goog.exportSymbol('proto.dockerGet.AddSandBoxReply', null, global);
+goog.exportSymbol('proto.dockerGet.AddSandBoxRequest', null, global);
+goog.exportSymbol('proto.dockerGet.AddTempContainerReply', null, global);
+goog.exportSymbol('proto.dockerGet.AddTempContainerRequest', null, global);
 goog.exportSymbol('proto.dockerGet.AddTemplateReply', null, global);
 goog.exportSymbol('proto.dockerGet.AddTemplateRequest', null, global);
 goog.exportSymbol('proto.dockerGet.BuildEnvironmentRequest', null, global);
@@ -27,15 +33,13 @@ goog.exportSymbol('proto.dockerGet.ChildrenReply', null, global);
 goog.exportSymbol('proto.dockerGet.ChildrenReply.child', null, global);
 goog.exportSymbol('proto.dockerGet.CodeRequest', null, global);
 goog.exportSymbol('proto.dockerGet.ContainerTimeReply', null, global);
-goog.exportSymbol('proto.dockerGet.DownloadReply', null, global);
 goog.exportSymbol('proto.dockerGet.DownloadRequest', null, global);
 goog.exportSymbol('proto.dockerGet.EmptyRequest', null, global);
 goog.exportSymbol('proto.dockerGet.EnvironmentIdRequest', null, global);
-goog.exportSymbol('proto.dockerGet.Folder', null, global);
-goog.exportSymbol('proto.dockerGet.Folder.Files', null, global);
 goog.exportSymbol('proto.dockerGet.GetNotificationTokenReply', null, global);
 goog.exportSymbol('proto.dockerGet.GetSectionInfoReply', null, global);
 goog.exportSymbol('proto.dockerGet.GetUserDataReply', null, global);
+goog.exportSymbol('proto.dockerGet.GetUserDataRequest', null, global);
 goog.exportSymbol('proto.dockerGet.InstantAddContainerRequest', null, global);
 goog.exportSymbol('proto.dockerGet.ListContainerReply', null, global);
 goog.exportSymbol('proto.dockerGet.ListContainerReply.Container', null, global);
@@ -45,18 +49,20 @@ goog.exportSymbol('proto.dockerGet.ListCoursesReply.Course', null, global);
 goog.exportSymbol('proto.dockerGet.ListEnvironmentsReply', null, global);
 goog.exportSymbol('proto.dockerGet.ListEnvironmentsReply.Environment', null, global);
 goog.exportSymbol('proto.dockerGet.ListFilesRequest', null, global);
-goog.exportSymbol('proto.dockerGet.ListFolderReply', null, global);
 goog.exportSymbol('proto.dockerGet.ListNotificationsReply', null, global);
 goog.exportSymbol('proto.dockerGet.ListNotificationsReply.Notification', null, global);
 goog.exportSymbol('proto.dockerGet.ListNotificationsReply.Notification.Sender', null, global);
 goog.exportSymbol('proto.dockerGet.ListReply', null, global);
+goog.exportSymbol('proto.dockerGet.ListSandBoxImageReply', null, global);
+goog.exportSymbol('proto.dockerGet.ListSandBoxImageReply.SandBoxImage', null, global);
+goog.exportSymbol('proto.dockerGet.ListSandBoxImageRequest', null, global);
 goog.exportSymbol('proto.dockerGet.ListTemplatesReply', null, global);
 goog.exportSymbol('proto.dockerGet.ListTemplatesReply.Template', null, global);
-goog.exportSymbol('proto.dockerGet.LoginRequest', null, global);
-goog.exportSymbol('proto.dockerGet.MoveFileRequest', null, global);
-goog.exportSymbol('proto.dockerGet.PathRequest', null, global);
 goog.exportSymbol('proto.dockerGet.RemoveContainerRequest', null, global);
 goog.exportSymbol('proto.dockerGet.RemoveNotificationRequest', null, global);
+goog.exportSymbol('proto.dockerGet.RemoveTempContainerRequest', null, global);
+goog.exportSymbol('proto.dockerGet.SandBoxIdRequest', null, global);
+goog.exportSymbol('proto.dockerGet.SandBoxImageIdRequest', null, global);
 goog.exportSymbol('proto.dockerGet.SectionAndSubRequest', null, global);
 goog.exportSymbol('proto.dockerGet.SectionRequest', null, global);
 goog.exportSymbol('proto.dockerGet.SendNotificationReply', null, global);
@@ -68,13 +74,11 @@ goog.exportSymbol('proto.dockerGet.SuccessStringReply', null, global);
 goog.exportSymbol('proto.dockerGet.TemplateIdRequest', null, global);
 goog.exportSymbol('proto.dockerGet.UpdateEnvironmentRequest', null, global);
 goog.exportSymbol('proto.dockerGet.UpdateNotificationTokenRequest', null, global);
+goog.exportSymbol('proto.dockerGet.UpdateSandBoxImageRequest', null, global);
 goog.exportSymbol('proto.dockerGet.UpdateSubscriptionRequest', null, global);
 goog.exportSymbol('proto.dockerGet.UpdateTemplateRequest', null, global);
 goog.exportSymbol('proto.dockerGet.UpdateUserDataRequest', null, global);
-goog.exportSymbol('proto.dockerGet.UploadReply', null, global);
 goog.exportSymbol('proto.dockerGet.UploadRequest', null, global);
-goog.exportSymbol('proto.dockerGet.UploadRequest.DataCase', null, global);
-goog.exportSymbol('proto.dockerGet.UploadRequest.UploadMetadata', null, global);
 goog.exportSymbol('proto.dockerGet.UserIdRequest', null, global);
 /**
  * Generated by JsPbCodeGenerator.
@@ -243,27 +247,6 @@ if (goog.DEBUG && !COMPILED) {
    * @override
    */
   proto.dockerGet.ListNotificationsReply.Notification.Sender.displayName = 'proto.dockerGet.ListNotificationsReply.Notification.Sender';
-}
-/**
- * Generated by JsPbCodeGenerator.
- * @param {Array=} opt_data Optional initial data array, typically from a
- * server response, or constructed directly in Javascript. The array is used
- * in place and becomes part of the constructed object. It is not cloned.
- * If no data is provided, the constructed object will be empty, but still
- * valid.
- * @extends {jspb.Message}
- * @constructor
- */
-proto.dockerGet.LoginRequest = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
-};
-goog.inherits(proto.dockerGet.LoginRequest, jspb.Message);
-if (goog.DEBUG && !COMPILED) {
-  /**
-   * @public
-   * @override
-   */
-  proto.dockerGet.LoginRequest.displayName = 'proto.dockerGet.LoginRequest';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -968,6 +951,27 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
+proto.dockerGet.GetUserDataRequest = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.dockerGet.GetUserDataRequest, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.dockerGet.GetUserDataRequest.displayName = 'proto.dockerGet.GetUserDataRequest';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
 proto.dockerGet.GetUserDataReply = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
@@ -1095,7 +1099,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.dockerGet.RemoveNotificationRequest = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.dockerGet.RemoveNotificationRequest.repeatedFields_, null);
 };
 goog.inherits(proto.dockerGet.RemoveNotificationRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -1136,69 +1140,6 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.dockerGet.ListFolderReply = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
-};
-goog.inherits(proto.dockerGet.ListFolderReply, jspb.Message);
-if (goog.DEBUG && !COMPILED) {
-  /**
-   * @public
-   * @override
-   */
-  proto.dockerGet.ListFolderReply.displayName = 'proto.dockerGet.ListFolderReply';
-}
-/**
- * Generated by JsPbCodeGenerator.
- * @param {Array=} opt_data Optional initial data array, typically from a
- * server response, or constructed directly in Javascript. The array is used
- * in place and becomes part of the constructed object. It is not cloned.
- * If no data is provided, the constructed object will be empty, but still
- * valid.
- * @extends {jspb.Message}
- * @constructor
- */
-proto.dockerGet.Folder = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.dockerGet.Folder.repeatedFields_, null);
-};
-goog.inherits(proto.dockerGet.Folder, jspb.Message);
-if (goog.DEBUG && !COMPILED) {
-  /**
-   * @public
-   * @override
-   */
-  proto.dockerGet.Folder.displayName = 'proto.dockerGet.Folder';
-}
-/**
- * Generated by JsPbCodeGenerator.
- * @param {Array=} opt_data Optional initial data array, typically from a
- * server response, or constructed directly in Javascript. The array is used
- * in place and becomes part of the constructed object. It is not cloned.
- * If no data is provided, the constructed object will be empty, but still
- * valid.
- * @extends {jspb.Message}
- * @constructor
- */
-proto.dockerGet.Folder.Files = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
-};
-goog.inherits(proto.dockerGet.Folder.Files, jspb.Message);
-if (goog.DEBUG && !COMPILED) {
-  /**
-   * @public
-   * @override
-   */
-  proto.dockerGet.Folder.Files.displayName = 'proto.dockerGet.Folder.Files';
-}
-/**
- * Generated by JsPbCodeGenerator.
- * @param {Array=} opt_data Optional initial data array, typically from a
- * server response, or constructed directly in Javascript. The array is used
- * in place and becomes part of the constructed object. It is not cloned.
- * If no data is provided, the constructed object will be empty, but still
- * valid.
- * @extends {jspb.Message}
- * @constructor
- */
 proto.dockerGet.DownloadRequest = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
@@ -1220,29 +1161,8 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.dockerGet.DownloadReply = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
-};
-goog.inherits(proto.dockerGet.DownloadReply, jspb.Message);
-if (goog.DEBUG && !COMPILED) {
-  /**
-   * @public
-   * @override
-   */
-  proto.dockerGet.DownloadReply.displayName = 'proto.dockerGet.DownloadReply';
-}
-/**
- * Generated by JsPbCodeGenerator.
- * @param {Array=} opt_data Optional initial data array, typically from a
- * server response, or constructed directly in Javascript. The array is used
- * in place and becomes part of the constructed object. It is not cloned.
- * If no data is provided, the constructed object will be empty, but still
- * valid.
- * @extends {jspb.Message}
- * @constructor
- */
 proto.dockerGet.UploadRequest = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, proto.dockerGet.UploadRequest.oneofGroups_);
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.dockerGet.UploadRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -1262,16 +1182,16 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.dockerGet.UploadRequest.UploadMetadata = function(opt_data) {
+proto.dockerGet.AddTempContainerRequest = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.dockerGet.UploadRequest.UploadMetadata, jspb.Message);
+goog.inherits(proto.dockerGet.AddTempContainerRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.dockerGet.UploadRequest.UploadMetadata.displayName = 'proto.dockerGet.UploadRequest.UploadMetadata';
+  proto.dockerGet.AddTempContainerRequest.displayName = 'proto.dockerGet.AddTempContainerRequest';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -1283,16 +1203,16 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.dockerGet.UploadReply = function(opt_data) {
+proto.dockerGet.AddTempContainerReply = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.dockerGet.UploadReply, jspb.Message);
+goog.inherits(proto.dockerGet.AddTempContainerReply, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.dockerGet.UploadReply.displayName = 'proto.dockerGet.UploadReply';
+  proto.dockerGet.AddTempContainerReply.displayName = 'proto.dockerGet.AddTempContainerReply';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -1304,16 +1224,16 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.dockerGet.PathRequest = function(opt_data) {
+proto.dockerGet.RemoveTempContainerRequest = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.dockerGet.PathRequest, jspb.Message);
+goog.inherits(proto.dockerGet.RemoveTempContainerRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.dockerGet.PathRequest.displayName = 'proto.dockerGet.PathRequest';
+  proto.dockerGet.RemoveTempContainerRequest.displayName = 'proto.dockerGet.RemoveTempContainerRequest';
 }
 /**
  * Generated by JsPbCodeGenerator.
@@ -1325,16 +1245,205 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.dockerGet.MoveFileRequest = function(opt_data) {
+proto.dockerGet.AddSandBoxImageRequest = function(opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
-goog.inherits(proto.dockerGet.MoveFileRequest, jspb.Message);
+goog.inherits(proto.dockerGet.AddSandBoxImageRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
   /**
    * @public
    * @override
    */
-  proto.dockerGet.MoveFileRequest.displayName = 'proto.dockerGet.MoveFileRequest';
+  proto.dockerGet.AddSandBoxImageRequest.displayName = 'proto.dockerGet.AddSandBoxImageRequest';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.dockerGet.AddSandBoxImageReply = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.dockerGet.AddSandBoxImageReply, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.dockerGet.AddSandBoxImageReply.displayName = 'proto.dockerGet.AddSandBoxImageReply';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.dockerGet.UpdateSandBoxImageRequest = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.dockerGet.UpdateSandBoxImageRequest, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.dockerGet.UpdateSandBoxImageRequest.displayName = 'proto.dockerGet.UpdateSandBoxImageRequest';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.dockerGet.SandBoxImageIdRequest = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.dockerGet.SandBoxImageIdRequest, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.dockerGet.SandBoxImageIdRequest.displayName = 'proto.dockerGet.SandBoxImageIdRequest';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.dockerGet.ListSandBoxImageRequest = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.dockerGet.ListSandBoxImageRequest, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.dockerGet.ListSandBoxImageRequest.displayName = 'proto.dockerGet.ListSandBoxImageRequest';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.dockerGet.ListSandBoxImageReply = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.dockerGet.ListSandBoxImageReply.repeatedFields_, null);
+};
+goog.inherits(proto.dockerGet.ListSandBoxImageReply, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.dockerGet.ListSandBoxImageReply.displayName = 'proto.dockerGet.ListSandBoxImageReply';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.dockerGet.ListSandBoxImageReply.SandBoxImage = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.dockerGet.ListSandBoxImageReply.SandBoxImage.repeatedFields_, null);
+};
+goog.inherits(proto.dockerGet.ListSandBoxImageReply.SandBoxImage, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.dockerGet.ListSandBoxImageReply.SandBoxImage.displayName = 'proto.dockerGet.ListSandBoxImageReply.SandBoxImage';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.dockerGet.AddSandBoxRequest = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.dockerGet.AddSandBoxRequest, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.dockerGet.AddSandBoxRequest.displayName = 'proto.dockerGet.AddSandBoxRequest';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.dockerGet.AddSandBoxReply = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.dockerGet.AddSandBoxReply, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.dockerGet.AddSandBoxReply.displayName = 'proto.dockerGet.AddSandBoxReply';
+}
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.dockerGet.SandBoxIdRequest = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.dockerGet.SandBoxIdRequest, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  /**
+   * @public
+   * @override
+   */
+  proto.dockerGet.SandBoxIdRequest.displayName = 'proto.dockerGet.SandBoxIdRequest';
 }
 
 
@@ -1368,6 +1477,7 @@ proto.dockerGet.ListFilesRequest.prototype.toObject = function(opt_includeInstan
  */
 proto.dockerGet.ListFilesRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
     sub: jspb.Message.getFieldWithDefault(msg, 1, ""),
     folderid: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
@@ -1406,6 +1516,10 @@ proto.dockerGet.ListFilesRequest.deserializeBinaryFromReader = function(msg, rea
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
     case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.setSub(value);
@@ -1443,6 +1557,13 @@ proto.dockerGet.ListFilesRequest.prototype.serializeBinary = function() {
  */
 proto.dockerGet.ListFilesRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
   f = message.getSub();
   if (f.length > 0) {
     writer.writeString(
@@ -1457,6 +1578,24 @@ proto.dockerGet.ListFilesRequest.serializeBinaryToWriter = function(message, wri
       f
     );
   }
+};
+
+
+/**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.ListFilesRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.ListFilesRequest} returns this
+ */
+proto.dockerGet.ListFilesRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
 };
 
 
@@ -1961,6 +2100,7 @@ proto.dockerGet.CodeRequest.prototype.toObject = function(opt_includeInstance) {
  */
 proto.dockerGet.CodeRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
     code: jspb.Message.getFieldWithDefault(msg, 1, ""),
     sub: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
@@ -1999,6 +2139,10 @@ proto.dockerGet.CodeRequest.deserializeBinaryFromReader = function(msg, reader) 
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
     case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.setCode(value);
@@ -2036,6 +2180,13 @@ proto.dockerGet.CodeRequest.prototype.serializeBinary = function() {
  */
 proto.dockerGet.CodeRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
   f = message.getCode();
   if (f.length > 0) {
     writer.writeString(
@@ -2050,6 +2201,24 @@ proto.dockerGet.CodeRequest.serializeBinaryToWriter = function(message, writer) 
       f
     );
   }
+};
+
+
+/**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.CodeRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.CodeRequest} returns this
+ */
+proto.dockerGet.CodeRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
 };
 
 
@@ -2121,6 +2290,7 @@ proto.dockerGet.UserIdRequest.prototype.toObject = function(opt_includeInstance)
  */
 proto.dockerGet.UserIdRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
     userid: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
@@ -2158,6 +2328,10 @@ proto.dockerGet.UserIdRequest.deserializeBinaryFromReader = function(msg, reader
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
     case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.setUserid(value);
@@ -2191,6 +2365,13 @@ proto.dockerGet.UserIdRequest.prototype.serializeBinary = function() {
  */
 proto.dockerGet.UserIdRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
   f = message.getUserid();
   if (f.length > 0) {
     writer.writeString(
@@ -2198,6 +2379,24 @@ proto.dockerGet.UserIdRequest.serializeBinaryToWriter = function(message, writer
       f
     );
   }
+};
+
+
+/**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.UserIdRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.UserIdRequest} returns this
+ */
+proto.dockerGet.UserIdRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
 };
 
 
@@ -2946,166 +3145,6 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.dockerGet.LoginRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.dockerGet.LoginRequest.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.dockerGet.LoginRequest} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.dockerGet.LoginRequest.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    sub: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    name: jspb.Message.getFieldWithDefault(msg, 2, "")
-  };
-
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
-
-
-/**
- * Deserializes binary data (in protobuf wire format).
- * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.dockerGet.LoginRequest}
- */
-proto.dockerGet.LoginRequest.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.dockerGet.LoginRequest;
-  return proto.dockerGet.LoginRequest.deserializeBinaryFromReader(msg, reader);
-};
-
-
-/**
- * Deserializes binary data (in protobuf wire format) from the
- * given reader into the given message object.
- * @param {!proto.dockerGet.LoginRequest} msg The message object to deserialize into.
- * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.dockerGet.LoginRequest}
- */
-proto.dockerGet.LoginRequest.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
-    }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setSub(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setName(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
-
-/**
- * Serializes the message to binary data (in protobuf wire format).
- * @return {!Uint8Array}
- */
-proto.dockerGet.LoginRequest.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.dockerGet.LoginRequest.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
-
-/**
- * Serializes the given message to binary data (in protobuf wire
- * format), writing to the given BinaryWriter.
- * @param {!proto.dockerGet.LoginRequest} message
- * @param {!jspb.BinaryWriter} writer
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.dockerGet.LoginRequest.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getSub();
-  if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
-  }
-  f = message.getName();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
-};
-
-
-/**
- * optional string sub = 1;
- * @return {string}
- */
-proto.dockerGet.LoginRequest.prototype.getSub = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.dockerGet.LoginRequest} returns this
- */
-proto.dockerGet.LoginRequest.prototype.setSub = function(value) {
-  return jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-/**
- * optional string name = 2;
- * @return {string}
- */
-proto.dockerGet.LoginRequest.prototype.getName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.dockerGet.LoginRequest} returns this
- */
-proto.dockerGet.LoginRequest.prototype.setName = function(value) {
-  return jspb.Message.setProto3StringField(this, 2, value);
-};
-
-
-
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
 proto.dockerGet.EmptyRequest.prototype.toObject = function(opt_includeInstance) {
   return proto.dockerGet.EmptyRequest.toObject(opt_includeInstance, this);
 };
@@ -3122,7 +3161,7 @@ proto.dockerGet.EmptyRequest.prototype.toObject = function(opt_includeInstance) 
  */
 proto.dockerGet.EmptyRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, "")
   };
 
   if (includeInstance) {
@@ -3159,6 +3198,10 @@ proto.dockerGet.EmptyRequest.deserializeBinaryFromReader = function(msg, reader)
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -3188,6 +3231,31 @@ proto.dockerGet.EmptyRequest.prototype.serializeBinary = function() {
  */
 proto.dockerGet.EmptyRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.EmptyRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.EmptyRequest} returns this
+ */
+proto.dockerGet.EmptyRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
 };
 
 
@@ -5303,6 +5371,7 @@ proto.dockerGet.ListTemplatesReply.Template.toObject = function(includeInstance,
     id: jspb.Message.getFieldWithDefault(msg, 1, ""),
     name: jspb.Message.getFieldWithDefault(msg, 2, ""),
     description: jspb.Message.getFieldWithDefault(msg, 7, ""),
+    environmentId: jspb.Message.getFieldWithDefault(msg, 12, ""),
     imageid: jspb.Message.getFieldWithDefault(msg, 3, ""),
     assignmentConfigId: jspb.Message.getFieldWithDefault(msg, 4, ""),
     storage: jspb.Message.getFieldWithDefault(msg, 5, ""),
@@ -5358,6 +5427,10 @@ proto.dockerGet.ListTemplatesReply.Template.deserializeBinaryFromReader = functi
     case 7:
       var value = /** @type {string} */ (reader.readString());
       msg.setDescription(value);
+      break;
+    case 12:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setEnvironmentId(value);
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
@@ -5438,6 +5511,13 @@ proto.dockerGet.ListTemplatesReply.Template.serializeBinaryToWriter = function(m
   if (f.length > 0) {
     writer.writeString(
       7,
+      f
+    );
+  }
+  f = message.getEnvironmentId();
+  if (f.length > 0) {
+    writer.writeString(
+      12,
       f
     );
   }
@@ -5551,6 +5631,24 @@ proto.dockerGet.ListTemplatesReply.Template.prototype.getDescription = function(
  */
 proto.dockerGet.ListTemplatesReply.Template.prototype.setDescription = function(value) {
   return jspb.Message.setProto3StringField(this, 7, value);
+};
+
+
+/**
+ * optional string environment_id = 12;
+ * @return {string}
+ */
+proto.dockerGet.ListTemplatesReply.Template.prototype.getEnvironmentId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 12, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.ListTemplatesReply.Template} returns this
+ */
+proto.dockerGet.ListTemplatesReply.Template.prototype.setEnvironmentId = function(value) {
+  return jspb.Message.setProto3StringField(this, 12, value);
 };
 
 
@@ -5823,12 +5921,13 @@ proto.dockerGet.AddContainerRequest.prototype.toObject = function(opt_includeIns
  */
 proto.dockerGet.AddContainerRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
     imagename: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    environmentId: jspb.Message.getFieldWithDefault(msg, 12, ""),
     memlimit: jspb.Message.getFloatingPointFieldWithDefault(msg, 2, 0.0),
     numcpu: jspb.Message.getFloatingPointFieldWithDefault(msg, 3, 0.0),
     sectionUserId: jspb.Message.getFieldWithDefault(msg, 4, ""),
     templateId: jspb.Message.getFieldWithDefault(msg, 5, ""),
-    dbstored: jspb.Message.getBooleanFieldWithDefault(msg, 6, false),
     accessright: jspb.Message.getFieldWithDefault(msg, 7, ""),
     usefresh: jspb.Message.getBooleanFieldWithDefault(msg, 8, false)
   };
@@ -5867,9 +5966,17 @@ proto.dockerGet.AddContainerRequest.deserializeBinaryFromReader = function(msg, 
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
     case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.setImagename(value);
+      break;
+    case 12:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setEnvironmentId(value);
       break;
     case 2:
       var value = /** @type {number} */ (reader.readFloat());
@@ -5886,10 +5993,6 @@ proto.dockerGet.AddContainerRequest.deserializeBinaryFromReader = function(msg, 
     case 5:
       var value = /** @type {string} */ (reader.readString());
       msg.setTemplateId(value);
-      break;
-    case 6:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setDbstored(value);
       break;
     case 7:
       var value = /** @type {string} */ (reader.readString());
@@ -5928,10 +6031,24 @@ proto.dockerGet.AddContainerRequest.prototype.serializeBinary = function() {
  */
 proto.dockerGet.AddContainerRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
   f = message.getImagename();
   if (f.length > 0) {
     writer.writeString(
       1,
+      f
+    );
+  }
+  f = message.getEnvironmentId();
+  if (f.length > 0) {
+    writer.writeString(
+      12,
       f
     );
   }
@@ -5963,13 +6080,6 @@ proto.dockerGet.AddContainerRequest.serializeBinaryToWriter = function(message, 
       f
     );
   }
-  f = message.getDbstored();
-  if (f) {
-    writer.writeBool(
-      6,
-      f
-    );
-  }
   f = message.getAccessright();
   if (f.length > 0) {
     writer.writeString(
@@ -5988,6 +6098,24 @@ proto.dockerGet.AddContainerRequest.serializeBinaryToWriter = function(message, 
 
 
 /**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.AddContainerRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.AddContainerRequest} returns this
+ */
+proto.dockerGet.AddContainerRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
+};
+
+
+/**
  * optional string imageName = 1;
  * @return {string}
  */
@@ -6002,6 +6130,24 @@ proto.dockerGet.AddContainerRequest.prototype.getImagename = function() {
  */
 proto.dockerGet.AddContainerRequest.prototype.setImagename = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional string environment_id = 12;
+ * @return {string}
+ */
+proto.dockerGet.AddContainerRequest.prototype.getEnvironmentId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 12, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.AddContainerRequest} returns this
+ */
+proto.dockerGet.AddContainerRequest.prototype.setEnvironmentId = function(value) {
+  return jspb.Message.setProto3StringField(this, 12, value);
 };
 
 
@@ -6078,24 +6224,6 @@ proto.dockerGet.AddContainerRequest.prototype.setTemplateId = function(value) {
 
 
 /**
- * optional bool dbStored = 6;
- * @return {boolean}
- */
-proto.dockerGet.AddContainerRequest.prototype.getDbstored = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 6, false));
-};
-
-
-/**
- * @param {boolean} value
- * @return {!proto.dockerGet.AddContainerRequest} returns this
- */
-proto.dockerGet.AddContainerRequest.prototype.setDbstored = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 6, value);
-};
-
-
-/**
  * optional string accessRight = 7;
  * @return {string}
  */
@@ -6163,6 +6291,7 @@ proto.dockerGet.InstantAddContainerRequest.prototype.toObject = function(opt_inc
  */
 proto.dockerGet.InstantAddContainerRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
     sub: jspb.Message.getFieldWithDefault(msg, 1, ""),
     templateId: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
@@ -6201,6 +6330,10 @@ proto.dockerGet.InstantAddContainerRequest.deserializeBinaryFromReader = functio
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
     case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.setSub(value);
@@ -6238,6 +6371,13 @@ proto.dockerGet.InstantAddContainerRequest.prototype.serializeBinary = function(
  */
 proto.dockerGet.InstantAddContainerRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
   f = message.getSub();
   if (f.length > 0) {
     writer.writeString(
@@ -6252,6 +6392,24 @@ proto.dockerGet.InstantAddContainerRequest.serializeBinaryToWriter = function(me
       f
     );
   }
+};
+
+
+/**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.InstantAddContainerRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.InstantAddContainerRequest} returns this
+ */
+proto.dockerGet.InstantAddContainerRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
 };
 
 
@@ -6513,7 +6671,9 @@ proto.dockerGet.RemoveContainerRequest.prototype.toObject = function(opt_include
  */
 proto.dockerGet.RemoveContainerRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    containerid: jspb.Message.getFieldWithDefault(msg, 1, "")
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
+    containerid: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    sub: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -6550,9 +6710,17 @@ proto.dockerGet.RemoveContainerRequest.deserializeBinaryFromReader = function(ms
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
     case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.setContainerid(value);
+      break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSub(value);
       break;
     default:
       reader.skipField();
@@ -6583,6 +6751,13 @@ proto.dockerGet.RemoveContainerRequest.prototype.serializeBinary = function() {
  */
 proto.dockerGet.RemoveContainerRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
   f = message.getContainerid();
   if (f.length > 0) {
     writer.writeString(
@@ -6590,6 +6765,31 @@ proto.dockerGet.RemoveContainerRequest.serializeBinaryToWriter = function(messag
       f
     );
   }
+  f = message.getSub();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.RemoveContainerRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.RemoveContainerRequest} returns this
+ */
+proto.dockerGet.RemoveContainerRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
 };
 
 
@@ -6608,6 +6808,24 @@ proto.dockerGet.RemoveContainerRequest.prototype.getContainerid = function() {
  */
 proto.dockerGet.RemoveContainerRequest.prototype.setContainerid = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional string sub = 2;
+ * @return {string}
+ */
+proto.dockerGet.RemoveContainerRequest.prototype.getSub = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.RemoveContainerRequest} returns this
+ */
+proto.dockerGet.RemoveContainerRequest.prototype.setSub = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -6643,6 +6861,7 @@ proto.dockerGet.SubmitFilesRequest.prototype.toObject = function(opt_includeInst
  */
 proto.dockerGet.SubmitFilesRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
     containerid: jspb.Message.getFieldWithDefault(msg, 2, ""),
     sectionUserId: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
@@ -6681,6 +6900,10 @@ proto.dockerGet.SubmitFilesRequest.deserializeBinaryFromReader = function(msg, r
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
     case 2:
       var value = /** @type {string} */ (reader.readString());
       msg.setContainerid(value);
@@ -6718,6 +6941,13 @@ proto.dockerGet.SubmitFilesRequest.prototype.serializeBinary = function() {
  */
 proto.dockerGet.SubmitFilesRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
   f = message.getContainerid();
   if (f.length > 0) {
     writer.writeString(
@@ -6732,6 +6962,24 @@ proto.dockerGet.SubmitFilesRequest.serializeBinaryToWriter = function(message, w
       f
     );
   }
+};
+
+
+/**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.SubmitFilesRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.SubmitFilesRequest} returns this
+ */
+proto.dockerGet.SubmitFilesRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
 };
 
 
@@ -7053,8 +7301,10 @@ proto.dockerGet.AddTemplateRequest.prototype.toObject = function(opt_includeInst
  */
 proto.dockerGet.AddTemplateRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
     name: jspb.Message.getFieldWithDefault(msg, 2, ""),
     description: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    environmentId: jspb.Message.getFieldWithDefault(msg, 12, ""),
     containerid: jspb.Message.getFieldWithDefault(msg, 5, ""),
     assignmentConfigId: jspb.Message.getFieldWithDefault(msg, 3, ""),
     sectionUserId: jspb.Message.getFieldWithDefault(msg, 4, ""),
@@ -7098,6 +7348,10 @@ proto.dockerGet.AddTemplateRequest.deserializeBinaryFromReader = function(msg, r
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
     case 2:
       var value = /** @type {string} */ (reader.readString());
       msg.setName(value);
@@ -7105,6 +7359,10 @@ proto.dockerGet.AddTemplateRequest.deserializeBinaryFromReader = function(msg, r
     case 6:
       var value = /** @type {string} */ (reader.readString());
       msg.setDescription(value);
+      break;
+    case 12:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setEnvironmentId(value);
       break;
     case 5:
       var value = /** @type {string} */ (reader.readString());
@@ -7163,6 +7421,13 @@ proto.dockerGet.AddTemplateRequest.prototype.serializeBinary = function() {
  */
 proto.dockerGet.AddTemplateRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
   f = message.getName();
   if (f.length > 0) {
     writer.writeString(
@@ -7174,6 +7439,13 @@ proto.dockerGet.AddTemplateRequest.serializeBinaryToWriter = function(message, w
   if (f.length > 0) {
     writer.writeString(
       6,
+      f
+    );
+  }
+  f = message.getEnvironmentId();
+  if (f.length > 0) {
+    writer.writeString(
+      12,
       f
     );
   }
@@ -7230,6 +7502,24 @@ proto.dockerGet.AddTemplateRequest.serializeBinaryToWriter = function(message, w
 
 
 /**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.AddTemplateRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.AddTemplateRequest} returns this
+ */
+proto.dockerGet.AddTemplateRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
+};
+
+
+/**
  * optional string name = 2;
  * @return {string}
  */
@@ -7262,6 +7552,24 @@ proto.dockerGet.AddTemplateRequest.prototype.getDescription = function() {
  */
 proto.dockerGet.AddTemplateRequest.prototype.setDescription = function(value) {
   return jspb.Message.setProto3StringField(this, 6, value);
+};
+
+
+/**
+ * optional string environment_id = 12;
+ * @return {string}
+ */
+proto.dockerGet.AddTemplateRequest.prototype.getEnvironmentId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 12, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.AddTemplateRequest} returns this
+ */
+proto.dockerGet.AddTemplateRequest.prototype.setEnvironmentId = function(value) {
+  return jspb.Message.setProto3StringField(this, 12, value);
 };
 
 
@@ -7423,6 +7731,7 @@ proto.dockerGet.UpdateTemplateRequest.prototype.toObject = function(opt_includeI
  */
 proto.dockerGet.UpdateTemplateRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
     templateid: jspb.Message.getFieldWithDefault(msg, 1, ""),
     name: jspb.Message.getFieldWithDefault(msg, 2, ""),
     description: jspb.Message.getFieldWithDefault(msg, 6, ""),
@@ -7469,6 +7778,10 @@ proto.dockerGet.UpdateTemplateRequest.deserializeBinaryFromReader = function(msg
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
     case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.setTemplateid(value);
@@ -7538,6 +7851,13 @@ proto.dockerGet.UpdateTemplateRequest.prototype.serializeBinary = function() {
  */
 proto.dockerGet.UpdateTemplateRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
   f = message.getTemplateid();
   if (f.length > 0) {
     writer.writeString(
@@ -7608,6 +7928,24 @@ proto.dockerGet.UpdateTemplateRequest.serializeBinaryToWriter = function(message
       f
     );
   }
+};
+
+
+/**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.UpdateTemplateRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.UpdateTemplateRequest} returns this
+ */
+proto.dockerGet.UpdateTemplateRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
 };
 
 
@@ -7823,6 +8161,7 @@ proto.dockerGet.TemplateIdRequest.prototype.toObject = function(opt_includeInsta
  */
 proto.dockerGet.TemplateIdRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
     templateid: jspb.Message.getFieldWithDefault(msg, 1, ""),
     sectionUserId: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
@@ -7861,6 +8200,10 @@ proto.dockerGet.TemplateIdRequest.deserializeBinaryFromReader = function(msg, re
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
     case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.setTemplateid(value);
@@ -7898,6 +8241,13 @@ proto.dockerGet.TemplateIdRequest.prototype.serializeBinary = function() {
  */
 proto.dockerGet.TemplateIdRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
   f = message.getTemplateid();
   if (f.length > 0) {
     writer.writeString(
@@ -7912,6 +8262,24 @@ proto.dockerGet.TemplateIdRequest.serializeBinaryToWriter = function(message, wr
       f
     );
   }
+};
+
+
+/**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.TemplateIdRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.TemplateIdRequest} returns this
+ */
+proto.dockerGet.TemplateIdRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
 };
 
 
@@ -8180,6 +8548,7 @@ proto.dockerGet.AddEnvironmentRequest.prototype.toObject = function(opt_includeI
  */
 proto.dockerGet.AddEnvironmentRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
     librariesList: (f = jspb.Message.getRepeatedField(msg, 1)) == null ? undefined : f,
     sectionUserId: jspb.Message.getFieldWithDefault(msg, 2, ""),
     name: jspb.Message.getFieldWithDefault(msg, 3, ""),
@@ -8220,6 +8589,10 @@ proto.dockerGet.AddEnvironmentRequest.deserializeBinaryFromReader = function(msg
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
     case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.addLibraries(value);
@@ -8265,6 +8638,13 @@ proto.dockerGet.AddEnvironmentRequest.prototype.serializeBinary = function() {
  */
 proto.dockerGet.AddEnvironmentRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
   f = message.getLibrariesList();
   if (f.length > 0) {
     writer.writeRepeatedString(
@@ -8293,6 +8673,24 @@ proto.dockerGet.AddEnvironmentRequest.serializeBinaryToWriter = function(message
       f
     );
   }
+};
+
+
+/**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.AddEnvironmentRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.AddEnvironmentRequest} returns this
+ */
+proto.dockerGet.AddEnvironmentRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
 };
 
 
@@ -8609,6 +9007,7 @@ proto.dockerGet.BuildEnvironmentRequest.prototype.toObject = function(opt_includ
  */
 proto.dockerGet.BuildEnvironmentRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
     name: jspb.Message.getFieldWithDefault(msg, 2, ""),
     description: jspb.Message.getFieldWithDefault(msg, 1, ""),
     sectionUserId: jspb.Message.getFieldWithDefault(msg, 4, ""),
@@ -8649,6 +9048,10 @@ proto.dockerGet.BuildEnvironmentRequest.deserializeBinaryFromReader = function(m
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
     case 2:
       var value = /** @type {string} */ (reader.readString());
       msg.setName(value);
@@ -8694,6 +9097,13 @@ proto.dockerGet.BuildEnvironmentRequest.prototype.serializeBinary = function() {
  */
 proto.dockerGet.BuildEnvironmentRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
   f = message.getName();
   if (f.length > 0) {
     writer.writeString(
@@ -8722,6 +9132,24 @@ proto.dockerGet.BuildEnvironmentRequest.serializeBinaryToWriter = function(messa
       f
     );
   }
+};
+
+
+/**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.BuildEnvironmentRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.BuildEnvironmentRequest} returns this
+ */
+proto.dockerGet.BuildEnvironmentRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
 };
 
 
@@ -8829,6 +9257,7 @@ proto.dockerGet.UpdateEnvironmentRequest.prototype.toObject = function(opt_inclu
  */
 proto.dockerGet.UpdateEnvironmentRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
     environmentid: jspb.Message.getFieldWithDefault(msg, 1, ""),
     name: jspb.Message.getFieldWithDefault(msg, 2, ""),
     description: jspb.Message.getFieldWithDefault(msg, 3, ""),
@@ -8870,6 +9299,10 @@ proto.dockerGet.UpdateEnvironmentRequest.deserializeBinaryFromReader = function(
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
     case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.setEnvironmentid(value);
@@ -8919,6 +9352,13 @@ proto.dockerGet.UpdateEnvironmentRequest.prototype.serializeBinary = function() 
  */
 proto.dockerGet.UpdateEnvironmentRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
   f = message.getEnvironmentid();
   if (f.length > 0) {
     writer.writeString(
@@ -8954,6 +9394,24 @@ proto.dockerGet.UpdateEnvironmentRequest.serializeBinaryToWriter = function(mess
       f
     );
   }
+};
+
+
+/**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.UpdateEnvironmentRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.UpdateEnvironmentRequest} returns this
+ */
+proto.dockerGet.UpdateEnvironmentRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
 };
 
 
@@ -9079,6 +9537,7 @@ proto.dockerGet.EnvironmentIdRequest.prototype.toObject = function(opt_includeIn
  */
 proto.dockerGet.EnvironmentIdRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
     environmentid: jspb.Message.getFieldWithDefault(msg, 1, ""),
     sectionUserId: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
@@ -9117,6 +9576,10 @@ proto.dockerGet.EnvironmentIdRequest.deserializeBinaryFromReader = function(msg,
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
     case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.setEnvironmentid(value);
@@ -9154,6 +9617,13 @@ proto.dockerGet.EnvironmentIdRequest.prototype.serializeBinary = function() {
  */
 proto.dockerGet.EnvironmentIdRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
   f = message.getEnvironmentid();
   if (f.length > 0) {
     writer.writeString(
@@ -9168,6 +9638,24 @@ proto.dockerGet.EnvironmentIdRequest.serializeBinaryToWriter = function(message,
       f
     );
   }
+};
+
+
+/**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.EnvironmentIdRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.EnvironmentIdRequest} returns this
+ */
+proto.dockerGet.EnvironmentIdRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
 };
 
 
@@ -9239,6 +9727,7 @@ proto.dockerGet.SectionAndSubRequest.prototype.toObject = function(opt_includeIn
  */
 proto.dockerGet.SectionAndSubRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
     sectionid: jspb.Message.getFieldWithDefault(msg, 1, ""),
     sub: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
@@ -9277,6 +9766,10 @@ proto.dockerGet.SectionAndSubRequest.deserializeBinaryFromReader = function(msg,
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
     case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.setSectionid(value);
@@ -9314,6 +9807,13 @@ proto.dockerGet.SectionAndSubRequest.prototype.serializeBinary = function() {
  */
 proto.dockerGet.SectionAndSubRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
   f = message.getSectionid();
   if (f.length > 0) {
     writer.writeString(
@@ -9328,6 +9828,24 @@ proto.dockerGet.SectionAndSubRequest.serializeBinaryToWriter = function(message,
       f
     );
   }
+};
+
+
+/**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.SectionAndSubRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.SectionAndSubRequest} returns this
+ */
+proto.dockerGet.SectionAndSubRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
 };
 
 
@@ -9399,7 +9917,8 @@ proto.dockerGet.CheckHaveContainerRequest.prototype.toObject = function(opt_incl
  */
 proto.dockerGet.CheckHaveContainerRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    sectionUserId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
+    sub: jspb.Message.getFieldWithDefault(msg, 1, ""),
     containerid: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
@@ -9437,9 +9956,13 @@ proto.dockerGet.CheckHaveContainerRequest.deserializeBinaryFromReader = function
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
     case 1:
       var value = /** @type {string} */ (reader.readString());
-      msg.setSectionUserId(value);
+      msg.setSub(value);
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
@@ -9474,7 +9997,14 @@ proto.dockerGet.CheckHaveContainerRequest.prototype.serializeBinary = function()
  */
 proto.dockerGet.CheckHaveContainerRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getSectionUserId();
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
+  f = message.getSub();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -9492,10 +10022,28 @@ proto.dockerGet.CheckHaveContainerRequest.serializeBinaryToWriter = function(mes
 
 
 /**
- * optional string section_user_id = 1;
+ * optional string session_key = 42;
  * @return {string}
  */
-proto.dockerGet.CheckHaveContainerRequest.prototype.getSectionUserId = function() {
+proto.dockerGet.CheckHaveContainerRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.CheckHaveContainerRequest} returns this
+ */
+proto.dockerGet.CheckHaveContainerRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
+};
+
+
+/**
+ * optional string sub = 1;
+ * @return {string}
+ */
+proto.dockerGet.CheckHaveContainerRequest.prototype.getSub = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
@@ -9504,7 +10052,7 @@ proto.dockerGet.CheckHaveContainerRequest.prototype.getSectionUserId = function(
  * @param {string} value
  * @return {!proto.dockerGet.CheckHaveContainerRequest} returns this
  */
-proto.dockerGet.CheckHaveContainerRequest.prototype.setSectionUserId = function(value) {
+proto.dockerGet.CheckHaveContainerRequest.prototype.setSub = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
 
@@ -9559,6 +10107,7 @@ proto.dockerGet.SubRequest.prototype.toObject = function(opt_includeInstance) {
  */
 proto.dockerGet.SubRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
     sub: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
@@ -9596,6 +10145,10 @@ proto.dockerGet.SubRequest.deserializeBinaryFromReader = function(msg, reader) {
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
     case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.setSub(value);
@@ -9629,6 +10182,13 @@ proto.dockerGet.SubRequest.prototype.serializeBinary = function() {
  */
 proto.dockerGet.SubRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
   f = message.getSub();
   if (f.length > 0) {
     writer.writeString(
@@ -9636,6 +10196,24 @@ proto.dockerGet.SubRequest.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
+};
+
+
+/**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.SubRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.SubRequest} returns this
+ */
+proto.dockerGet.SubRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
 };
 
 
@@ -9689,6 +10267,7 @@ proto.dockerGet.SectionRequest.prototype.toObject = function(opt_includeInstance
  */
 proto.dockerGet.SectionRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
     sectionid: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
@@ -9726,6 +10305,10 @@ proto.dockerGet.SectionRequest.deserializeBinaryFromReader = function(msg, reade
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
     case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.setSectionid(value);
@@ -9759,6 +10342,13 @@ proto.dockerGet.SectionRequest.prototype.serializeBinary = function() {
  */
 proto.dockerGet.SectionRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
   f = message.getSectionid();
   if (f.length > 0) {
     writer.writeString(
@@ -9766,6 +10356,24 @@ proto.dockerGet.SectionRequest.serializeBinaryToWriter = function(message, write
       f
     );
   }
+};
+
+
+/**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.SectionRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.SectionRequest} returns this
+ */
+proto.dockerGet.SectionRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
 };
 
 
@@ -10249,6 +10857,196 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
+proto.dockerGet.GetUserDataRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.dockerGet.GetUserDataRequest.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.dockerGet.GetUserDataRequest} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.dockerGet.GetUserDataRequest.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
+    isSessionKey: jspb.Message.getBooleanFieldWithDefault(msg, 2, false),
+    sub: jspb.Message.getFieldWithDefault(msg, 1, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.dockerGet.GetUserDataRequest}
+ */
+proto.dockerGet.GetUserDataRequest.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.dockerGet.GetUserDataRequest;
+  return proto.dockerGet.GetUserDataRequest.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.dockerGet.GetUserDataRequest} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.dockerGet.GetUserDataRequest}
+ */
+proto.dockerGet.GetUserDataRequest.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
+    case 2:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setIsSessionKey(value);
+      break;
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSub(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.dockerGet.GetUserDataRequest.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.dockerGet.GetUserDataRequest.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.dockerGet.GetUserDataRequest} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.dockerGet.GetUserDataRequest.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
+  f = message.getIsSessionKey();
+  if (f) {
+    writer.writeBool(
+      2,
+      f
+    );
+  }
+  f = message.getSub();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.GetUserDataRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.GetUserDataRequest} returns this
+ */
+proto.dockerGet.GetUserDataRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
+};
+
+
+/**
+ * optional bool is_session_key = 2;
+ * @return {boolean}
+ */
+proto.dockerGet.GetUserDataRequest.prototype.getIsSessionKey = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 2, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.dockerGet.GetUserDataRequest} returns this
+ */
+proto.dockerGet.GetUserDataRequest.prototype.setIsSessionKey = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 2, value);
+};
+
+
+/**
+ * optional string sub = 1;
+ * @return {string}
+ */
+proto.dockerGet.GetUserDataRequest.prototype.getSub = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.GetUserDataRequest} returns this
+ */
+proto.dockerGet.GetUserDataRequest.prototype.setSub = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
 proto.dockerGet.GetUserDataReply.prototype.toObject = function(opt_includeInstance) {
   return proto.dockerGet.GetUserDataReply.toObject(opt_includeInstance, this);
 };
@@ -10575,6 +11373,7 @@ proto.dockerGet.UpdateUserDataRequest.prototype.toObject = function(opt_includeI
  */
 proto.dockerGet.UpdateUserDataRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
     sub: jspb.Message.getFieldWithDefault(msg, 1, ""),
     darkmode: jspb.Message.getBooleanFieldWithDefault(msg, 5, false),
     bio: jspb.Message.getFieldWithDefault(msg, 6, "")
@@ -10614,6 +11413,10 @@ proto.dockerGet.UpdateUserDataRequest.deserializeBinaryFromReader = function(msg
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
     case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.setSub(value);
@@ -10655,6 +11458,13 @@ proto.dockerGet.UpdateUserDataRequest.prototype.serializeBinary = function() {
  */
 proto.dockerGet.UpdateUserDataRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
   f = message.getSub();
   if (f.length > 0) {
     writer.writeString(
@@ -10676,6 +11486,24 @@ proto.dockerGet.UpdateUserDataRequest.serializeBinaryToWriter = function(message
       f
     );
   }
+};
+
+
+/**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.UpdateUserDataRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.UpdateUserDataRequest} returns this
+ */
+proto.dockerGet.UpdateUserDataRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
 };
 
 
@@ -10955,6 +11783,7 @@ proto.dockerGet.SendNotificationRequest.prototype.toObject = function(opt_includ
  */
 proto.dockerGet.SendNotificationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
     title: jspb.Message.getFieldWithDefault(msg, 1, ""),
     body: jspb.Message.getFieldWithDefault(msg, 2, ""),
     sender: jspb.Message.getFieldWithDefault(msg, 3, ""),
@@ -10996,6 +11825,10 @@ proto.dockerGet.SendNotificationRequest.deserializeBinaryFromReader = function(m
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
     case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.setTitle(value);
@@ -11045,6 +11878,13 @@ proto.dockerGet.SendNotificationRequest.prototype.serializeBinary = function() {
  */
 proto.dockerGet.SendNotificationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
   f = message.getTitle();
   if (f.length > 0) {
     writer.writeString(
@@ -11080,6 +11920,24 @@ proto.dockerGet.SendNotificationRequest.serializeBinaryToWriter = function(messa
       f
     );
   }
+};
+
+
+/**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.SendNotificationRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.SendNotificationRequest} returns this
+ */
+proto.dockerGet.SendNotificationRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
 };
 
 
@@ -11395,6 +12253,7 @@ proto.dockerGet.UpdateNotificationTokenRequest.prototype.toObject = function(opt
  */
 proto.dockerGet.UpdateNotificationTokenRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
     sub: jspb.Message.getFieldWithDefault(msg, 1, ""),
     token: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
@@ -11433,6 +12292,10 @@ proto.dockerGet.UpdateNotificationTokenRequest.deserializeBinaryFromReader = fun
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
     case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.setSub(value);
@@ -11470,6 +12333,13 @@ proto.dockerGet.UpdateNotificationTokenRequest.prototype.serializeBinary = funct
  */
 proto.dockerGet.UpdateNotificationTokenRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
   f = message.getSub();
   if (f.length > 0) {
     writer.writeString(
@@ -11484,6 +12354,24 @@ proto.dockerGet.UpdateNotificationTokenRequest.serializeBinaryToWriter = functio
       f
     );
   }
+};
+
+
+/**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.UpdateNotificationTokenRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.UpdateNotificationTokenRequest} returns this
+ */
+proto.dockerGet.UpdateNotificationTokenRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
 };
 
 
@@ -11524,6 +12412,13 @@ proto.dockerGet.UpdateNotificationTokenRequest.prototype.setToken = function(val
 
 
 
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.dockerGet.RemoveNotificationRequest.repeatedFields_ = [2];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -11555,8 +12450,9 @@ proto.dockerGet.RemoveNotificationRequest.prototype.toObject = function(opt_incl
  */
 proto.dockerGet.RemoveNotificationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
     userid: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    notificationid: jspb.Message.getFieldWithDefault(msg, 2, "")
+    notificationidList: (f = jspb.Message.getRepeatedField(msg, 2)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -11593,13 +12489,17 @@ proto.dockerGet.RemoveNotificationRequest.deserializeBinaryFromReader = function
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
     case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.setUserid(value);
       break;
     case 2:
       var value = /** @type {string} */ (reader.readString());
-      msg.setNotificationid(value);
+      msg.addNotificationid(value);
       break;
     default:
       reader.skipField();
@@ -11630,6 +12530,13 @@ proto.dockerGet.RemoveNotificationRequest.prototype.serializeBinary = function()
  */
 proto.dockerGet.RemoveNotificationRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
   f = message.getUserid();
   if (f.length > 0) {
     writer.writeString(
@@ -11637,13 +12544,31 @@ proto.dockerGet.RemoveNotificationRequest.serializeBinaryToWriter = function(mes
       f
     );
   }
-  f = message.getNotificationid();
+  f = message.getNotificationidList();
   if (f.length > 0) {
-    writer.writeString(
+    writer.writeRepeatedString(
       2,
       f
     );
   }
+};
+
+
+/**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.RemoveNotificationRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.RemoveNotificationRequest} returns this
+ */
+proto.dockerGet.RemoveNotificationRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
 };
 
 
@@ -11666,20 +12591,39 @@ proto.dockerGet.RemoveNotificationRequest.prototype.setUserid = function(value) 
 
 
 /**
- * optional string notificationId = 2;
- * @return {string}
+ * repeated string notificationId = 2;
+ * @return {!Array<string>}
  */
-proto.dockerGet.RemoveNotificationRequest.prototype.getNotificationid = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+proto.dockerGet.RemoveNotificationRequest.prototype.getNotificationidList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 2));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.dockerGet.RemoveNotificationRequest} returns this
+ */
+proto.dockerGet.RemoveNotificationRequest.prototype.setNotificationidList = function(value) {
+  return jspb.Message.setField(this, 2, value || []);
 };
 
 
 /**
  * @param {string} value
+ * @param {number=} opt_index
  * @return {!proto.dockerGet.RemoveNotificationRequest} returns this
  */
-proto.dockerGet.RemoveNotificationRequest.prototype.setNotificationid = function(value) {
-  return jspb.Message.setProto3StringField(this, 2, value);
+proto.dockerGet.RemoveNotificationRequest.prototype.addNotificationid = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 2, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.dockerGet.RemoveNotificationRequest} returns this
+ */
+proto.dockerGet.RemoveNotificationRequest.prototype.clearNotificationidList = function() {
+  return this.setNotificationidList([]);
 };
 
 
@@ -11715,6 +12659,7 @@ proto.dockerGet.UpdateSubscriptionRequest.prototype.toObject = function(opt_incl
  */
 proto.dockerGet.UpdateSubscriptionRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
     userid: jspb.Message.getFieldWithDefault(msg, 1, ""),
     token: jspb.Message.getFieldWithDefault(msg, 2, ""),
     semesterid: jspb.Message.getFieldWithDefault(msg, 3, "")
@@ -11754,6 +12699,10 @@ proto.dockerGet.UpdateSubscriptionRequest.deserializeBinaryFromReader = function
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
     case 1:
       var value = /** @type {string} */ (reader.readString());
       msg.setUserid(value);
@@ -11795,6 +12744,13 @@ proto.dockerGet.UpdateSubscriptionRequest.prototype.serializeBinary = function()
  */
 proto.dockerGet.UpdateSubscriptionRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
   f = message.getUserid();
   if (f.length > 0) {
     writer.writeString(
@@ -11816,6 +12772,24 @@ proto.dockerGet.UpdateSubscriptionRequest.serializeBinaryToWriter = function(mes
       f
     );
   }
+};
+
+
+/**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.UpdateSubscriptionRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.UpdateSubscriptionRequest} returns this
+ */
+proto.dockerGet.UpdateSubscriptionRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
 };
 
 
@@ -11889,620 +12863,6 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.dockerGet.ListFolderReply.prototype.toObject = function(opt_includeInstance) {
-  return proto.dockerGet.ListFolderReply.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.dockerGet.ListFolderReply} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.dockerGet.ListFolderReply.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    success: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
-    message: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    root: (f = msg.getRoot()) && proto.dockerGet.Folder.toObject(includeInstance, f)
-  };
-
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
-
-
-/**
- * Deserializes binary data (in protobuf wire format).
- * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.dockerGet.ListFolderReply}
- */
-proto.dockerGet.ListFolderReply.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.dockerGet.ListFolderReply;
-  return proto.dockerGet.ListFolderReply.deserializeBinaryFromReader(msg, reader);
-};
-
-
-/**
- * Deserializes binary data (in protobuf wire format) from the
- * given reader into the given message object.
- * @param {!proto.dockerGet.ListFolderReply} msg The message object to deserialize into.
- * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.dockerGet.ListFolderReply}
- */
-proto.dockerGet.ListFolderReply.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
-    }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setSuccess(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setMessage(value);
-      break;
-    case 3:
-      var value = new proto.dockerGet.Folder;
-      reader.readMessage(value,proto.dockerGet.Folder.deserializeBinaryFromReader);
-      msg.setRoot(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
-
-/**
- * Serializes the message to binary data (in protobuf wire format).
- * @return {!Uint8Array}
- */
-proto.dockerGet.ListFolderReply.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.dockerGet.ListFolderReply.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
-
-/**
- * Serializes the given message to binary data (in protobuf wire
- * format), writing to the given BinaryWriter.
- * @param {!proto.dockerGet.ListFolderReply} message
- * @param {!jspb.BinaryWriter} writer
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.dockerGet.ListFolderReply.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getSuccess();
-  if (f) {
-    writer.writeBool(
-      1,
-      f
-    );
-  }
-  f = message.getMessage();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
-  f = message.getRoot();
-  if (f != null) {
-    writer.writeMessage(
-      3,
-      f,
-      proto.dockerGet.Folder.serializeBinaryToWriter
-    );
-  }
-};
-
-
-/**
- * optional bool success = 1;
- * @return {boolean}
- */
-proto.dockerGet.ListFolderReply.prototype.getSuccess = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 1, false));
-};
-
-
-/**
- * @param {boolean} value
- * @return {!proto.dockerGet.ListFolderReply} returns this
- */
-proto.dockerGet.ListFolderReply.prototype.setSuccess = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 1, value);
-};
-
-
-/**
- * optional string message = 2;
- * @return {string}
- */
-proto.dockerGet.ListFolderReply.prototype.getMessage = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.dockerGet.ListFolderReply} returns this
- */
-proto.dockerGet.ListFolderReply.prototype.setMessage = function(value) {
-  return jspb.Message.setProto3StringField(this, 2, value);
-};
-
-
-/**
- * optional Folder root = 3;
- * @return {?proto.dockerGet.Folder}
- */
-proto.dockerGet.ListFolderReply.prototype.getRoot = function() {
-  return /** @type{?proto.dockerGet.Folder} */ (
-    jspb.Message.getWrapperField(this, proto.dockerGet.Folder, 3));
-};
-
-
-/**
- * @param {?proto.dockerGet.Folder|undefined} value
- * @return {!proto.dockerGet.ListFolderReply} returns this
-*/
-proto.dockerGet.ListFolderReply.prototype.setRoot = function(value) {
-  return jspb.Message.setWrapperField(this, 3, value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- * @return {!proto.dockerGet.ListFolderReply} returns this
- */
-proto.dockerGet.ListFolderReply.prototype.clearRoot = function() {
-  return this.setRoot(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.dockerGet.ListFolderReply.prototype.hasRoot = function() {
-  return jspb.Message.getField(this, 3) != null;
-};
-
-
-
-/**
- * List of repeated fields within this message type.
- * @private {!Array<number>}
- * @const
- */
-proto.dockerGet.Folder.repeatedFields_ = [2,3];
-
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.dockerGet.Folder.prototype.toObject = function(opt_includeInstance) {
-  return proto.dockerGet.Folder.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.dockerGet.Folder} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.dockerGet.Folder.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    childrenList: jspb.Message.toObjectList(msg.getChildrenList(),
-    proto.dockerGet.Folder.toObject, includeInstance),
-    filesList: jspb.Message.toObjectList(msg.getFilesList(),
-    proto.dockerGet.Folder.Files.toObject, includeInstance)
-  };
-
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
-
-
-/**
- * Deserializes binary data (in protobuf wire format).
- * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.dockerGet.Folder}
- */
-proto.dockerGet.Folder.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.dockerGet.Folder;
-  return proto.dockerGet.Folder.deserializeBinaryFromReader(msg, reader);
-};
-
-
-/**
- * Deserializes binary data (in protobuf wire format) from the
- * given reader into the given message object.
- * @param {!proto.dockerGet.Folder} msg The message object to deserialize into.
- * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.dockerGet.Folder}
- */
-proto.dockerGet.Folder.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
-    }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setName(value);
-      break;
-    case 2:
-      var value = new proto.dockerGet.Folder;
-      reader.readMessage(value,proto.dockerGet.Folder.deserializeBinaryFromReader);
-      msg.addChildren(value);
-      break;
-    case 3:
-      var value = new proto.dockerGet.Folder.Files;
-      reader.readMessage(value,proto.dockerGet.Folder.Files.deserializeBinaryFromReader);
-      msg.addFiles(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
-
-/**
- * Serializes the message to binary data (in protobuf wire format).
- * @return {!Uint8Array}
- */
-proto.dockerGet.Folder.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.dockerGet.Folder.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
-
-/**
- * Serializes the given message to binary data (in protobuf wire
- * format), writing to the given BinaryWriter.
- * @param {!proto.dockerGet.Folder} message
- * @param {!jspb.BinaryWriter} writer
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.dockerGet.Folder.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getName();
-  if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
-  }
-  f = message.getChildrenList();
-  if (f.length > 0) {
-    writer.writeRepeatedMessage(
-      2,
-      f,
-      proto.dockerGet.Folder.serializeBinaryToWriter
-    );
-  }
-  f = message.getFilesList();
-  if (f.length > 0) {
-    writer.writeRepeatedMessage(
-      3,
-      f,
-      proto.dockerGet.Folder.Files.serializeBinaryToWriter
-    );
-  }
-};
-
-
-
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.dockerGet.Folder.Files.prototype.toObject = function(opt_includeInstance) {
-  return proto.dockerGet.Folder.Files.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.dockerGet.Folder.Files} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.dockerGet.Folder.Files.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    path: jspb.Message.getFieldWithDefault(msg, 2, "")
-  };
-
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
-
-
-/**
- * Deserializes binary data (in protobuf wire format).
- * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.dockerGet.Folder.Files}
- */
-proto.dockerGet.Folder.Files.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.dockerGet.Folder.Files;
-  return proto.dockerGet.Folder.Files.deserializeBinaryFromReader(msg, reader);
-};
-
-
-/**
- * Deserializes binary data (in protobuf wire format) from the
- * given reader into the given message object.
- * @param {!proto.dockerGet.Folder.Files} msg The message object to deserialize into.
- * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.dockerGet.Folder.Files}
- */
-proto.dockerGet.Folder.Files.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
-    }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setName(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setPath(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
-
-/**
- * Serializes the message to binary data (in protobuf wire format).
- * @return {!Uint8Array}
- */
-proto.dockerGet.Folder.Files.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.dockerGet.Folder.Files.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
-
-/**
- * Serializes the given message to binary data (in protobuf wire
- * format), writing to the given BinaryWriter.
- * @param {!proto.dockerGet.Folder.Files} message
- * @param {!jspb.BinaryWriter} writer
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.dockerGet.Folder.Files.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getName();
-  if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
-  }
-  f = message.getPath();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
-};
-
-
-/**
- * optional string name = 1;
- * @return {string}
- */
-proto.dockerGet.Folder.Files.prototype.getName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.dockerGet.Folder.Files} returns this
- */
-proto.dockerGet.Folder.Files.prototype.setName = function(value) {
-  return jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-/**
- * optional string path = 2;
- * @return {string}
- */
-proto.dockerGet.Folder.Files.prototype.getPath = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.dockerGet.Folder.Files} returns this
- */
-proto.dockerGet.Folder.Files.prototype.setPath = function(value) {
-  return jspb.Message.setProto3StringField(this, 2, value);
-};
-
-
-/**
- * optional string name = 1;
- * @return {string}
- */
-proto.dockerGet.Folder.prototype.getName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.dockerGet.Folder} returns this
- */
-proto.dockerGet.Folder.prototype.setName = function(value) {
-  return jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-/**
- * repeated Folder children = 2;
- * @return {!Array<!proto.dockerGet.Folder>}
- */
-proto.dockerGet.Folder.prototype.getChildrenList = function() {
-  return /** @type{!Array<!proto.dockerGet.Folder>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.dockerGet.Folder, 2));
-};
-
-
-/**
- * @param {!Array<!proto.dockerGet.Folder>} value
- * @return {!proto.dockerGet.Folder} returns this
-*/
-proto.dockerGet.Folder.prototype.setChildrenList = function(value) {
-  return jspb.Message.setRepeatedWrapperField(this, 2, value);
-};
-
-
-/**
- * @param {!proto.dockerGet.Folder=} opt_value
- * @param {number=} opt_index
- * @return {!proto.dockerGet.Folder}
- */
-proto.dockerGet.Folder.prototype.addChildren = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.dockerGet.Folder, opt_index);
-};
-
-
-/**
- * Clears the list making it empty but non-null.
- * @return {!proto.dockerGet.Folder} returns this
- */
-proto.dockerGet.Folder.prototype.clearChildrenList = function() {
-  return this.setChildrenList([]);
-};
-
-
-/**
- * repeated Files files = 3;
- * @return {!Array<!proto.dockerGet.Folder.Files>}
- */
-proto.dockerGet.Folder.prototype.getFilesList = function() {
-  return /** @type{!Array<!proto.dockerGet.Folder.Files>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.dockerGet.Folder.Files, 3));
-};
-
-
-/**
- * @param {!Array<!proto.dockerGet.Folder.Files>} value
- * @return {!proto.dockerGet.Folder} returns this
-*/
-proto.dockerGet.Folder.prototype.setFilesList = function(value) {
-  return jspb.Message.setRepeatedWrapperField(this, 3, value);
-};
-
-
-/**
- * @param {!proto.dockerGet.Folder.Files=} opt_value
- * @param {number=} opt_index
- * @return {!proto.dockerGet.Folder.Files}
- */
-proto.dockerGet.Folder.prototype.addFiles = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 3, opt_value, proto.dockerGet.Folder.Files, opt_index);
-};
-
-
-/**
- * Clears the list making it empty but non-null.
- * @return {!proto.dockerGet.Folder} returns this
- */
-proto.dockerGet.Folder.prototype.clearFilesList = function() {
-  return this.setFilesList([]);
-};
-
-
-
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
 proto.dockerGet.DownloadRequest.prototype.toObject = function(opt_includeInstance) {
   return proto.dockerGet.DownloadRequest.toObject(opt_includeInstance, this);
 };
@@ -12519,8 +12879,12 @@ proto.dockerGet.DownloadRequest.prototype.toObject = function(opt_includeInstanc
  */
 proto.dockerGet.DownloadRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    filepath: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    userid: jspb.Message.getFieldWithDefault(msg, 2, "")
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
+    sub: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    fileid: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    filename: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    filepath: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    filetype: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -12557,13 +12921,29 @@ proto.dockerGet.DownloadRequest.deserializeBinaryFromReader = function(msg, read
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSub(value);
+      break;
     case 1:
       var value = /** @type {string} */ (reader.readString());
-      msg.setFilepath(value);
+      msg.setFileid(value);
       break;
     case 2:
       var value = /** @type {string} */ (reader.readString());
-      msg.setUserid(value);
+      msg.setFilename(value);
+      break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setFilepath(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setFiletype(value);
       break;
     default:
       reader.skipField();
@@ -12594,17 +12974,45 @@ proto.dockerGet.DownloadRequest.prototype.serializeBinary = function() {
  */
 proto.dockerGet.DownloadRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getFilepath();
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
+  f = message.getSub();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
+      f
+    );
+  }
+  f = message.getFileid();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = message.getUserid();
+  f = message.getFilename();
   if (f.length > 0) {
     writer.writeString(
       2,
+      f
+    );
+  }
+  f = message.getFilepath();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
+  f = message.getFiletype();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
       f
     );
   }
@@ -12612,10 +13020,46 @@ proto.dockerGet.DownloadRequest.serializeBinaryToWriter = function(message, writ
 
 
 /**
- * optional string filePath = 1;
+ * optional string session_key = 42;
  * @return {string}
  */
-proto.dockerGet.DownloadRequest.prototype.getFilepath = function() {
+proto.dockerGet.DownloadRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.DownloadRequest} returns this
+ */
+proto.dockerGet.DownloadRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
+};
+
+
+/**
+ * optional string sub = 5;
+ * @return {string}
+ */
+proto.dockerGet.DownloadRequest.prototype.getSub = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.DownloadRequest} returns this
+ */
+proto.dockerGet.DownloadRequest.prototype.setSub = function(value) {
+  return jspb.Message.setProto3StringField(this, 5, value);
+};
+
+
+/**
+ * optional string fileId = 1;
+ * @return {string}
+ */
+proto.dockerGet.DownloadRequest.prototype.getFileid = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
@@ -12624,16 +13068,16 @@ proto.dockerGet.DownloadRequest.prototype.getFilepath = function() {
  * @param {string} value
  * @return {!proto.dockerGet.DownloadRequest} returns this
  */
-proto.dockerGet.DownloadRequest.prototype.setFilepath = function(value) {
+proto.dockerGet.DownloadRequest.prototype.setFileid = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
 /**
- * optional string userId = 2;
+ * optional string fileName = 2;
  * @return {string}
  */
-proto.dockerGet.DownloadRequest.prototype.getUserid = function() {
+proto.dockerGet.DownloadRequest.prototype.getFilename = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
@@ -12642,251 +13086,47 @@ proto.dockerGet.DownloadRequest.prototype.getUserid = function() {
  * @param {string} value
  * @return {!proto.dockerGet.DownloadRequest} returns this
  */
-proto.dockerGet.DownloadRequest.prototype.setUserid = function(value) {
+proto.dockerGet.DownloadRequest.prototype.setFilename = function(value) {
   return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
-
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
 /**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.dockerGet.DownloadReply.prototype.toObject = function(opt_includeInstance) {
-  return proto.dockerGet.DownloadReply.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.dockerGet.DownloadReply} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.dockerGet.DownloadReply.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    success: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
-    message: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    content: msg.getContent_asB64()
-  };
-
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
-
-
-/**
- * Deserializes binary data (in protobuf wire format).
- * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.dockerGet.DownloadReply}
- */
-proto.dockerGet.DownloadReply.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.dockerGet.DownloadReply;
-  return proto.dockerGet.DownloadReply.deserializeBinaryFromReader(msg, reader);
-};
-
-
-/**
- * Deserializes binary data (in protobuf wire format) from the
- * given reader into the given message object.
- * @param {!proto.dockerGet.DownloadReply} msg The message object to deserialize into.
- * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.dockerGet.DownloadReply}
- */
-proto.dockerGet.DownloadReply.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
-    }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setSuccess(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setMessage(value);
-      break;
-    case 3:
-      var value = /** @type {!Uint8Array} */ (reader.readBytes());
-      msg.setContent(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
-
-/**
- * Serializes the message to binary data (in protobuf wire format).
- * @return {!Uint8Array}
- */
-proto.dockerGet.DownloadReply.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.dockerGet.DownloadReply.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
-
-/**
- * Serializes the given message to binary data (in protobuf wire
- * format), writing to the given BinaryWriter.
- * @param {!proto.dockerGet.DownloadReply} message
- * @param {!jspb.BinaryWriter} writer
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.dockerGet.DownloadReply.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getSuccess();
-  if (f) {
-    writer.writeBool(
-      1,
-      f
-    );
-  }
-  f = message.getMessage();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
-  f = message.getContent_asU8();
-  if (f.length > 0) {
-    writer.writeBytes(
-      3,
-      f
-    );
-  }
-};
-
-
-/**
- * optional bool success = 1;
- * @return {boolean}
- */
-proto.dockerGet.DownloadReply.prototype.getSuccess = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 1, false));
-};
-
-
-/**
- * @param {boolean} value
- * @return {!proto.dockerGet.DownloadReply} returns this
- */
-proto.dockerGet.DownloadReply.prototype.setSuccess = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 1, value);
-};
-
-
-/**
- * optional string message = 2;
+ * optional string filePath = 3;
  * @return {string}
  */
-proto.dockerGet.DownloadReply.prototype.getMessage = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+proto.dockerGet.DownloadRequest.prototype.getFilepath = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
 /**
  * @param {string} value
- * @return {!proto.dockerGet.DownloadReply} returns this
+ * @return {!proto.dockerGet.DownloadRequest} returns this
  */
-proto.dockerGet.DownloadReply.prototype.setMessage = function(value) {
-  return jspb.Message.setProto3StringField(this, 2, value);
+proto.dockerGet.DownloadRequest.prototype.setFilepath = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
 /**
- * optional bytes content = 3;
- * @return {!(string|Uint8Array)}
- */
-proto.dockerGet.DownloadReply.prototype.getContent = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
-};
-
-
-/**
- * optional bytes content = 3;
- * This is a type-conversion wrapper around `getContent()`
+ * optional string fileType = 4;
  * @return {string}
  */
-proto.dockerGet.DownloadReply.prototype.getContent_asB64 = function() {
-  return /** @type {string} */ (jspb.Message.bytesAsB64(
-      this.getContent()));
+proto.dockerGet.DownloadRequest.prototype.getFiletype = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
 /**
- * optional bytes content = 3;
- * Note that Uint8Array is not supported on all browsers.
- * @see http://caniuse.com/Uint8Array
- * This is a type-conversion wrapper around `getContent()`
- * @return {!Uint8Array}
+ * @param {string} value
+ * @return {!proto.dockerGet.DownloadRequest} returns this
  */
-proto.dockerGet.DownloadReply.prototype.getContent_asU8 = function() {
-  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
-      this.getContent()));
+proto.dockerGet.DownloadRequest.prototype.setFiletype = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
-/**
- * @param {!(string|Uint8Array)} value
- * @return {!proto.dockerGet.DownloadReply} returns this
- */
-proto.dockerGet.DownloadReply.prototype.setContent = function(value) {
-  return jspb.Message.setProto3BytesField(this, 3, value);
-};
-
-
-
-/**
- * Oneof group definitions for this message. Each group defines the field
- * numbers belonging to that group. When of these fields' value is set, all
- * other fields in the group are cleared. During deserialization, if multiple
- * fields are encountered for a group, only the last value seen will be kept.
- * @private {!Array<!Array<number>>}
- * @const
- */
-proto.dockerGet.UploadRequest.oneofGroups_ = [[2,1]];
-
-/**
- * @enum {number}
- */
-proto.dockerGet.UploadRequest.DataCase = {
-  DATA_NOT_SET: 0,
-  CONTENT: 2,
-  METADATA: 1
-};
-
-/**
- * @return {proto.dockerGet.UploadRequest.DataCase}
- */
-proto.dockerGet.UploadRequest.prototype.getDataCase = function() {
-  return /** @type {proto.dockerGet.UploadRequest.DataCase} */(jspb.Message.computeOneofCase(this, proto.dockerGet.UploadRequest.oneofGroups_[0]));
-};
 
 
 
@@ -12919,8 +13159,11 @@ proto.dockerGet.UploadRequest.prototype.toObject = function(opt_includeInstance)
  */
 proto.dockerGet.UploadRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    content: msg.getContent_asB64(),
-    metadata: (f = msg.getMetadata()) && proto.dockerGet.UploadRequest.UploadMetadata.toObject(includeInstance, f)
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
+    sub: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    filepath: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    parentid: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    filetype: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -12957,14 +13200,25 @@ proto.dockerGet.UploadRequest.deserializeBinaryFromReader = function(msg, reader
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 2:
-      var value = /** @type {!Uint8Array} */ (reader.readBytes());
-      msg.setContent(value);
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSub(value);
+      break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setFilepath(value);
       break;
     case 1:
-      var value = new proto.dockerGet.UploadRequest.UploadMetadata;
-      reader.readMessage(value,proto.dockerGet.UploadRequest.UploadMetadata.deserializeBinaryFromReader);
-      msg.setMetadata(value);
+      var value = /** @type {string} */ (reader.readString());
+      msg.setParentid(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setFiletype(value);
       break;
     default:
       reader.skipField();
@@ -12995,21 +13249,131 @@ proto.dockerGet.UploadRequest.prototype.serializeBinary = function() {
  */
 proto.dockerGet.UploadRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = /** @type {!(string|Uint8Array)} */ (jspb.Message.getField(message, 2));
-  if (f != null) {
-    writer.writeBytes(
-      2,
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
       f
     );
   }
-  f = message.getMetadata();
-  if (f != null) {
-    writer.writeMessage(
-      1,
-      f,
-      proto.dockerGet.UploadRequest.UploadMetadata.serializeBinaryToWriter
+  f = message.getSub();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
+      f
     );
   }
+  f = message.getFilepath();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
+  f = message.getParentid();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+  f = message.getFiletype();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.UploadRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.UploadRequest} returns this
+ */
+proto.dockerGet.UploadRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
+};
+
+
+/**
+ * optional string sub = 5;
+ * @return {string}
+ */
+proto.dockerGet.UploadRequest.prototype.getSub = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.UploadRequest} returns this
+ */
+proto.dockerGet.UploadRequest.prototype.setSub = function(value) {
+  return jspb.Message.setProto3StringField(this, 5, value);
+};
+
+
+/**
+ * optional string filePath = 3;
+ * @return {string}
+ */
+proto.dockerGet.UploadRequest.prototype.getFilepath = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.UploadRequest} returns this
+ */
+proto.dockerGet.UploadRequest.prototype.setFilepath = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * optional string parentId = 1;
+ * @return {string}
+ */
+proto.dockerGet.UploadRequest.prototype.getParentid = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.UploadRequest} returns this
+ */
+proto.dockerGet.UploadRequest.prototype.setParentid = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional string fileType = 4;
+ * @return {string}
+ */
+proto.dockerGet.UploadRequest.prototype.getFiletype = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.UploadRequest} returns this
+ */
+proto.dockerGet.UploadRequest.prototype.setFiletype = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -13029,8 +13393,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.dockerGet.UploadRequest.UploadMetadata.prototype.toObject = function(opt_includeInstance) {
-  return proto.dockerGet.UploadRequest.UploadMetadata.toObject(opt_includeInstance, this);
+proto.dockerGet.AddTempContainerRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.dockerGet.AddTempContainerRequest.toObject(opt_includeInstance, this);
 };
 
 
@@ -13039,14 +13403,18 @@ proto.dockerGet.UploadRequest.UploadMetadata.prototype.toObject = function(opt_i
  * @param {boolean|undefined} includeInstance Deprecated. Whether to include
  *     the JSPB instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.dockerGet.UploadRequest.UploadMetadata} msg The msg instance to transform.
+ * @param {!proto.dockerGet.AddTempContainerRequest} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.dockerGet.UploadRequest.UploadMetadata.toObject = function(includeInstance, msg) {
+proto.dockerGet.AddTempContainerRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    filepath: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    userid: jspb.Message.getFieldWithDefault(msg, 2, "")
+    imagename: jspb.Message.getFieldWithDefault(msg, 42, ""),
+    memlimit: jspb.Message.getFloatingPointFieldWithDefault(msg, 5, 0.0),
+    numcpu: jspb.Message.getFloatingPointFieldWithDefault(msg, 3, 0.0),
+    sessionkey: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    sub: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    accessright: jspb.Message.getFieldWithDefault(msg, 6, "")
   };
 
   if (includeInstance) {
@@ -13060,36 +13428,52 @@ proto.dockerGet.UploadRequest.UploadMetadata.toObject = function(includeInstance
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.dockerGet.UploadRequest.UploadMetadata}
+ * @return {!proto.dockerGet.AddTempContainerRequest}
  */
-proto.dockerGet.UploadRequest.UploadMetadata.deserializeBinary = function(bytes) {
+proto.dockerGet.AddTempContainerRequest.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.dockerGet.UploadRequest.UploadMetadata;
-  return proto.dockerGet.UploadRequest.UploadMetadata.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.dockerGet.AddTempContainerRequest;
+  return proto.dockerGet.AddTempContainerRequest.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.dockerGet.UploadRequest.UploadMetadata} msg The message object to deserialize into.
+ * @param {!proto.dockerGet.AddTempContainerRequest} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.dockerGet.UploadRequest.UploadMetadata}
+ * @return {!proto.dockerGet.AddTempContainerRequest}
  */
-proto.dockerGet.UploadRequest.UploadMetadata.deserializeBinaryFromReader = function(msg, reader) {
+proto.dockerGet.AddTempContainerRequest.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setImagename(value);
+      break;
+    case 5:
+      var value = /** @type {number} */ (reader.readFloat());
+      msg.setMemlimit(value);
+      break;
+    case 3:
+      var value = /** @type {number} */ (reader.readFloat());
+      msg.setNumcpu(value);
+      break;
     case 1:
       var value = /** @type {string} */ (reader.readString());
-      msg.setFilepath(value);
+      msg.setSessionkey(value);
       break;
-    case 2:
+    case 4:
       var value = /** @type {string} */ (reader.readString());
-      msg.setUserid(value);
+      msg.setSub(value);
+      break;
+    case 6:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAccessright(value);
       break;
     default:
       reader.skipField();
@@ -13104,9 +13488,9 @@ proto.dockerGet.UploadRequest.UploadMetadata.deserializeBinaryFromReader = funct
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.dockerGet.UploadRequest.UploadMetadata.prototype.serializeBinary = function() {
+proto.dockerGet.AddTempContainerRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.dockerGet.UploadRequest.UploadMetadata.serializeBinaryToWriter(this, writer);
+  proto.dockerGet.AddTempContainerRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -13114,23 +13498,51 @@ proto.dockerGet.UploadRequest.UploadMetadata.prototype.serializeBinary = functio
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.dockerGet.UploadRequest.UploadMetadata} message
+ * @param {!proto.dockerGet.AddTempContainerRequest} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.dockerGet.UploadRequest.UploadMetadata.serializeBinaryToWriter = function(message, writer) {
+proto.dockerGet.AddTempContainerRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getFilepath();
+  f = message.getImagename();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
+  f = message.getMemlimit();
+  if (f !== 0.0) {
+    writer.writeFloat(
+      5,
+      f
+    );
+  }
+  f = message.getNumcpu();
+  if (f !== 0.0) {
+    writer.writeFloat(
+      3,
+      f
+    );
+  }
+  f = message.getSessionkey();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = message.getUserid();
+  f = message.getSub();
   if (f.length > 0) {
     writer.writeString(
-      2,
+      4,
+      f
+    );
+  }
+  f = message.getAccessright();
+  if (f.length > 0) {
+    writer.writeString(
+      6,
       f
     );
   }
@@ -13138,135 +13550,110 @@ proto.dockerGet.UploadRequest.UploadMetadata.serializeBinaryToWriter = function(
 
 
 /**
- * optional string filePath = 1;
+ * optional string imageName = 42;
  * @return {string}
  */
-proto.dockerGet.UploadRequest.UploadMetadata.prototype.getFilepath = function() {
+proto.dockerGet.AddTempContainerRequest.prototype.getImagename = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.AddTempContainerRequest} returns this
+ */
+proto.dockerGet.AddTempContainerRequest.prototype.setImagename = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
+};
+
+
+/**
+ * optional float memLimit = 5;
+ * @return {number}
+ */
+proto.dockerGet.AddTempContainerRequest.prototype.getMemlimit = function() {
+  return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 5, 0.0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.dockerGet.AddTempContainerRequest} returns this
+ */
+proto.dockerGet.AddTempContainerRequest.prototype.setMemlimit = function(value) {
+  return jspb.Message.setProto3FloatField(this, 5, value);
+};
+
+
+/**
+ * optional float numCPU = 3;
+ * @return {number}
+ */
+proto.dockerGet.AddTempContainerRequest.prototype.getNumcpu = function() {
+  return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 3, 0.0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.dockerGet.AddTempContainerRequest} returns this
+ */
+proto.dockerGet.AddTempContainerRequest.prototype.setNumcpu = function(value) {
+  return jspb.Message.setProto3FloatField(this, 3, value);
+};
+
+
+/**
+ * optional string sessionKey = 1;
+ * @return {string}
+ */
+proto.dockerGet.AddTempContainerRequest.prototype.getSessionkey = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /**
  * @param {string} value
- * @return {!proto.dockerGet.UploadRequest.UploadMetadata} returns this
+ * @return {!proto.dockerGet.AddTempContainerRequest} returns this
  */
-proto.dockerGet.UploadRequest.UploadMetadata.prototype.setFilepath = function(value) {
+proto.dockerGet.AddTempContainerRequest.prototype.setSessionkey = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
 /**
- * optional string userId = 2;
+ * optional string sub = 4;
  * @return {string}
  */
-proto.dockerGet.UploadRequest.UploadMetadata.prototype.getUserid = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+proto.dockerGet.AddTempContainerRequest.prototype.getSub = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
 /**
  * @param {string} value
- * @return {!proto.dockerGet.UploadRequest.UploadMetadata} returns this
+ * @return {!proto.dockerGet.AddTempContainerRequest} returns this
  */
-proto.dockerGet.UploadRequest.UploadMetadata.prototype.setUserid = function(value) {
-  return jspb.Message.setProto3StringField(this, 2, value);
+proto.dockerGet.AddTempContainerRequest.prototype.setSub = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
 /**
- * optional bytes content = 2;
- * @return {!(string|Uint8Array)}
- */
-proto.dockerGet.UploadRequest.prototype.getContent = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/**
- * optional bytes content = 2;
- * This is a type-conversion wrapper around `getContent()`
+ * optional string accessRight = 6;
  * @return {string}
  */
-proto.dockerGet.UploadRequest.prototype.getContent_asB64 = function() {
-  return /** @type {string} */ (jspb.Message.bytesAsB64(
-      this.getContent()));
+proto.dockerGet.AddTempContainerRequest.prototype.getAccessright = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
 };
 
 
 /**
- * optional bytes content = 2;
- * Note that Uint8Array is not supported on all browsers.
- * @see http://caniuse.com/Uint8Array
- * This is a type-conversion wrapper around `getContent()`
- * @return {!Uint8Array}
+ * @param {string} value
+ * @return {!proto.dockerGet.AddTempContainerRequest} returns this
  */
-proto.dockerGet.UploadRequest.prototype.getContent_asU8 = function() {
-  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
-      this.getContent()));
-};
-
-
-/**
- * @param {!(string|Uint8Array)} value
- * @return {!proto.dockerGet.UploadRequest} returns this
- */
-proto.dockerGet.UploadRequest.prototype.setContent = function(value) {
-  return jspb.Message.setOneofField(this, 2, proto.dockerGet.UploadRequest.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the field making it undefined.
- * @return {!proto.dockerGet.UploadRequest} returns this
- */
-proto.dockerGet.UploadRequest.prototype.clearContent = function() {
-  return jspb.Message.setOneofField(this, 2, proto.dockerGet.UploadRequest.oneofGroups_[0], undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.dockerGet.UploadRequest.prototype.hasContent = function() {
-  return jspb.Message.getField(this, 2) != null;
-};
-
-
-/**
- * optional UploadMetadata metaData = 1;
- * @return {?proto.dockerGet.UploadRequest.UploadMetadata}
- */
-proto.dockerGet.UploadRequest.prototype.getMetadata = function() {
-  return /** @type{?proto.dockerGet.UploadRequest.UploadMetadata} */ (
-    jspb.Message.getWrapperField(this, proto.dockerGet.UploadRequest.UploadMetadata, 1));
-};
-
-
-/**
- * @param {?proto.dockerGet.UploadRequest.UploadMetadata|undefined} value
- * @return {!proto.dockerGet.UploadRequest} returns this
-*/
-proto.dockerGet.UploadRequest.prototype.setMetadata = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 1, proto.dockerGet.UploadRequest.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the message field making it undefined.
- * @return {!proto.dockerGet.UploadRequest} returns this
- */
-proto.dockerGet.UploadRequest.prototype.clearMetadata = function() {
-  return this.setMetadata(undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.dockerGet.UploadRequest.prototype.hasMetadata = function() {
-  return jspb.Message.getField(this, 1) != null;
+proto.dockerGet.AddTempContainerRequest.prototype.setAccessright = function(value) {
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -13286,8 +13673,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.dockerGet.UploadReply.prototype.toObject = function(opt_includeInstance) {
-  return proto.dockerGet.UploadReply.toObject(opt_includeInstance, this);
+proto.dockerGet.AddTempContainerReply.prototype.toObject = function(opt_includeInstance) {
+  return proto.dockerGet.AddTempContainerReply.toObject(opt_includeInstance, this);
 };
 
 
@@ -13296,15 +13683,15 @@ proto.dockerGet.UploadReply.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Deprecated. Whether to include
  *     the JSPB instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.dockerGet.UploadReply} msg The msg instance to transform.
+ * @param {!proto.dockerGet.AddTempContainerReply} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.dockerGet.UploadReply.toObject = function(includeInstance, msg) {
+proto.dockerGet.AddTempContainerReply.toObject = function(includeInstance, msg) {
   var f, obj = {
     success: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
     message: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    size: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    tempcontainerid: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -13318,23 +13705,23 @@ proto.dockerGet.UploadReply.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.dockerGet.UploadReply}
+ * @return {!proto.dockerGet.AddTempContainerReply}
  */
-proto.dockerGet.UploadReply.deserializeBinary = function(bytes) {
+proto.dockerGet.AddTempContainerReply.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.dockerGet.UploadReply;
-  return proto.dockerGet.UploadReply.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.dockerGet.AddTempContainerReply;
+  return proto.dockerGet.AddTempContainerReply.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.dockerGet.UploadReply} msg The message object to deserialize into.
+ * @param {!proto.dockerGet.AddTempContainerReply} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.dockerGet.UploadReply}
+ * @return {!proto.dockerGet.AddTempContainerReply}
  */
-proto.dockerGet.UploadReply.deserializeBinaryFromReader = function(msg, reader) {
+proto.dockerGet.AddTempContainerReply.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -13350,8 +13737,8 @@ proto.dockerGet.UploadReply.deserializeBinaryFromReader = function(msg, reader) 
       msg.setMessage(value);
       break;
     case 3:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.setSize(value);
+      var value = /** @type {string} */ (reader.readString());
+      msg.setTempcontainerid(value);
       break;
     default:
       reader.skipField();
@@ -13366,9 +13753,9 @@ proto.dockerGet.UploadReply.deserializeBinaryFromReader = function(msg, reader) 
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.dockerGet.UploadReply.prototype.serializeBinary = function() {
+proto.dockerGet.AddTempContainerReply.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.dockerGet.UploadReply.serializeBinaryToWriter(this, writer);
+  proto.dockerGet.AddTempContainerReply.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -13376,11 +13763,11 @@ proto.dockerGet.UploadReply.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.dockerGet.UploadReply} message
+ * @param {!proto.dockerGet.AddTempContainerReply} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.dockerGet.UploadReply.serializeBinaryToWriter = function(message, writer) {
+proto.dockerGet.AddTempContainerReply.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getSuccess();
   if (f) {
@@ -13396,9 +13783,9 @@ proto.dockerGet.UploadReply.serializeBinaryToWriter = function(message, writer) 
       f
     );
   }
-  f = message.getSize();
-  if (f !== 0) {
-    writer.writeInt64(
+  f = message.getTempcontainerid();
+  if (f.length > 0) {
+    writer.writeString(
       3,
       f
     );
@@ -13410,16 +13797,16 @@ proto.dockerGet.UploadReply.serializeBinaryToWriter = function(message, writer) 
  * optional bool success = 1;
  * @return {boolean}
  */
-proto.dockerGet.UploadReply.prototype.getSuccess = function() {
+proto.dockerGet.AddTempContainerReply.prototype.getSuccess = function() {
   return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 1, false));
 };
 
 
 /**
  * @param {boolean} value
- * @return {!proto.dockerGet.UploadReply} returns this
+ * @return {!proto.dockerGet.AddTempContainerReply} returns this
  */
-proto.dockerGet.UploadReply.prototype.setSuccess = function(value) {
+proto.dockerGet.AddTempContainerReply.prototype.setSuccess = function(value) {
   return jspb.Message.setProto3BooleanField(this, 1, value);
 };
 
@@ -13428,35 +13815,35 @@ proto.dockerGet.UploadReply.prototype.setSuccess = function(value) {
  * optional string message = 2;
  * @return {string}
  */
-proto.dockerGet.UploadReply.prototype.getMessage = function() {
+proto.dockerGet.AddTempContainerReply.prototype.getMessage = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
 /**
  * @param {string} value
- * @return {!proto.dockerGet.UploadReply} returns this
+ * @return {!proto.dockerGet.AddTempContainerReply} returns this
  */
-proto.dockerGet.UploadReply.prototype.setMessage = function(value) {
+proto.dockerGet.AddTempContainerReply.prototype.setMessage = function(value) {
   return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
 /**
- * optional int64 size = 3;
- * @return {number}
+ * optional string tempContainerId = 3;
+ * @return {string}
  */
-proto.dockerGet.UploadReply.prototype.getSize = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+proto.dockerGet.AddTempContainerReply.prototype.getTempcontainerid = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
 /**
- * @param {number} value
- * @return {!proto.dockerGet.UploadReply} returns this
+ * @param {string} value
+ * @return {!proto.dockerGet.AddTempContainerReply} returns this
  */
-proto.dockerGet.UploadReply.prototype.setSize = function(value) {
-  return jspb.Message.setProto3IntField(this, 3, value);
+proto.dockerGet.AddTempContainerReply.prototype.setTempcontainerid = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -13476,8 +13863,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.dockerGet.PathRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.dockerGet.PathRequest.toObject(opt_includeInstance, this);
+proto.dockerGet.RemoveTempContainerRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.dockerGet.RemoveTempContainerRequest.toObject(opt_includeInstance, this);
 };
 
 
@@ -13486,14 +13873,15 @@ proto.dockerGet.PathRequest.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Deprecated. Whether to include
  *     the JSPB instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.dockerGet.PathRequest} msg The msg instance to transform.
+ * @param {!proto.dockerGet.RemoveTempContainerRequest} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.dockerGet.PathRequest.toObject = function(includeInstance, msg) {
+proto.dockerGet.RemoveTempContainerRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    path: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    userid: jspb.Message.getFieldWithDefault(msg, 2, "")
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
+    containerid: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    sub: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -13507,36 +13895,40 @@ proto.dockerGet.PathRequest.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.dockerGet.PathRequest}
+ * @return {!proto.dockerGet.RemoveTempContainerRequest}
  */
-proto.dockerGet.PathRequest.deserializeBinary = function(bytes) {
+proto.dockerGet.RemoveTempContainerRequest.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.dockerGet.PathRequest;
-  return proto.dockerGet.PathRequest.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.dockerGet.RemoveTempContainerRequest;
+  return proto.dockerGet.RemoveTempContainerRequest.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.dockerGet.PathRequest} msg The message object to deserialize into.
+ * @param {!proto.dockerGet.RemoveTempContainerRequest} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.dockerGet.PathRequest}
+ * @return {!proto.dockerGet.RemoveTempContainerRequest}
  */
-proto.dockerGet.PathRequest.deserializeBinaryFromReader = function(msg, reader) {
+proto.dockerGet.RemoveTempContainerRequest.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setContainerid(value);
+      break;
     case 1:
       var value = /** @type {string} */ (reader.readString());
-      msg.setPath(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setUserid(value);
+      msg.setSub(value);
       break;
     default:
       reader.skipField();
@@ -13551,9 +13943,9 @@ proto.dockerGet.PathRequest.deserializeBinaryFromReader = function(msg, reader) 
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.dockerGet.PathRequest.prototype.serializeBinary = function() {
+proto.dockerGet.RemoveTempContainerRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.dockerGet.PathRequest.serializeBinaryToWriter(this, writer);
+  proto.dockerGet.RemoveTempContainerRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -13561,16 +13953,216 @@ proto.dockerGet.PathRequest.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.dockerGet.PathRequest} message
+ * @param {!proto.dockerGet.RemoveTempContainerRequest} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.dockerGet.PathRequest.serializeBinaryToWriter = function(message, writer) {
+proto.dockerGet.RemoveTempContainerRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getPath();
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
+  f = message.getContainerid();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
+      f
+    );
+  }
+  f = message.getSub();
   if (f.length > 0) {
     writer.writeString(
       1,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.RemoveTempContainerRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.RemoveTempContainerRequest} returns this
+ */
+proto.dockerGet.RemoveTempContainerRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
+};
+
+
+/**
+ * optional string containerId = 5;
+ * @return {string}
+ */
+proto.dockerGet.RemoveTempContainerRequest.prototype.getContainerid = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.RemoveTempContainerRequest} returns this
+ */
+proto.dockerGet.RemoveTempContainerRequest.prototype.setContainerid = function(value) {
+  return jspb.Message.setProto3StringField(this, 5, value);
+};
+
+
+/**
+ * optional string sub = 1;
+ * @return {string}
+ */
+proto.dockerGet.RemoveTempContainerRequest.prototype.getSub = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.RemoveTempContainerRequest} returns this
+ */
+proto.dockerGet.RemoveTempContainerRequest.prototype.setSub = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.dockerGet.AddSandBoxImageRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.dockerGet.AddSandBoxImageRequest.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.dockerGet.AddSandBoxImageRequest} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.dockerGet.AddSandBoxImageRequest.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
+    userid: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    title: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    description: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    imageId: jspb.Message.getFieldWithDefault(msg, 1, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.dockerGet.AddSandBoxImageRequest}
+ */
+proto.dockerGet.AddSandBoxImageRequest.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.dockerGet.AddSandBoxImageRequest;
+  return proto.dockerGet.AddSandBoxImageRequest.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.dockerGet.AddSandBoxImageRequest} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.dockerGet.AddSandBoxImageRequest}
+ */
+proto.dockerGet.AddSandBoxImageRequest.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setUserid(value);
+      break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setTitle(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDescription(value);
+      break;
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setImageId(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.dockerGet.AddSandBoxImageRequest.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.dockerGet.AddSandBoxImageRequest.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.dockerGet.AddSandBoxImageRequest} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.dockerGet.AddSandBoxImageRequest.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
       f
     );
   }
@@ -13581,24 +14173,45 @@ proto.dockerGet.PathRequest.serializeBinaryToWriter = function(message, writer) 
       f
     );
   }
+  f = message.getTitle();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
+  f = message.getDescription();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
+    );
+  }
+  f = message.getImageId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
 };
 
 
 /**
- * optional string path = 1;
+ * optional string session_key = 42;
  * @return {string}
  */
-proto.dockerGet.PathRequest.prototype.getPath = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+proto.dockerGet.AddSandBoxImageRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
 };
 
 
 /**
  * @param {string} value
- * @return {!proto.dockerGet.PathRequest} returns this
+ * @return {!proto.dockerGet.AddSandBoxImageRequest} returns this
  */
-proto.dockerGet.PathRequest.prototype.setPath = function(value) {
-  return jspb.Message.setProto3StringField(this, 1, value);
+proto.dockerGet.AddSandBoxImageRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
 };
 
 
@@ -13606,17 +14219,71 @@ proto.dockerGet.PathRequest.prototype.setPath = function(value) {
  * optional string userId = 2;
  * @return {string}
  */
-proto.dockerGet.PathRequest.prototype.getUserid = function() {
+proto.dockerGet.AddSandBoxImageRequest.prototype.getUserid = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
 /**
  * @param {string} value
- * @return {!proto.dockerGet.PathRequest} returns this
+ * @return {!proto.dockerGet.AddSandBoxImageRequest} returns this
  */
-proto.dockerGet.PathRequest.prototype.setUserid = function(value) {
+proto.dockerGet.AddSandBoxImageRequest.prototype.setUserid = function(value) {
   return jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * optional string title = 3;
+ * @return {string}
+ */
+proto.dockerGet.AddSandBoxImageRequest.prototype.getTitle = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.AddSandBoxImageRequest} returns this
+ */
+proto.dockerGet.AddSandBoxImageRequest.prototype.setTitle = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * optional string description = 4;
+ * @return {string}
+ */
+proto.dockerGet.AddSandBoxImageRequest.prototype.getDescription = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.AddSandBoxImageRequest} returns this
+ */
+proto.dockerGet.AddSandBoxImageRequest.prototype.setDescription = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+/**
+ * optional string image_id = 1;
+ * @return {string}
+ */
+proto.dockerGet.AddSandBoxImageRequest.prototype.getImageId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.AddSandBoxImageRequest} returns this
+ */
+proto.dockerGet.AddSandBoxImageRequest.prototype.setImageId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -13636,8 +14303,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.dockerGet.MoveFileRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.dockerGet.MoveFileRequest.toObject(opt_includeInstance, this);
+proto.dockerGet.AddSandBoxImageReply.prototype.toObject = function(opt_includeInstance) {
+  return proto.dockerGet.AddSandBoxImageReply.toObject(opt_includeInstance, this);
 };
 
 
@@ -13646,15 +14313,15 @@ proto.dockerGet.MoveFileRequest.prototype.toObject = function(opt_includeInstanc
  * @param {boolean|undefined} includeInstance Deprecated. Whether to include
  *     the JSPB instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.dockerGet.MoveFileRequest} msg The msg instance to transform.
+ * @param {!proto.dockerGet.AddSandBoxImageReply} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.dockerGet.MoveFileRequest.toObject = function(includeInstance, msg) {
+proto.dockerGet.AddSandBoxImageReply.toObject = function(includeInstance, msg) {
   var f, obj = {
-    source: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    target: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    userid: jspb.Message.getFieldWithDefault(msg, 3, "")
+    success: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
+    message: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    sandboximageid: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -13668,23 +14335,23 @@ proto.dockerGet.MoveFileRequest.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.dockerGet.MoveFileRequest}
+ * @return {!proto.dockerGet.AddSandBoxImageReply}
  */
-proto.dockerGet.MoveFileRequest.deserializeBinary = function(bytes) {
+proto.dockerGet.AddSandBoxImageReply.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.dockerGet.MoveFileRequest;
-  return proto.dockerGet.MoveFileRequest.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.dockerGet.AddSandBoxImageReply;
+  return proto.dockerGet.AddSandBoxImageReply.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.dockerGet.MoveFileRequest} msg The message object to deserialize into.
+ * @param {!proto.dockerGet.AddSandBoxImageReply} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.dockerGet.MoveFileRequest}
+ * @return {!proto.dockerGet.AddSandBoxImageReply}
  */
-proto.dockerGet.MoveFileRequest.deserializeBinaryFromReader = function(msg, reader) {
+proto.dockerGet.AddSandBoxImageReply.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -13692,16 +14359,16 @@ proto.dockerGet.MoveFileRequest.deserializeBinaryFromReader = function(msg, read
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setSource(value);
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setSuccess(value);
       break;
     case 2:
       var value = /** @type {string} */ (reader.readString());
-      msg.setTarget(value);
+      msg.setMessage(value);
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
-      msg.setUserid(value);
+      msg.setSandboximageid(value);
       break;
     default:
       reader.skipField();
@@ -13716,9 +14383,9 @@ proto.dockerGet.MoveFileRequest.deserializeBinaryFromReader = function(msg, read
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.dockerGet.MoveFileRequest.prototype.serializeBinary = function() {
+proto.dockerGet.AddSandBoxImageReply.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.dockerGet.MoveFileRequest.serializeBinaryToWriter(this, writer);
+  proto.dockerGet.AddSandBoxImageReply.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -13726,27 +14393,27 @@ proto.dockerGet.MoveFileRequest.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.dockerGet.MoveFileRequest} message
+ * @param {!proto.dockerGet.AddSandBoxImageReply} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.dockerGet.MoveFileRequest.serializeBinaryToWriter = function(message, writer) {
+proto.dockerGet.AddSandBoxImageReply.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getSource();
-  if (f.length > 0) {
-    writer.writeString(
+  f = message.getSuccess();
+  if (f) {
+    writer.writeBool(
       1,
       f
     );
   }
-  f = message.getTarget();
+  f = message.getMessage();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = message.getUserid();
+  f = message.getSandboximageid();
   if (f.length > 0) {
     writer.writeString(
       3,
@@ -13757,56 +14424,1782 @@ proto.dockerGet.MoveFileRequest.serializeBinaryToWriter = function(message, writ
 
 
 /**
- * optional string source = 1;
- * @return {string}
+ * optional bool success = 1;
+ * @return {boolean}
  */
-proto.dockerGet.MoveFileRequest.prototype.getSource = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+proto.dockerGet.AddSandBoxImageReply.prototype.getSuccess = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 1, false));
 };
 
 
 /**
- * @param {string} value
- * @return {!proto.dockerGet.MoveFileRequest} returns this
+ * @param {boolean} value
+ * @return {!proto.dockerGet.AddSandBoxImageReply} returns this
  */
-proto.dockerGet.MoveFileRequest.prototype.setSource = function(value) {
-  return jspb.Message.setProto3StringField(this, 1, value);
+proto.dockerGet.AddSandBoxImageReply.prototype.setSuccess = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 1, value);
 };
 
 
 /**
- * optional string target = 2;
+ * optional string message = 2;
  * @return {string}
  */
-proto.dockerGet.MoveFileRequest.prototype.getTarget = function() {
+proto.dockerGet.AddSandBoxImageReply.prototype.getMessage = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
 /**
  * @param {string} value
- * @return {!proto.dockerGet.MoveFileRequest} returns this
+ * @return {!proto.dockerGet.AddSandBoxImageReply} returns this
  */
-proto.dockerGet.MoveFileRequest.prototype.setTarget = function(value) {
+proto.dockerGet.AddSandBoxImageReply.prototype.setMessage = function(value) {
   return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
 /**
- * optional string userId = 3;
+ * optional string sandBoxImageId = 3;
  * @return {string}
  */
-proto.dockerGet.MoveFileRequest.prototype.getUserid = function() {
+proto.dockerGet.AddSandBoxImageReply.prototype.getSandboximageid = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
 /**
  * @param {string} value
- * @return {!proto.dockerGet.MoveFileRequest} returns this
+ * @return {!proto.dockerGet.AddSandBoxImageReply} returns this
  */
-proto.dockerGet.MoveFileRequest.prototype.setUserid = function(value) {
+proto.dockerGet.AddSandBoxImageReply.prototype.setSandboximageid = function(value) {
   return jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.dockerGet.UpdateSandBoxImageRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.dockerGet.UpdateSandBoxImageRequest.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.dockerGet.UpdateSandBoxImageRequest} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.dockerGet.UpdateSandBoxImageRequest.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
+    sandboximageid: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    userid: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    title: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    description: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    tempcontainerid: jspb.Message.getFieldWithDefault(msg, 4, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.dockerGet.UpdateSandBoxImageRequest}
+ */
+proto.dockerGet.UpdateSandBoxImageRequest.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.dockerGet.UpdateSandBoxImageRequest;
+  return proto.dockerGet.UpdateSandBoxImageRequest.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.dockerGet.UpdateSandBoxImageRequest} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.dockerGet.UpdateSandBoxImageRequest}
+ */
+proto.dockerGet.UpdateSandBoxImageRequest.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSandboximageid(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setUserid(value);
+      break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setTitle(value);
+      break;
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDescription(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setTempcontainerid(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.dockerGet.UpdateSandBoxImageRequest.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.dockerGet.UpdateSandBoxImageRequest.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.dockerGet.UpdateSandBoxImageRequest} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.dockerGet.UpdateSandBoxImageRequest.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
+  f = message.getSandboximageid();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
+  f = message.getUserid();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
+      f
+    );
+  }
+  f = message.getTitle();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
+  f = message.getDescription();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+  f = message.getTempcontainerid();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.UpdateSandBoxImageRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.UpdateSandBoxImageRequest} returns this
+ */
+proto.dockerGet.UpdateSandBoxImageRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
+};
+
+
+/**
+ * optional string sandBoxImageId = 2;
+ * @return {string}
+ */
+proto.dockerGet.UpdateSandBoxImageRequest.prototype.getSandboximageid = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.UpdateSandBoxImageRequest} returns this
+ */
+proto.dockerGet.UpdateSandBoxImageRequest.prototype.setSandboximageid = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * optional string userId = 5;
+ * @return {string}
+ */
+proto.dockerGet.UpdateSandBoxImageRequest.prototype.getUserid = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.UpdateSandBoxImageRequest} returns this
+ */
+proto.dockerGet.UpdateSandBoxImageRequest.prototype.setUserid = function(value) {
+  return jspb.Message.setProto3StringField(this, 5, value);
+};
+
+
+/**
+ * optional string title = 3;
+ * @return {string}
+ */
+proto.dockerGet.UpdateSandBoxImageRequest.prototype.getTitle = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.UpdateSandBoxImageRequest} returns this
+ */
+proto.dockerGet.UpdateSandBoxImageRequest.prototype.setTitle = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * optional string description = 1;
+ * @return {string}
+ */
+proto.dockerGet.UpdateSandBoxImageRequest.prototype.getDescription = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.UpdateSandBoxImageRequest} returns this
+ */
+proto.dockerGet.UpdateSandBoxImageRequest.prototype.setDescription = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional string tempContainerId = 4;
+ * @return {string}
+ */
+proto.dockerGet.UpdateSandBoxImageRequest.prototype.getTempcontainerid = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.UpdateSandBoxImageRequest} returns this
+ */
+proto.dockerGet.UpdateSandBoxImageRequest.prototype.setTempcontainerid = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.dockerGet.SandBoxImageIdRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.dockerGet.SandBoxImageIdRequest.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.dockerGet.SandBoxImageIdRequest} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.dockerGet.SandBoxImageIdRequest.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
+    sandboximageid: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    userId: jspb.Message.getFieldWithDefault(msg, 3, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.dockerGet.SandBoxImageIdRequest}
+ */
+proto.dockerGet.SandBoxImageIdRequest.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.dockerGet.SandBoxImageIdRequest;
+  return proto.dockerGet.SandBoxImageIdRequest.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.dockerGet.SandBoxImageIdRequest} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.dockerGet.SandBoxImageIdRequest}
+ */
+proto.dockerGet.SandBoxImageIdRequest.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSandboximageid(value);
+      break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setUserId(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.dockerGet.SandBoxImageIdRequest.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.dockerGet.SandBoxImageIdRequest.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.dockerGet.SandBoxImageIdRequest} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.dockerGet.SandBoxImageIdRequest.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
+  f = message.getSandboximageid();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
+      f
+    );
+  }
+  f = message.getUserId();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.SandBoxImageIdRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.SandBoxImageIdRequest} returns this
+ */
+proto.dockerGet.SandBoxImageIdRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
+};
+
+
+/**
+ * optional string sandBoxImageId = 5;
+ * @return {string}
+ */
+proto.dockerGet.SandBoxImageIdRequest.prototype.getSandboximageid = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.SandBoxImageIdRequest} returns this
+ */
+proto.dockerGet.SandBoxImageIdRequest.prototype.setSandboximageid = function(value) {
+  return jspb.Message.setProto3StringField(this, 5, value);
+};
+
+
+/**
+ * optional string user_id = 3;
+ * @return {string}
+ */
+proto.dockerGet.SandBoxImageIdRequest.prototype.getUserId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.SandBoxImageIdRequest} returns this
+ */
+proto.dockerGet.SandBoxImageIdRequest.prototype.setUserId = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.dockerGet.ListSandBoxImageRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.dockerGet.ListSandBoxImageRequest.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.dockerGet.ListSandBoxImageRequest} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.dockerGet.ListSandBoxImageRequest.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
+    userid: jspb.Message.getFieldWithDefault(msg, 5, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.dockerGet.ListSandBoxImageRequest}
+ */
+proto.dockerGet.ListSandBoxImageRequest.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.dockerGet.ListSandBoxImageRequest;
+  return proto.dockerGet.ListSandBoxImageRequest.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.dockerGet.ListSandBoxImageRequest} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.dockerGet.ListSandBoxImageRequest}
+ */
+proto.dockerGet.ListSandBoxImageRequest.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setUserid(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.dockerGet.ListSandBoxImageRequest.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.dockerGet.ListSandBoxImageRequest.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.dockerGet.ListSandBoxImageRequest} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.dockerGet.ListSandBoxImageRequest.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
+  f = message.getUserid();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.ListSandBoxImageRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.ListSandBoxImageRequest} returns this
+ */
+proto.dockerGet.ListSandBoxImageRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
+};
+
+
+/**
+ * optional string userId = 5;
+ * @return {string}
+ */
+proto.dockerGet.ListSandBoxImageRequest.prototype.getUserid = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.ListSandBoxImageRequest} returns this
+ */
+proto.dockerGet.ListSandBoxImageRequest.prototype.setUserid = function(value) {
+  return jspb.Message.setProto3StringField(this, 5, value);
+};
+
+
+
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.dockerGet.ListSandBoxImageReply.repeatedFields_ = [3];
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.dockerGet.ListSandBoxImageReply.prototype.toObject = function(opt_includeInstance) {
+  return proto.dockerGet.ListSandBoxImageReply.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.dockerGet.ListSandBoxImageReply} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.dockerGet.ListSandBoxImageReply.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    success: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
+    message: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    sandboximagesList: jspb.Message.toObjectList(msg.getSandboximagesList(),
+    proto.dockerGet.ListSandBoxImageReply.SandBoxImage.toObject, includeInstance)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.dockerGet.ListSandBoxImageReply}
+ */
+proto.dockerGet.ListSandBoxImageReply.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.dockerGet.ListSandBoxImageReply;
+  return proto.dockerGet.ListSandBoxImageReply.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.dockerGet.ListSandBoxImageReply} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.dockerGet.ListSandBoxImageReply}
+ */
+proto.dockerGet.ListSandBoxImageReply.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setSuccess(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setMessage(value);
+      break;
+    case 3:
+      var value = new proto.dockerGet.ListSandBoxImageReply.SandBoxImage;
+      reader.readMessage(value,proto.dockerGet.ListSandBoxImageReply.SandBoxImage.deserializeBinaryFromReader);
+      msg.addSandboximages(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.dockerGet.ListSandBoxImageReply.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.dockerGet.ListSandBoxImageReply.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.dockerGet.ListSandBoxImageReply} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.dockerGet.ListSandBoxImageReply.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getSuccess();
+  if (f) {
+    writer.writeBool(
+      1,
+      f
+    );
+  }
+  f = message.getMessage();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
+    );
+  }
+  f = message.getSandboximagesList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      3,
+      f,
+      proto.dockerGet.ListSandBoxImageReply.SandBoxImage.serializeBinaryToWriter
+    );
+  }
+};
+
+
+
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.dockerGet.ListSandBoxImageReply.SandBoxImage.repeatedFields_ = [6];
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.dockerGet.ListSandBoxImageReply.SandBoxImage.prototype.toObject = function(opt_includeInstance) {
+  return proto.dockerGet.ListSandBoxImageReply.SandBoxImage.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.dockerGet.ListSandBoxImageReply.SandBoxImage} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.dockerGet.ListSandBoxImageReply.SandBoxImage.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    id: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    title: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    description: jspb.Message.getFieldWithDefault(msg, 7, ""),
+    imageid: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    sandboxidList: (f = jspb.Message.getRepeatedField(msg, 6)) == null ? undefined : f
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.dockerGet.ListSandBoxImageReply.SandBoxImage}
+ */
+proto.dockerGet.ListSandBoxImageReply.SandBoxImage.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.dockerGet.ListSandBoxImageReply.SandBoxImage;
+  return proto.dockerGet.ListSandBoxImageReply.SandBoxImage.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.dockerGet.ListSandBoxImageReply.SandBoxImage} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.dockerGet.ListSandBoxImageReply.SandBoxImage}
+ */
+proto.dockerGet.ListSandBoxImageReply.SandBoxImage.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setId(value);
+      break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setTitle(value);
+      break;
+    case 7:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDescription(value);
+      break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setImageid(value);
+      break;
+    case 6:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addSandboxid(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.dockerGet.ListSandBoxImageReply.SandBoxImage.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.dockerGet.ListSandBoxImageReply.SandBoxImage.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.dockerGet.ListSandBoxImageReply.SandBoxImage} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.dockerGet.ListSandBoxImageReply.SandBoxImage.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+  f = message.getTitle();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
+  f = message.getDescription();
+  if (f.length > 0) {
+    writer.writeString(
+      7,
+      f
+    );
+  }
+  f = message.getImageid();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
+  f = message.getSandboxidList();
+  if (f.length > 0) {
+    writer.writeRepeatedString(
+      6,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string id = 1;
+ * @return {string}
+ */
+proto.dockerGet.ListSandBoxImageReply.SandBoxImage.prototype.getId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.ListSandBoxImageReply.SandBoxImage} returns this
+ */
+proto.dockerGet.ListSandBoxImageReply.SandBoxImage.prototype.setId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional string title = 2;
+ * @return {string}
+ */
+proto.dockerGet.ListSandBoxImageReply.SandBoxImage.prototype.getTitle = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.ListSandBoxImageReply.SandBoxImage} returns this
+ */
+proto.dockerGet.ListSandBoxImageReply.SandBoxImage.prototype.setTitle = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * optional string description = 7;
+ * @return {string}
+ */
+proto.dockerGet.ListSandBoxImageReply.SandBoxImage.prototype.getDescription = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.ListSandBoxImageReply.SandBoxImage} returns this
+ */
+proto.dockerGet.ListSandBoxImageReply.SandBoxImage.prototype.setDescription = function(value) {
+  return jspb.Message.setProto3StringField(this, 7, value);
+};
+
+
+/**
+ * optional string imageId = 3;
+ * @return {string}
+ */
+proto.dockerGet.ListSandBoxImageReply.SandBoxImage.prototype.getImageid = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.ListSandBoxImageReply.SandBoxImage} returns this
+ */
+proto.dockerGet.ListSandBoxImageReply.SandBoxImage.prototype.setImageid = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * repeated string sandboxId = 6;
+ * @return {!Array<string>}
+ */
+proto.dockerGet.ListSandBoxImageReply.SandBoxImage.prototype.getSandboxidList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 6));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.dockerGet.ListSandBoxImageReply.SandBoxImage} returns this
+ */
+proto.dockerGet.ListSandBoxImageReply.SandBoxImage.prototype.setSandboxidList = function(value) {
+  return jspb.Message.setField(this, 6, value || []);
+};
+
+
+/**
+ * @param {string} value
+ * @param {number=} opt_index
+ * @return {!proto.dockerGet.ListSandBoxImageReply.SandBoxImage} returns this
+ */
+proto.dockerGet.ListSandBoxImageReply.SandBoxImage.prototype.addSandboxid = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 6, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.dockerGet.ListSandBoxImageReply.SandBoxImage} returns this
+ */
+proto.dockerGet.ListSandBoxImageReply.SandBoxImage.prototype.clearSandboxidList = function() {
+  return this.setSandboxidList([]);
+};
+
+
+/**
+ * optional bool success = 1;
+ * @return {boolean}
+ */
+proto.dockerGet.ListSandBoxImageReply.prototype.getSuccess = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 1, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.dockerGet.ListSandBoxImageReply} returns this
+ */
+proto.dockerGet.ListSandBoxImageReply.prototype.setSuccess = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 1, value);
+};
+
+
+/**
+ * optional string message = 4;
+ * @return {string}
+ */
+proto.dockerGet.ListSandBoxImageReply.prototype.getMessage = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.ListSandBoxImageReply} returns this
+ */
+proto.dockerGet.ListSandBoxImageReply.prototype.setMessage = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+/**
+ * repeated SandBoxImage sandboxImages = 3;
+ * @return {!Array<!proto.dockerGet.ListSandBoxImageReply.SandBoxImage>}
+ */
+proto.dockerGet.ListSandBoxImageReply.prototype.getSandboximagesList = function() {
+  return /** @type{!Array<!proto.dockerGet.ListSandBoxImageReply.SandBoxImage>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.dockerGet.ListSandBoxImageReply.SandBoxImage, 3));
+};
+
+
+/**
+ * @param {!Array<!proto.dockerGet.ListSandBoxImageReply.SandBoxImage>} value
+ * @return {!proto.dockerGet.ListSandBoxImageReply} returns this
+*/
+proto.dockerGet.ListSandBoxImageReply.prototype.setSandboximagesList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 3, value);
+};
+
+
+/**
+ * @param {!proto.dockerGet.ListSandBoxImageReply.SandBoxImage=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.dockerGet.ListSandBoxImageReply.SandBoxImage}
+ */
+proto.dockerGet.ListSandBoxImageReply.prototype.addSandboximages = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 3, opt_value, proto.dockerGet.ListSandBoxImageReply.SandBoxImage, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.dockerGet.ListSandBoxImageReply} returns this
+ */
+proto.dockerGet.ListSandBoxImageReply.prototype.clearSandboximagesList = function() {
+  return this.setSandboximagesList([]);
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.dockerGet.AddSandBoxRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.dockerGet.AddSandBoxRequest.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.dockerGet.AddSandBoxRequest} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.dockerGet.AddSandBoxRequest.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
+    memlimit: jspb.Message.getFloatingPointFieldWithDefault(msg, 5, 0.0),
+    numcpu: jspb.Message.getFloatingPointFieldWithDefault(msg, 3, 0.0),
+    sandboximageid: jspb.Message.getFieldWithDefault(msg, 1, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.dockerGet.AddSandBoxRequest}
+ */
+proto.dockerGet.AddSandBoxRequest.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.dockerGet.AddSandBoxRequest;
+  return proto.dockerGet.AddSandBoxRequest.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.dockerGet.AddSandBoxRequest} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.dockerGet.AddSandBoxRequest}
+ */
+proto.dockerGet.AddSandBoxRequest.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
+    case 5:
+      var value = /** @type {number} */ (reader.readFloat());
+      msg.setMemlimit(value);
+      break;
+    case 3:
+      var value = /** @type {number} */ (reader.readFloat());
+      msg.setNumcpu(value);
+      break;
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSandboximageid(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.dockerGet.AddSandBoxRequest.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.dockerGet.AddSandBoxRequest.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.dockerGet.AddSandBoxRequest} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.dockerGet.AddSandBoxRequest.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
+  f = message.getMemlimit();
+  if (f !== 0.0) {
+    writer.writeFloat(
+      5,
+      f
+    );
+  }
+  f = message.getNumcpu();
+  if (f !== 0.0) {
+    writer.writeFloat(
+      3,
+      f
+    );
+  }
+  f = message.getSandboximageid();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.AddSandBoxRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.AddSandBoxRequest} returns this
+ */
+proto.dockerGet.AddSandBoxRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
+};
+
+
+/**
+ * optional float memLimit = 5;
+ * @return {number}
+ */
+proto.dockerGet.AddSandBoxRequest.prototype.getMemlimit = function() {
+  return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 5, 0.0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.dockerGet.AddSandBoxRequest} returns this
+ */
+proto.dockerGet.AddSandBoxRequest.prototype.setMemlimit = function(value) {
+  return jspb.Message.setProto3FloatField(this, 5, value);
+};
+
+
+/**
+ * optional float numCPU = 3;
+ * @return {number}
+ */
+proto.dockerGet.AddSandBoxRequest.prototype.getNumcpu = function() {
+  return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 3, 0.0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.dockerGet.AddSandBoxRequest} returns this
+ */
+proto.dockerGet.AddSandBoxRequest.prototype.setNumcpu = function(value) {
+  return jspb.Message.setProto3FloatField(this, 3, value);
+};
+
+
+/**
+ * optional string sandBoxImageId = 1;
+ * @return {string}
+ */
+proto.dockerGet.AddSandBoxRequest.prototype.getSandboximageid = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.AddSandBoxRequest} returns this
+ */
+proto.dockerGet.AddSandBoxRequest.prototype.setSandboximageid = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.dockerGet.AddSandBoxReply.prototype.toObject = function(opt_includeInstance) {
+  return proto.dockerGet.AddSandBoxReply.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.dockerGet.AddSandBoxReply} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.dockerGet.AddSandBoxReply.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    success: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
+    message: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    sandboxid: jspb.Message.getFieldWithDefault(msg, 3, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.dockerGet.AddSandBoxReply}
+ */
+proto.dockerGet.AddSandBoxReply.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.dockerGet.AddSandBoxReply;
+  return proto.dockerGet.AddSandBoxReply.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.dockerGet.AddSandBoxReply} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.dockerGet.AddSandBoxReply}
+ */
+proto.dockerGet.AddSandBoxReply.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setSuccess(value);
+      break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setMessage(value);
+      break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSandboxid(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.dockerGet.AddSandBoxReply.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.dockerGet.AddSandBoxReply.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.dockerGet.AddSandBoxReply} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.dockerGet.AddSandBoxReply.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getSuccess();
+  if (f) {
+    writer.writeBool(
+      1,
+      f
+    );
+  }
+  f = message.getMessage();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
+  f = message.getSandboxid();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional bool success = 1;
+ * @return {boolean}
+ */
+proto.dockerGet.AddSandBoxReply.prototype.getSuccess = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 1, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.dockerGet.AddSandBoxReply} returns this
+ */
+proto.dockerGet.AddSandBoxReply.prototype.setSuccess = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 1, value);
+};
+
+
+/**
+ * optional string message = 2;
+ * @return {string}
+ */
+proto.dockerGet.AddSandBoxReply.prototype.getMessage = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.AddSandBoxReply} returns this
+ */
+proto.dockerGet.AddSandBoxReply.prototype.setMessage = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * optional string sandBoxId = 3;
+ * @return {string}
+ */
+proto.dockerGet.AddSandBoxReply.prototype.getSandboxid = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.AddSandBoxReply} returns this
+ */
+proto.dockerGet.AddSandBoxReply.prototype.setSandboxid = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * Optional fields that are not set will be set to undefined.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+ * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+ *     JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.dockerGet.SandBoxIdRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.dockerGet.SandBoxIdRequest.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+ *     the JSPB instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.dockerGet.SandBoxIdRequest} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.dockerGet.SandBoxIdRequest.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    sessionKey: jspb.Message.getFieldWithDefault(msg, 42, ""),
+    sandboxid: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    userId: jspb.Message.getFieldWithDefault(msg, 1, "")
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.dockerGet.SandBoxIdRequest}
+ */
+proto.dockerGet.SandBoxIdRequest.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.dockerGet.SandBoxIdRequest;
+  return proto.dockerGet.SandBoxIdRequest.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.dockerGet.SandBoxIdRequest} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.dockerGet.SandBoxIdRequest}
+ */
+proto.dockerGet.SandBoxIdRequest.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 42:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSessionKey(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSandboxid(value);
+      break;
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setUserId(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.dockerGet.SandBoxIdRequest.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.dockerGet.SandBoxIdRequest.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.dockerGet.SandBoxIdRequest} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.dockerGet.SandBoxIdRequest.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getSessionKey();
+  if (f.length > 0) {
+    writer.writeString(
+      42,
+      f
+    );
+  }
+  f = message.getSandboxid();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
+      f
+    );
+  }
+  f = message.getUserId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string session_key = 42;
+ * @return {string}
+ */
+proto.dockerGet.SandBoxIdRequest.prototype.getSessionKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 42, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.SandBoxIdRequest} returns this
+ */
+proto.dockerGet.SandBoxIdRequest.prototype.setSessionKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 42, value);
+};
+
+
+/**
+ * optional string sandBoxId = 5;
+ * @return {string}
+ */
+proto.dockerGet.SandBoxIdRequest.prototype.getSandboxid = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.SandBoxIdRequest} returns this
+ */
+proto.dockerGet.SandBoxIdRequest.prototype.setSandboxid = function(value) {
+  return jspb.Message.setProto3StringField(this, 5, value);
+};
+
+
+/**
+ * optional string user_id = 1;
+ * @return {string}
+ */
+proto.dockerGet.SandBoxIdRequest.prototype.getUserId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.dockerGet.SandBoxIdRequest} returns this
+ */
+proto.dockerGet.SandBoxIdRequest.prototype.setUserId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
