@@ -44,7 +44,7 @@ type containerTime =
 	Message:string
 }
  
-function getContainerTime():containerTime{
+async function  getContainerTime():Promise<containerTime>{
 	var target= process.env.APIIP!;
 	var client = new DockerClient(
 		target,
@@ -53,36 +53,44 @@ function getContainerTime():containerTime{
     docReq.setContainerid(process.env.THIS_CONTAINER_ID!)
 	docReq.setSub(process.env.USER_SUB!)
 	docReq.setSessionKey(process.env.SESSION_KEY!)
+	return new Promise(resolve=>{
 	client.getContainerTime(docReq, function(err, GoLangResponse: ContainerTimeReply) {
+		if (err) resolve({
+			Success:false,
+			Message:err.message,
+		});
 		if(!GoLangResponse.getSuccess()){
-			vscode.window.showInformationMessage("Failed to get container time, Reason: "+GoLangResponse.getMessage() );
-			return {
+			// vscode.window.showInformationMessage("Failed to get container time, Reason: "+GoLangResponse.getMessage() );
+			resolve({
 				Success:false,
-				Message:GoLangResponse.getMessage() ,
-			}
+				Message:GoLangResponse.getMessage(),
+			})
 		}else{
-			vscode.window.showInformationMessage("Container Time got!");	
-			return {
+			// vscode.window.showInformationMessage("Container Time got!");
+			// vscode.window.showInformationMessage(GoLangResponse.getTimeLimit());	
+			// vscode.window.showInformationMessage(GoLangResponse.getCreatedAt());	
+			// vscode.window.showInformationMessage(GoLangResponse.getMessage());	
+			resolve({
 				Success:true,
 				Message:"",
 				IsExam:GoLangResponse.getIsExam(),
 				TimeLimit:GoLangResponse.getTimeLimit(),
 				CreatedAt:GoLangResponse.getCreatedAt(),
-			}
+			})
 		}
 	}
 	)
-	return {
-		Success:false,
-		Message:"other error" ,
-	}
+	})
+
+	// }
 	// return {
 	// 	Success:true,
 	// 	Message:"",
 	// 	IsExam:true,
 	// 	TimeLimit:"300",
-	// 	CreatedAt:"2022-02-15 04:43:15 +0000 UTC",
+	// 	CreatedAt:"2022-02-18 04:43:15 +0000 UTC",
 	// }
+	
 }
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -98,7 +106,7 @@ export function activate(context: vscode.ExtensionContext) {
 	let disposable = vscode.commands.registerCommand('commentoncode-v1.sendComment', async() => {
 		// The code you place here will be executed every time your command is executed
 		// Display a message box to the user
-		vscode.window.showInformationMessage('sendComment from commentOnCode_v1!');
+		vscode.window.showInformationMessage('Extension for Student Pack!');
 		const editor = vscode.window.activeTextEditor;
 		// let cursorPosition = editor!.selection.start;
 		//  var ter=process.env
@@ -129,38 +137,45 @@ export function activate(context: vscode.ExtensionContext) {
 
 	context.subscriptions.push(disposable);
 
-
-	var ContaienrTimeInfo = getContainerTime()
-	if( ContaienrTimeInfo.Success){
-		if (ContaienrTimeInfo.IsExam){
-			var timeLimit =parseInt( ContaienrTimeInfo.TimeLimit)
-			var timePassed= (Date.now()-Date.parse(ContaienrTimeInfo.CreatedAt))/(1000*60)
-			// console.log(timeLimit,timePassed)
-			var timeRemain=Math.ceil(timeLimit-timePassed)
-			context.subscriptions.push(
-				vscode.window.setStatusBarMessage(
-					`Exam Time Remaining: ${timeRemain} minutes`
-				)
-			);
-			var refreshId = setInterval(()=>{
-				if (timeRemain>1){
-					timeRemain=timeRemain-1
+	async function fetchContainerTime(){
+		return await getContainerTime()
+	}
+	fetchContainerTime().then(
+		(ContaienrTimeInfo)=>{
+			if( ContaienrTimeInfo.Success){
+				vscode.window.showInformationMessage(ContaienrTimeInfo.TimeLimit );
+				vscode.window.showInformationMessage(ContaienrTimeInfo.CreatedAt );
+				if (ContaienrTimeInfo.IsExam){
+					var timeLimit =parseInt( ContaienrTimeInfo.TimeLimit)
+					var timePassed= (Date.now()-Date.parse(ContaienrTimeInfo.CreatedAt))/(1000*60)
+					// console.log(timeLimit,timePassed)
+					var timeRemain=Math.ceil(timeLimit-timePassed)
 					context.subscriptions.push(
 						vscode.window.setStatusBarMessage(
 							`Exam Time Remaining: ${timeRemain} minutes`
 						)
 					);
-				}else{
-					context.subscriptions.push(
-					vscode.window.setStatusBarMessage(
-							`Exam Time is up`
-						)
-					);
-					clearInterval(refreshId);
+					var refreshId = setInterval(()=>{
+						if (timeRemain>1){
+							timeRemain=timeRemain-1
+							context.subscriptions.push(
+								vscode.window.setStatusBarMessage(
+									`Exam Time Remaining: ${timeRemain} minutes`
+								)
+							);
+						}else{
+							context.subscriptions.push(
+							vscode.window.setStatusBarMessage(
+									`Exam Time is up`
+								)
+							);
+							clearInterval(refreshId);
+						}
+					},1000*60)
 				}
-			},1000*60)
-		}
-	}
+			}		
+		}	
+	)
 }
 
 // this method is called when your extension is deactivated
