@@ -115,8 +115,6 @@ function activate(context) {
     }
     fetchContainerTime().then((ContaienrTimeInfo) => {
         if (ContaienrTimeInfo.Success) {
-            vscode.window.showInformationMessage(ContaienrTimeInfo.TimeLimit);
-            vscode.window.showInformationMessage(ContaienrTimeInfo.CreatedAt);
             if (ContaienrTimeInfo.IsExam) {
                 var timeLimit = parseInt(ContaienrTimeInfo.TimeLimit);
                 var timePassed = (Date.now() - Date.parse(ContaienrTimeInfo.CreatedAt)) / (1000 * 60);
