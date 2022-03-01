@@ -16,32 +16,33 @@ function sendNotification(title:string, body:string)
 	var docReq = new SendNotificationRequest();
     docReq.setTitle(title)
     docReq.setBody(body) 
-
     docReq.setSender(process.env.USER_THIS!)
     docReq.setReceiver(process.env.USER_RESPONSIBLE!)
     docReq.setAllowReply(true)
 	docReq.setSessionKey(process.env.SESSION_KEY!)
 	client.sendNotification(docReq, function(err, GoLangResponse: SendNotificationReply) {
 		if(!GoLangResponse.getSuccess()){
-			vscode.window.showInformationMessage("Failed to send Comment, Reason: "+GoLangResponse.getMessage() );
+			vscode.window.showInformationMessage("Failed to send Comment, Reason: "+GoLangResponse.getError()?.getStatus() );
 		}else{
 			vscode.window.showInformationMessage("Comment Sent!");	
 		}
 	}
 	)
-
 }
-
+type Error={
+	Status:string
+	Error:string
+}
 type containerTime =
 |{
 	Success:true
-	Message:string
+	Error:Error
 	IsExam:boolean
 	TimeLimit:string
 	CreatedAt:string
 }|{
 	Success:false
-	Message:string
+	Error:Error
 }
  
 async function  getContainerTime():Promise<containerTime>{
@@ -57,13 +58,19 @@ async function  getContainerTime():Promise<containerTime>{
 	client.getContainerTime(docReq, function(err, GoLangResponse: ContainerTimeReply) {
 		if (err) resolve({
 			Success:false,
-			Message:err.message,
+			Error:{
+				Status:"400",
+				Error:err.message,
+			}
 		});
 		if(!GoLangResponse.getSuccess()){
 			// vscode.window.showInformationMessage("Failed to get container time, Reason: "+GoLangResponse.getMessage() );
 			resolve({
 				Success:false,
-				Message:GoLangResponse.getMessage(),
+				Error:{
+					Status:GoLangResponse.getError()?.getStatus()!,
+					Error:GoLangResponse.getError()?.getError()!,
+				},
 			})
 		}else{
 			// vscode.window.showInformationMessage("Container Time got!");
@@ -72,7 +79,10 @@ async function  getContainerTime():Promise<containerTime>{
 			// vscode.window.showInformationMessage(GoLangResponse.getMessage());	
 			resolve({
 				Success:true,
-				Message:"",
+				Error:{
+					Status:GoLangResponse.getError()?.getStatus()!,
+					Error:GoLangResponse.getError()?.getError()!,
+				},
 				IsExam:GoLangResponse.getIsExam(),
 				TimeLimit:GoLangResponse.getTimeLimit(),
 				CreatedAt:GoLangResponse.getCreatedAt(),

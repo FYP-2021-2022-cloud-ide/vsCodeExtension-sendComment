@@ -19,7 +19,7 @@ function sendNotification(title, body) {
     docReq.setSessionKey(process.env.SESSION_KEY);
     client.sendNotification(docReq, function (err, GoLangResponse) {
         if (!GoLangResponse.getSuccess()) {
-            vscode.window.showInformationMessage("Failed to send Comment, Reason: " + GoLangResponse.getMessage());
+            vscode.window.showInformationMessage("Failed to send Comment, Reason: " + GoLangResponse.getError()?.getStatus());
         }
         else {
             vscode.window.showInformationMessage("Comment Sent!");
@@ -38,13 +38,19 @@ async function getContainerTime() {
             if (err)
                 resolve({
                     Success: false,
-                    Message: err.message,
+                    Error: {
+                        Status: "400",
+                        Error: err.message,
+                    }
                 });
             if (!GoLangResponse.getSuccess()) {
                 // vscode.window.showInformationMessage("Failed to get container time, Reason: "+GoLangResponse.getMessage() );
                 resolve({
                     Success: false,
-                    Message: GoLangResponse.getMessage(),
+                    Error: {
+                        Status: GoLangResponse.getError()?.getStatus(),
+                        Error: GoLangResponse.getError()?.getError(),
+                    },
                 });
             }
             else {
@@ -54,7 +60,10 @@ async function getContainerTime() {
                 // vscode.window.showInformationMessage(GoLangResponse.getMessage());	
                 resolve({
                     Success: true,
-                    Message: "",
+                    Error: {
+                        Status: GoLangResponse.getError()?.getStatus(),
+                        Error: GoLangResponse.getError()?.getError(),
+                    },
                     IsExam: GoLangResponse.getIsExam(),
                     TimeLimit: GoLangResponse.getTimeLimit(),
                     CreatedAt: GoLangResponse.getCreatedAt(),
