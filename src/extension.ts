@@ -36,7 +36,6 @@ type Error={
 type containerTime =
 |{
 	Success:true
-	Error:Error
 	IsExam:boolean
 	TimeLimit:string
 	CreatedAt:string
@@ -64,7 +63,7 @@ async function  getContainerTime():Promise<containerTime>{
 			}
 		});
 		if(!GoLangResponse.getSuccess()){
-			// vscode.window.showInformationMessage("Failed to get container time, Reason: "+GoLangResponse.getMessage() );
+			// vscode.window.showInformationMessage("Failed to get container time, Reason: "+GoLangResponse.getError()?.getError()! );
 			resolve({
 				Success:false,
 				Error:{
@@ -76,13 +75,8 @@ async function  getContainerTime():Promise<containerTime>{
 			// vscode.window.showInformationMessage("Container Time got!");
 			// vscode.window.showInformationMessage(GoLangResponse.getTimeLimit());	
 			// vscode.window.showInformationMessage(GoLangResponse.getCreatedAt());	
-			// vscode.window.showInformationMessage(GoLangResponse.getMessage());	
 			resolve({
 				Success:true,
-				Error:{
-					Status:GoLangResponse.getError()?.getStatus()!,
-					Error:GoLangResponse.getError()?.getError()!,
-				},
 				IsExam:GoLangResponse.getIsExam(),
 				TimeLimit:GoLangResponse.getTimeLimit(),
 				CreatedAt:GoLangResponse.getCreatedAt(),
