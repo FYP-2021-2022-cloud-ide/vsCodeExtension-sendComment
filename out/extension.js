@@ -7,24 +7,30 @@ const vscode = require("vscode");
 const grpc = require("@grpc/grpc-js");
 const dockerGet_pb_1 = require("./proto/dockerGet/dockerGet_pb");
 const dockerGet_grpc_pb_1 = require("./proto/dockerGet/dockerGet_grpc_pb");
-function sendNotification(title, body) {
+function sendNotification(title, code, body) {
     var target = process.env.APIIP;
     var client = new dockerGet_grpc_pb_1.DockerClient(target, grpc.credentials.createInsecure());
     var docReq = new dockerGet_pb_1.SendNotificationRequest();
     docReq.setTitle(title);
-    docReq.setBody(body);
+    docReq.setBody(code + '\n\n' + body);
     docReq.setSender(process.env.USER_THIS);
     docReq.setReceiver(process.env.USER_RESPONSIBLE);
     docReq.setAllowReply(true);
     docReq.setSessionKey(process.env.SESSION_KEY);
-    client.sendNotification(docReq, function (err, GoLangResponse) {
-        if (!GoLangResponse.getSuccess()) {
-            vscode.window.showInformationMessage("Failed to send Comment, Reason: " + GoLangResponse.getError()?.getStatus());
-        }
-        else {
-            vscode.window.showInformationMessage("Comment Sent!");
-        }
-    });
+    //disabled send comment to instructor
+    if (docReq.getReceiver() == "") {
+        vscode.window.showInformationMessage("This function is disabled.");
+    }
+    else {
+        client.sendNotification(docReq, function (err, GoLangResponse) {
+            if (!GoLangResponse.getSuccess()) {
+                vscode.window.showInformationMessage("Failed to send Comment, Reason: " + GoLangResponse.getError()?.getStatus());
+            }
+            else {
+                vscode.window.showInformationMessage("Comment Sent!");
+            }
+        });
+    }
 }
 async function getContainerTime() {
     var target = process.env.APIIP;
@@ -66,14 +72,6 @@ async function getContainerTime() {
             }
         });
     });
-    // }
-    // return {
-    // 	Success:true,
-    // 	Message:"",
-    // 	IsExam:true,
-    // 	TimeLimit:"300",
-    // 	CreatedAt:"2022-02-18 04:43:15 +0000 UTC",
-    // }
 }
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -102,7 +100,8 @@ function activate(context) {
         //	thisFilename=thisFilename.split('/').toString()
         var assignment = process.env.ASSIGNMENT_NAME;
         //console.log(thisFilename.toString())
-        var topic = "Comment on Assignment " + assignment + ": in ".concat(thisFilename.toString(), ": "
+        var title = "Comment on Assignment " + assignment + ": ";
+        var code = "in ".concat(thisFilename.toString(), ": "
             + firstLine + ":" + firstChar + "-" + lastLine + ":" + lastChar + '\n' +
             "Code: " + highlight);
         const userResponse = await vscode.window.showInputBox({
@@ -110,7 +109,7 @@ function activate(context) {
         });
         if (userResponse !== undefined) {
             vscode.window.showInformationMessage(userResponse);
-            sendNotification(topic, userResponse);
+            sendNotification(title, code, userResponse);
         }
     });
     context.subscriptions.push(disposable);

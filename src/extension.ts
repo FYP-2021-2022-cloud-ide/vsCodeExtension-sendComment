@@ -7,7 +7,7 @@ import { DockerClient } from './proto/dockerGet/dockerGet_grpc_pb';
 
 
 
-function sendNotification(title:string, body:string)
+function sendNotification(title:string, code:string,body:string)
 {
 	var target= process.env.APIIP!;
 	var client = new DockerClient(
@@ -15,19 +15,25 @@ function sendNotification(title:string, body:string)
 		grpc.credentials.createInsecure());
 	var docReq = new SendNotificationRequest();
     docReq.setTitle(title)
-    docReq.setBody(body) 
+    docReq.setBody(code+'\n\n'+body) 
     docReq.setSender(process.env.USER_THIS!)
     docReq.setReceiver(process.env.USER_RESPONSIBLE!)
     docReq.setAllowReply(true)
 	docReq.setSessionKey(process.env.SESSION_KEY!)
-	client.sendNotification(docReq, function(err, GoLangResponse: SendNotificationReply) {
-		if(!GoLangResponse.getSuccess()){
-			vscode.window.showInformationMessage("Failed to send Comment, Reason: "+GoLangResponse.getError()?.getStatus() );
-		}else{
-			vscode.window.showInformationMessage("Comment Sent!");	
+	//disabled send comment to instructor
+	if (docReq.getReceiver()==""){
+		vscode.window.showInformationMessage("This function is disabled." );
+	}else{
+		client.sendNotification(docReq, function(err, GoLangResponse: SendNotificationReply) {
+			if(!GoLangResponse.getSuccess()){
+				vscode.window.showInformationMessage("Failed to send Comment, Reason: "+GoLangResponse.getError()?.getStatus() );
+			}else{
+				vscode.window.showInformationMessage("Comment Sent!");	
+			}
 		}
+		)		
 	}
-	)
+
 }
 type Error={
 	Status:string
@@ -85,15 +91,6 @@ async function  getContainerTime():Promise<containerTime>{
 	}
 	)
 	})
-
-	// }
-	// return {
-	// 	Success:true,
-	// 	Message:"",
-	// 	IsExam:true,
-	// 	TimeLimit:"300",
-	// 	CreatedAt:"2022-02-18 04:43:15 +0000 UTC",
-	// }
 	
 }
 // this method is called when your extension is activated
@@ -125,8 +122,8 @@ export function activate(context: vscode.ExtensionContext) {
 	//	thisFilename=thisFilename.split('/').toString()
 		var assignment = process.env.ASSIGNMENT_NAME!
 		//console.log(thisFilename.toString())
-		var topic ="Comment on Assignment "+ assignment+": in ".concat(
-		thisFilename.toString(),": "
+		var title ="Comment on Assignment "+ assignment+": "
+		var code="in ".concat(thisFilename.toString(),": "
 		+ firstLine+":"+firstChar+"-"+lastLine+":"+lastChar+'\n'+
 		"Code: "+highlight)
 		
@@ -135,7 +132,7 @@ export function activate(context: vscode.ExtensionContext) {
 		});
 		if ( userResponse !==undefined){
 			vscode.window.showInformationMessage(userResponse)
-			sendNotification(topic,userResponse!);
+			sendNotification(title,code,userResponse!);
 		}
 	});
 
