@@ -12,7 +12,7 @@ function sendNotification(title, code, body) {
     var client = new dockerGet_grpc_pb_1.DockerClient(target, grpc.credentials.createInsecure());
     var docReq = new dockerGet_pb_1.SendNotificationRequest();
     docReq.setTitle(title);
-    docReq.setBody(code + '\n\n' + body);
+    docReq.setBody(code + '\n\n' + "Comment/Question: " + body);
     docReq.setSender(process.env.USER_THIS);
     docReq.setReceiver(process.env.USER_RESPONSIBLE);
     docReq.setAllowReply(true);
@@ -103,7 +103,7 @@ function activate(context) {
         var title = "Comment on Assignment " + assignment + ": ";
         var code = "in ".concat(thisFilename.toString(), ": "
             + firstLine + ":" + firstChar + "-" + lastLine + ":" + lastChar + '\n' +
-            "Code: " + highlight);
+            "Code: " + '\n' + highlight);
         const userResponse = await vscode.window.showInputBox({
             placeHolder: 'Type your comment about the selected text...'
         });

@@ -15,7 +15,7 @@ function sendNotification(title:string, code:string,body:string)
 		grpc.credentials.createInsecure());
 	var docReq = new SendNotificationRequest();
     docReq.setTitle(title)
-    docReq.setBody(code+'\n\n'+body) 
+    docReq.setBody(code+'\n\n'+"Comment/Question: "+body) 
     docReq.setSender(process.env.USER_THIS!)
     docReq.setReceiver(process.env.USER_RESPONSIBLE!)
     docReq.setAllowReply(true)
@@ -125,7 +125,7 @@ export function activate(context: vscode.ExtensionContext) {
 		var title ="Comment on Assignment "+ assignment+": "
 		var code="in ".concat(thisFilename.toString(),": "
 		+ firstLine+":"+firstChar+"-"+lastLine+":"+lastChar+'\n'+
-		"Code: "+highlight)
+		"Code: "+'\n'+highlight)
 		
 		const userResponse = await vscode.window.showInputBox({
 			placeHolder: 'Type your comment about the selected text...'
