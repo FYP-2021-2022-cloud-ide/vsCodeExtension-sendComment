@@ -6,6 +6,29 @@
 
 import * as jspb from "google-protobuf";
 
+export class Error extends jspb.Message { 
+    getStatus(): string;
+    setStatus(value: string): Error;
+    getError(): string;
+    setError(value: string): Error;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): Error.AsObject;
+    static toObject(includeInstance: boolean, msg: Error): Error.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: Error, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): Error;
+    static deserializeBinaryFromReader(message: Error, reader: jspb.BinaryReader): Error;
+}
+
+export namespace Error {
+    export type AsObject = {
+        status: string,
+        error: string,
+    }
+}
+
 export class ListFilesRequest extends jspb.Message { 
     getSessionKey(): string;
     setSessionKey(value: string): ListFilesRequest;
@@ -43,8 +66,11 @@ export class ChildrenReply extends jspb.Message {
     addFolders(value?: ChildrenReply.child, index?: number): ChildrenReply.child;
     getSuccess(): boolean;
     setSuccess(value: boolean): ChildrenReply;
-    getMessage(): string;
-    setMessage(value: string): ChildrenReply;
+
+    hasError(): boolean;
+    clearError(): void;
+    getError(): Error | undefined;
+    setError(value?: Error): ChildrenReply;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ChildrenReply.AsObject;
@@ -61,7 +87,7 @@ export namespace ChildrenReply {
         filesList: Array<ChildrenReply.child.AsObject>,
         foldersList: Array<ChildrenReply.child.AsObject>,
         success: boolean,
-        message: string,
+        error?: Error.AsObject,
     }
 
 
@@ -142,8 +168,11 @@ export namespace UserIdRequest {
 export class ListNotificationsReply extends jspb.Message { 
     getSuccess(): boolean;
     setSuccess(value: boolean): ListNotificationsReply;
-    getMessage(): string;
-    setMessage(value: string): ListNotificationsReply;
+
+    hasError(): boolean;
+    clearError(): void;
+    getError(): Error | undefined;
+    setError(value?: Error): ListNotificationsReply;
     clearNotificationsList(): void;
     getNotificationsList(): Array<ListNotificationsReply.Notification>;
     setNotificationsList(value: Array<ListNotificationsReply.Notification>): ListNotificationsReply;
@@ -162,7 +191,7 @@ export class ListNotificationsReply extends jspb.Message {
 export namespace ListNotificationsReply {
     export type AsObject = {
         success: boolean,
-        message: string,
+        error?: Error.AsObject,
         notificationsList: Array<ListNotificationsReply.Notification.AsObject>,
     }
 
@@ -181,6 +210,14 @@ export namespace ListNotificationsReply {
         setSender(value?: ListNotificationsReply.Notification.Sender): Notification;
         getAllowReply(): boolean;
         setAllowReply(value: boolean): Notification;
+        getRead(): boolean;
+        setRead(value: boolean): Notification;
+        getCourseCode(): string;
+        setCourseCode(value: string): Notification;
+        getSectionCode(): string;
+        setSectionCode(value: string): Notification;
+        getSectionId(): string;
+        setSectionId(value: string): Notification;
         getUpdatedAt(): string;
         setUpdatedAt(value: string): Notification;
 
@@ -201,6 +238,10 @@ export namespace ListNotificationsReply {
             body: string,
             sender?: ListNotificationsReply.Notification.Sender.AsObject,
             allowReply: boolean,
+            read: boolean,
+            courseCode: string,
+            sectionCode: string,
+            sectionId: string,
             updatedAt: string,
         }
 
@@ -258,8 +299,11 @@ export namespace EmptyRequest {
 export class ListContainerReply extends jspb.Message { 
     getSuccess(): boolean;
     setSuccess(value: boolean): ListContainerReply;
-    getMessage(): string;
-    setMessage(value: string): ListContainerReply;
+
+    hasError(): boolean;
+    clearError(): void;
+    getError(): Error | undefined;
+    setError(value?: Error): ListContainerReply;
 
     hasContainerinfo(): boolean;
     clearContainerinfo(): void;
@@ -287,7 +331,7 @@ export class ListContainerReply extends jspb.Message {
 export namespace ListContainerReply {
     export type AsObject = {
         success: boolean,
-        message: string,
+        error?: Error.AsObject,
         containerinfo?: ListContainerReply.ContainersInfo.AsObject,
         containersList: Array<ListContainerReply.Container.AsObject>,
         tempcontainersList: Array<ListContainerReply.Container.AsObject>,
@@ -351,8 +395,11 @@ export namespace ListContainerReply {
 export class ListCoursesReply extends jspb.Message { 
     getSuccess(): boolean;
     setSuccess(value: boolean): ListCoursesReply;
-    getMessage(): string;
-    setMessage(value: string): ListCoursesReply;
+
+    hasError(): boolean;
+    clearError(): void;
+    getError(): Error | undefined;
+    setError(value?: Error): ListCoursesReply;
     clearCoursesList(): void;
     getCoursesList(): Array<ListCoursesReply.Course>;
     setCoursesList(value: Array<ListCoursesReply.Course>): ListCoursesReply;
@@ -371,7 +418,7 @@ export class ListCoursesReply extends jspb.Message {
 export namespace ListCoursesReply {
     export type AsObject = {
         success: boolean,
-        message: string,
+        error?: Error.AsObject,
         coursesList: Array<ListCoursesReply.Course.AsObject>,
     }
 
@@ -416,8 +463,11 @@ export namespace ListCoursesReply {
 export class GetSectionInfoReply extends jspb.Message { 
     getSuccess(): boolean;
     setSuccess(value: boolean): GetSectionInfoReply;
-    getMessage(): string;
-    setMessage(value: string): GetSectionInfoReply;
+
+    hasError(): boolean;
+    clearError(): void;
+    getError(): Error | undefined;
+    setError(value?: Error): GetSectionInfoReply;
     getSectionuserid(): string;
     setSectionuserid(value: string): GetSectionInfoReply;
     getCoursename(): string;
@@ -438,7 +488,7 @@ export class GetSectionInfoReply extends jspb.Message {
 export namespace GetSectionInfoReply {
     export type AsObject = {
         success: boolean,
-        message: string,
+        error?: Error.AsObject,
         sectionuserid: string,
         coursename: string,
         role: string,
@@ -448,8 +498,11 @@ export namespace GetSectionInfoReply {
 export class ListEnvironmentsReply extends jspb.Message { 
     getSuccess(): boolean;
     setSuccess(value: boolean): ListEnvironmentsReply;
-    getMessage(): string;
-    setMessage(value: string): ListEnvironmentsReply;
+
+    hasError(): boolean;
+    clearError(): void;
+    getError(): Error | undefined;
+    setError(value?: Error): ListEnvironmentsReply;
     clearEnvironmentsList(): void;
     getEnvironmentsList(): Array<ListEnvironmentsReply.Environment>;
     setEnvironmentsList(value: Array<ListEnvironmentsReply.Environment>): ListEnvironmentsReply;
@@ -468,7 +521,7 @@ export class ListEnvironmentsReply extends jspb.Message {
 export namespace ListEnvironmentsReply {
     export type AsObject = {
         success: boolean,
-        message: string,
+        error?: Error.AsObject,
         environmentsList: Array<ListEnvironmentsReply.Environment.AsObject>,
     }
 
@@ -510,8 +563,11 @@ export namespace ListEnvironmentsReply {
 export class ListTemplatesReply extends jspb.Message { 
     getSuccess(): boolean;
     setSuccess(value: boolean): ListTemplatesReply;
-    getMessage(): string;
-    setMessage(value: string): ListTemplatesReply;
+
+    hasError(): boolean;
+    clearError(): void;
+    getError(): Error | undefined;
+    setError(value?: Error): ListTemplatesReply;
     clearTemplatesList(): void;
     getTemplatesList(): Array<ListTemplatesReply.Template>;
     setTemplatesList(value: Array<ListTemplatesReply.Template>): ListTemplatesReply;
@@ -530,7 +586,7 @@ export class ListTemplatesReply extends jspb.Message {
 export namespace ListTemplatesReply {
     export type AsObject = {
         success: boolean,
-        message: string,
+        error?: Error.AsObject,
         templatesList: Array<ListTemplatesReply.Template.AsObject>,
     }
 
@@ -665,8 +721,11 @@ export namespace InstantAddContainerRequest {
 export class AddContainerReply extends jspb.Message { 
     getSuccess(): boolean;
     setSuccess(value: boolean): AddContainerReply;
-    getMessage(): string;
-    setMessage(value: string): AddContainerReply;
+
+    hasError(): boolean;
+    clearError(): void;
+    getError(): Error | undefined;
+    setError(value?: Error): AddContainerReply;
     getContainerid(): string;
     setContainerid(value: string): AddContainerReply;
 
@@ -683,7 +742,7 @@ export class AddContainerReply extends jspb.Message {
 export namespace AddContainerReply {
     export type AsObject = {
         success: boolean,
-        message: string,
+        error?: Error.AsObject,
         containerid: string,
     }
 }
@@ -743,8 +802,11 @@ export namespace SubmitFilesRequest {
 export class ContainerTimeReply extends jspb.Message { 
     getSuccess(): boolean;
     setSuccess(value: boolean): ContainerTimeReply;
-    getMessage(): string;
-    setMessage(value: string): ContainerTimeReply;
+
+    hasError(): boolean;
+    clearError(): void;
+    getError(): Error | undefined;
+    setError(value?: Error): ContainerTimeReply;
     getIsExam(): boolean;
     setIsExam(value: boolean): ContainerTimeReply;
     getTimeLimit(): string;
@@ -765,7 +827,7 @@ export class ContainerTimeReply extends jspb.Message {
 export namespace ContainerTimeReply {
     export type AsObject = {
         success: boolean,
-        message: string,
+        error?: Error.AsObject,
         isExam: boolean,
         timeLimit: string,
         createdAt: string,
@@ -901,8 +963,11 @@ export namespace TemplateIdRequest {
 export class AddTemplateReply extends jspb.Message { 
     getSuccess(): boolean;
     setSuccess(value: boolean): AddTemplateReply;
-    getMessage(): string;
-    setMessage(value: string): AddTemplateReply;
+
+    hasError(): boolean;
+    clearError(): void;
+    getError(): Error | undefined;
+    setError(value?: Error): AddTemplateReply;
     getTemplateid(): string;
     setTemplateid(value: string): AddTemplateReply;
 
@@ -919,9 +984,99 @@ export class AddTemplateReply extends jspb.Message {
 export namespace AddTemplateReply {
     export type AsObject = {
         success: boolean,
-        message: string,
+        error?: Error.AsObject,
         templateid: string,
     }
+}
+
+export class TemplateGetStudentWorkspaceReply extends jspb.Message { 
+    getSuccess(): boolean;
+    setSuccess(value: boolean): TemplateGetStudentWorkspaceReply;
+
+    hasError(): boolean;
+    clearError(): void;
+    getError(): Error | undefined;
+    setError(value?: Error): TemplateGetStudentWorkspaceReply;
+    clearStudentworkspacesList(): void;
+    getStudentworkspacesList(): Array<TemplateGetStudentWorkspaceReply.StudentWorkspace>;
+    setStudentworkspacesList(value: Array<TemplateGetStudentWorkspaceReply.StudentWorkspace>): TemplateGetStudentWorkspaceReply;
+    addStudentworkspaces(value?: TemplateGetStudentWorkspaceReply.StudentWorkspace, index?: number): TemplateGetStudentWorkspaceReply.StudentWorkspace;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): TemplateGetStudentWorkspaceReply.AsObject;
+    static toObject(includeInstance: boolean, msg: TemplateGetStudentWorkspaceReply): TemplateGetStudentWorkspaceReply.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: TemplateGetStudentWorkspaceReply, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): TemplateGetStudentWorkspaceReply;
+    static deserializeBinaryFromReader(message: TemplateGetStudentWorkspaceReply, reader: jspb.BinaryReader): TemplateGetStudentWorkspaceReply;
+}
+
+export namespace TemplateGetStudentWorkspaceReply {
+    export type AsObject = {
+        success: boolean,
+        error?: Error.AsObject,
+        studentworkspacesList: Array<TemplateGetStudentWorkspaceReply.StudentWorkspace.AsObject>,
+    }
+
+
+    export class StudentWorkspace extends jspb.Message { 
+        getStatus(): string;
+        setStatus(value: string): StudentWorkspace;
+        getWorkspaceid(): string;
+        setWorkspaceid(value: string): StudentWorkspace;
+
+        hasStudent(): boolean;
+        clearStudent(): void;
+        getStudent(): TemplateGetStudentWorkspaceReply.StudentWorkspace.Student | undefined;
+        setStudent(value?: TemplateGetStudentWorkspaceReply.StudentWorkspace.Student): StudentWorkspace;
+
+        serializeBinary(): Uint8Array;
+        toObject(includeInstance?: boolean): StudentWorkspace.AsObject;
+        static toObject(includeInstance: boolean, msg: StudentWorkspace): StudentWorkspace.AsObject;
+        static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+        static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+        static serializeBinaryToWriter(message: StudentWorkspace, writer: jspb.BinaryWriter): void;
+        static deserializeBinary(bytes: Uint8Array): StudentWorkspace;
+        static deserializeBinaryFromReader(message: StudentWorkspace, reader: jspb.BinaryReader): StudentWorkspace;
+    }
+
+    export namespace StudentWorkspace {
+        export type AsObject = {
+            status: string,
+            workspaceid: string,
+            student?: TemplateGetStudentWorkspaceReply.StudentWorkspace.Student.AsObject,
+        }
+
+
+        export class Student extends jspb.Message { 
+            getName(): string;
+            setName(value: string): Student;
+            getSub(): string;
+            setSub(value: string): Student;
+            getUserid(): string;
+            setUserid(value: string): Student;
+
+            serializeBinary(): Uint8Array;
+            toObject(includeInstance?: boolean): Student.AsObject;
+            static toObject(includeInstance: boolean, msg: Student): Student.AsObject;
+            static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+            static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+            static serializeBinaryToWriter(message: Student, writer: jspb.BinaryWriter): void;
+            static deserializeBinary(bytes: Uint8Array): Student;
+            static deserializeBinaryFromReader(message: Student, reader: jspb.BinaryReader): Student;
+        }
+
+        export namespace Student {
+            export type AsObject = {
+                name: string,
+                sub: string,
+                userid: string,
+            }
+        }
+
+    }
+
 }
 
 export class AddEnvironmentRequest extends jspb.Message { 
@@ -961,8 +1116,11 @@ export namespace AddEnvironmentRequest {
 export class AddEnvironmentReply extends jspb.Message { 
     getSuccess(): boolean;
     setSuccess(value: boolean): AddEnvironmentReply;
-    getMessage(): string;
-    setMessage(value: string): AddEnvironmentReply;
+
+    hasError(): boolean;
+    clearError(): void;
+    getError(): Error | undefined;
+    setError(value?: Error): AddEnvironmentReply;
     getEnvironmentid(): string;
     setEnvironmentid(value: string): AddEnvironmentReply;
 
@@ -979,7 +1137,7 @@ export class AddEnvironmentReply extends jspb.Message {
 export namespace AddEnvironmentReply {
     export type AsObject = {
         success: boolean,
-        message: string,
+        error?: Error.AsObject,
         environmentid: string,
     }
 }
@@ -1178,8 +1336,11 @@ export namespace SectionRequest {
 export class SuccessStringReply extends jspb.Message { 
     getSuccess(): boolean;
     setSuccess(value: boolean): SuccessStringReply;
-    getMessage(): string;
-    setMessage(value: string): SuccessStringReply;
+
+    hasError(): boolean;
+    clearError(): void;
+    getError(): Error | undefined;
+    setError(value?: Error): SuccessStringReply;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): SuccessStringReply.AsObject;
@@ -1194,13 +1355,16 @@ export class SuccessStringReply extends jspb.Message {
 export namespace SuccessStringReply {
     export type AsObject = {
         success: boolean,
-        message: string,
+        error?: Error.AsObject,
     }
 }
 
 export class StringReply extends jspb.Message { 
-    getMessage(): string;
-    setMessage(value: string): StringReply;
+
+    hasError(): boolean;
+    clearError(): void;
+    getError(): Error | undefined;
+    setError(value?: Error): StringReply;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): StringReply.AsObject;
@@ -1214,15 +1378,15 @@ export class StringReply extends jspb.Message {
 
 export namespace StringReply {
     export type AsObject = {
-        message: string,
+        error?: Error.AsObject,
     }
 }
 
 export class ListReply extends jspb.Message { 
-    clearMessageList(): void;
-    getMessageList(): Array<string>;
-    setMessageList(value: Array<string>): ListReply;
-    addMessage(value: string, index?: number): string;
+    clearErrorList(): void;
+    getErrorList(): Array<Error>;
+    setErrorList(value: Array<Error>): ListReply;
+    addError(value?: Error, index?: number): Error;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ListReply.AsObject;
@@ -1236,7 +1400,7 @@ export class ListReply extends jspb.Message {
 
 export namespace ListReply {
     export type AsObject = {
-        messageList: Array<string>,
+        errorList: Array<Error.AsObject>,
     }
 }
 
@@ -1269,8 +1433,11 @@ export namespace GetUserDataRequest {
 export class GetUserDataReply extends jspb.Message { 
     getSuccess(): boolean;
     setSuccess(value: boolean): GetUserDataReply;
-    getMessage(): string;
-    setMessage(value: string): GetUserDataReply;
+
+    hasError(): boolean;
+    clearError(): void;
+    getError(): Error | undefined;
+    setError(value?: Error): GetUserDataReply;
     getUserid(): string;
     setUserid(value: string): GetUserDataReply;
     getRole(): string;
@@ -1295,7 +1462,7 @@ export class GetUserDataReply extends jspb.Message {
 export namespace GetUserDataReply {
     export type AsObject = {
         success: boolean,
-        message: string,
+        error?: Error.AsObject,
         userid: string,
         role: string,
         semesterid: string,
@@ -1336,8 +1503,11 @@ export namespace UpdateUserDataRequest {
 export class GetNotificationTokenReply extends jspb.Message { 
     getSuccess(): boolean;
     setSuccess(value: boolean): GetNotificationTokenReply;
-    getMessage(): string;
-    setMessage(value: string): GetNotificationTokenReply;
+
+    hasError(): boolean;
+    clearError(): void;
+    getError(): Error | undefined;
+    setError(value?: Error): GetNotificationTokenReply;
     getNotificationToken(): string;
     setNotificationToken(value: string): GetNotificationTokenReply;
 
@@ -1354,7 +1524,7 @@ export class GetNotificationTokenReply extends jspb.Message {
 export namespace GetNotificationTokenReply {
     export type AsObject = {
         success: boolean,
-        message: string,
+        error?: Error.AsObject,
         notificationToken: string,
     }
 }
@@ -1372,6 +1542,8 @@ export class SendNotificationRequest extends jspb.Message {
     setReceiver(value: string): SendNotificationRequest;
     getAllowReply(): boolean;
     setAllowReply(value: boolean): SendNotificationRequest;
+    getSectionId(): string;
+    setSectionId(value: string): SendNotificationRequest;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): SendNotificationRequest.AsObject;
@@ -1391,14 +1563,53 @@ export namespace SendNotificationRequest {
         sender: string,
         receiver: string,
         allowReply: boolean,
+        sectionId: string,
+    }
+}
+
+export class SendNotificationAnnouncementRequest extends jspb.Message { 
+    getSessionKey(): string;
+    setSessionKey(value: string): SendNotificationAnnouncementRequest;
+    getTitle(): string;
+    setTitle(value: string): SendNotificationAnnouncementRequest;
+    getBody(): string;
+    setBody(value: string): SendNotificationAnnouncementRequest;
+    getSender(): string;
+    setSender(value: string): SendNotificationAnnouncementRequest;
+    getSectionId(): string;
+    setSectionId(value: string): SendNotificationAnnouncementRequest;
+    getAllowReply(): boolean;
+    setAllowReply(value: boolean): SendNotificationAnnouncementRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): SendNotificationAnnouncementRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: SendNotificationAnnouncementRequest): SendNotificationAnnouncementRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: SendNotificationAnnouncementRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): SendNotificationAnnouncementRequest;
+    static deserializeBinaryFromReader(message: SendNotificationAnnouncementRequest, reader: jspb.BinaryReader): SendNotificationAnnouncementRequest;
+}
+
+export namespace SendNotificationAnnouncementRequest {
+    export type AsObject = {
+        sessionKey: string,
+        title: string,
+        body: string,
+        sender: string,
+        sectionId: string,
+        allowReply: boolean,
     }
 }
 
 export class SendNotificationReply extends jspb.Message { 
     getSuccess(): boolean;
     setSuccess(value: boolean): SendNotificationReply;
-    getMessage(): string;
-    setMessage(value: string): SendNotificationReply;
+
+    hasError(): boolean;
+    clearError(): void;
+    getError(): Error | undefined;
+    setError(value?: Error): SendNotificationReply;
     getNotificationId(): string;
     setNotificationId(value: string): SendNotificationReply;
 
@@ -1415,7 +1626,7 @@ export class SendNotificationReply extends jspb.Message {
 export namespace SendNotificationReply {
     export type AsObject = {
         success: boolean,
-        message: string,
+        error?: Error.AsObject,
         notificationId: string,
     }
 }
@@ -1500,6 +1711,35 @@ export namespace UpdateSubscriptionRequest {
         userid: string,
         token: string,
         semesterid: string,
+    }
+}
+
+export class GoogleOAuthReply extends jspb.Message { 
+    getSuccess(): boolean;
+    setSuccess(value: boolean): GoogleOAuthReply;
+
+    hasError(): boolean;
+    clearError(): void;
+    getError(): Error | undefined;
+    setError(value?: Error): GoogleOAuthReply;
+    getAuthurl(): string;
+    setAuthurl(value: string): GoogleOAuthReply;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): GoogleOAuthReply.AsObject;
+    static toObject(includeInstance: boolean, msg: GoogleOAuthReply): GoogleOAuthReply.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: GoogleOAuthReply, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): GoogleOAuthReply;
+    static deserializeBinaryFromReader(message: GoogleOAuthReply, reader: jspb.BinaryReader): GoogleOAuthReply;
+}
+
+export namespace GoogleOAuthReply {
+    export type AsObject = {
+        success: boolean,
+        error?: Error.AsObject,
+        authurl: string,
     }
 }
 
@@ -1608,8 +1848,11 @@ export namespace AddTempContainerRequest {
 export class AddTempContainerReply extends jspb.Message { 
     getSuccess(): boolean;
     setSuccess(value: boolean): AddTempContainerReply;
-    getMessage(): string;
-    setMessage(value: string): AddTempContainerReply;
+
+    hasError(): boolean;
+    clearError(): void;
+    getError(): Error | undefined;
+    setError(value?: Error): AddTempContainerReply;
     getTempcontainerid(): string;
     setTempcontainerid(value: string): AddTempContainerReply;
 
@@ -1626,7 +1869,7 @@ export class AddTempContainerReply extends jspb.Message {
 export namespace AddTempContainerReply {
     export type AsObject = {
         success: boolean,
-        message: string,
+        error?: Error.AsObject,
         tempcontainerid: string,
     }
 }
@@ -1692,8 +1935,11 @@ export namespace AddSandBoxImageRequest {
 export class AddSandBoxImageReply extends jspb.Message { 
     getSuccess(): boolean;
     setSuccess(value: boolean): AddSandBoxImageReply;
-    getMessage(): string;
-    setMessage(value: string): AddSandBoxImageReply;
+
+    hasError(): boolean;
+    clearError(): void;
+    getError(): Error | undefined;
+    setError(value?: Error): AddSandBoxImageReply;
     getSandboximageid(): string;
     setSandboximageid(value: string): AddSandBoxImageReply;
 
@@ -1710,7 +1956,7 @@ export class AddSandBoxImageReply extends jspb.Message {
 export namespace AddSandBoxImageReply {
     export type AsObject = {
         success: boolean,
-        message: string,
+        error?: Error.AsObject,
         sandboximageid: string,
     }
 }
@@ -1802,8 +2048,11 @@ export namespace ListSandBoxImageRequest {
 export class ListSandBoxImageReply extends jspb.Message { 
     getSuccess(): boolean;
     setSuccess(value: boolean): ListSandBoxImageReply;
-    getMessage(): string;
-    setMessage(value: string): ListSandBoxImageReply;
+
+    hasError(): boolean;
+    clearError(): void;
+    getError(): Error | undefined;
+    setError(value?: Error): ListSandBoxImageReply;
     clearSandboximagesList(): void;
     getSandboximagesList(): Array<ListSandBoxImageReply.SandBoxImage>;
     setSandboximagesList(value: Array<ListSandBoxImageReply.SandBoxImage>): ListSandBoxImageReply;
@@ -1822,7 +2071,7 @@ export class ListSandBoxImageReply extends jspb.Message {
 export namespace ListSandBoxImageReply {
     export type AsObject = {
         success: boolean,
-        message: string,
+        error?: Error.AsObject,
         sandboximagesList: Array<ListSandBoxImageReply.SandBoxImage.AsObject>,
     }
 
@@ -1895,8 +2144,11 @@ export namespace AddSandBoxRequest {
 export class AddSandBoxReply extends jspb.Message { 
     getSuccess(): boolean;
     setSuccess(value: boolean): AddSandBoxReply;
-    getMessage(): string;
-    setMessage(value: string): AddSandBoxReply;
+
+    hasError(): boolean;
+    clearError(): void;
+    getError(): Error | undefined;
+    setError(value?: Error): AddSandBoxReply;
     getSandboxid(): string;
     setSandboxid(value: string): AddSandBoxReply;
 
@@ -1913,7 +2165,7 @@ export class AddSandBoxReply extends jspb.Message {
 export namespace AddSandBoxReply {
     export type AsObject = {
         success: boolean,
-        message: string,
+        error?: Error.AsObject,
         sandboxid: string,
     }
 }

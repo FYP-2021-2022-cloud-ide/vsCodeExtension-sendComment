@@ -24,6 +24,7 @@ interface IDockerService extends grpc.ServiceDefinition<grpc.UntypedServiceImple
     activateTemplate: IDockerService_IactivateTemplate;
     deactivateTemplate: IDockerService_IdeactivateTemplate;
     removeTemplate: IDockerService_IremoveTemplate;
+    getTemplateStudentWorkspace: IDockerService_IgetTemplateStudentWorkspace;
     addEnvironment: IDockerService_IaddEnvironment;
     updateEnvironment: IDockerService_IupdateEnvironment;
     buildEnvironment: IDockerService_IbuildEnvironment;
@@ -41,9 +42,11 @@ interface IDockerService extends grpc.ServiceDefinition<grpc.UntypedServiceImple
     getNotificationToken: IDockerService_IgetNotificationToken;
     sendNotification: IDockerService_IsendNotification;
     listNotifications: IDockerService_IlistNotifications;
+    readNotification: IDockerService_IreadNotification;
     removeNotification: IDockerService_IremoveNotification;
     updateNotificationToken: IDockerService_IupdateNotificationToken;
     updateSubscription: IDockerService_IupdateSubscription;
+    sendNotificationAnnouncement: IDockerService_IsendNotificationAnnouncement;
     googleOAuth: IDockerService_IgoogleOAuth;
     requestAccessToken: IDockerService_IrequestAccessToken;
     googleListFile: IDockerService_IgoogleListFile;
@@ -194,6 +197,15 @@ interface IDockerService_IremoveTemplate extends grpc.MethodDefinition<dockerGet
     requestDeserialize: grpc.deserialize<dockerGet_pb.TemplateIdRequest>;
     responseSerialize: grpc.serialize<dockerGet_pb.SuccessStringReply>;
     responseDeserialize: grpc.deserialize<dockerGet_pb.SuccessStringReply>;
+}
+interface IDockerService_IgetTemplateStudentWorkspace extends grpc.MethodDefinition<dockerGet_pb.TemplateIdRequest, dockerGet_pb.TemplateGetStudentWorkspaceReply> {
+    path: "/dockerGet.Docker/getTemplateStudentWorkspace";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<dockerGet_pb.TemplateIdRequest>;
+    requestDeserialize: grpc.deserialize<dockerGet_pb.TemplateIdRequest>;
+    responseSerialize: grpc.serialize<dockerGet_pb.TemplateGetStudentWorkspaceReply>;
+    responseDeserialize: grpc.deserialize<dockerGet_pb.TemplateGetStudentWorkspaceReply>;
 }
 interface IDockerService_IaddEnvironment extends grpc.MethodDefinition<dockerGet_pb.AddEnvironmentRequest, dockerGet_pb.AddEnvironmentReply> {
     path: "/dockerGet.Docker/addEnvironment";
@@ -348,6 +360,15 @@ interface IDockerService_IlistNotifications extends grpc.MethodDefinition<docker
     responseSerialize: grpc.serialize<dockerGet_pb.ListNotificationsReply>;
     responseDeserialize: grpc.deserialize<dockerGet_pb.ListNotificationsReply>;
 }
+interface IDockerService_IreadNotification extends grpc.MethodDefinition<dockerGet_pb.RemoveNotificationRequest, dockerGet_pb.SuccessStringReply> {
+    path: "/dockerGet.Docker/readNotification";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<dockerGet_pb.RemoveNotificationRequest>;
+    requestDeserialize: grpc.deserialize<dockerGet_pb.RemoveNotificationRequest>;
+    responseSerialize: grpc.serialize<dockerGet_pb.SuccessStringReply>;
+    responseDeserialize: grpc.deserialize<dockerGet_pb.SuccessStringReply>;
+}
 interface IDockerService_IremoveNotification extends grpc.MethodDefinition<dockerGet_pb.RemoveNotificationRequest, dockerGet_pb.SuccessStringReply> {
     path: "/dockerGet.Docker/removeNotification";
     requestStream: false;
@@ -375,14 +396,23 @@ interface IDockerService_IupdateSubscription extends grpc.MethodDefinition<docke
     responseSerialize: grpc.serialize<dockerGet_pb.SuccessStringReply>;
     responseDeserialize: grpc.deserialize<dockerGet_pb.SuccessStringReply>;
 }
-interface IDockerService_IgoogleOAuth extends grpc.MethodDefinition<dockerGet_pb.EmptyRequest, dockerGet_pb.SuccessStringReply> {
+interface IDockerService_IsendNotificationAnnouncement extends grpc.MethodDefinition<dockerGet_pb.SendNotificationAnnouncementRequest, dockerGet_pb.SuccessStringReply> {
+    path: "/dockerGet.Docker/sendNotificationAnnouncement";
+    requestStream: false;
+    responseStream: false;
+    requestSerialize: grpc.serialize<dockerGet_pb.SendNotificationAnnouncementRequest>;
+    requestDeserialize: grpc.deserialize<dockerGet_pb.SendNotificationAnnouncementRequest>;
+    responseSerialize: grpc.serialize<dockerGet_pb.SuccessStringReply>;
+    responseDeserialize: grpc.deserialize<dockerGet_pb.SuccessStringReply>;
+}
+interface IDockerService_IgoogleOAuth extends grpc.MethodDefinition<dockerGet_pb.EmptyRequest, dockerGet_pb.GoogleOAuthReply> {
     path: "/dockerGet.Docker/googleOAuth";
     requestStream: false;
     responseStream: false;
     requestSerialize: grpc.serialize<dockerGet_pb.EmptyRequest>;
     requestDeserialize: grpc.deserialize<dockerGet_pb.EmptyRequest>;
-    responseSerialize: grpc.serialize<dockerGet_pb.SuccessStringReply>;
-    responseDeserialize: grpc.deserialize<dockerGet_pb.SuccessStringReply>;
+    responseSerialize: grpc.serialize<dockerGet_pb.GoogleOAuthReply>;
+    responseDeserialize: grpc.deserialize<dockerGet_pb.GoogleOAuthReply>;
 }
 interface IDockerService_IrequestAccessToken extends grpc.MethodDefinition<dockerGet_pb.CodeRequest, dockerGet_pb.SuccessStringReply> {
     path: "/dockerGet.Docker/requestAccessToken";
@@ -440,6 +470,7 @@ export interface IDockerServer {
     activateTemplate: grpc.handleUnaryCall<dockerGet_pb.TemplateIdRequest, dockerGet_pb.SuccessStringReply>;
     deactivateTemplate: grpc.handleUnaryCall<dockerGet_pb.TemplateIdRequest, dockerGet_pb.SuccessStringReply>;
     removeTemplate: grpc.handleUnaryCall<dockerGet_pb.TemplateIdRequest, dockerGet_pb.SuccessStringReply>;
+    getTemplateStudentWorkspace: grpc.handleUnaryCall<dockerGet_pb.TemplateIdRequest, dockerGet_pb.TemplateGetStudentWorkspaceReply>;
     addEnvironment: grpc.handleUnaryCall<dockerGet_pb.AddEnvironmentRequest, dockerGet_pb.AddEnvironmentReply>;
     updateEnvironment: grpc.handleUnaryCall<dockerGet_pb.UpdateEnvironmentRequest, dockerGet_pb.SuccessStringReply>;
     buildEnvironment: grpc.handleUnaryCall<dockerGet_pb.BuildEnvironmentRequest, dockerGet_pb.AddEnvironmentReply>;
@@ -457,10 +488,12 @@ export interface IDockerServer {
     getNotificationToken: grpc.handleUnaryCall<dockerGet_pb.SubRequest, dockerGet_pb.GetNotificationTokenReply>;
     sendNotification: grpc.handleUnaryCall<dockerGet_pb.SendNotificationRequest, dockerGet_pb.SendNotificationReply>;
     listNotifications: grpc.handleUnaryCall<dockerGet_pb.UserIdRequest, dockerGet_pb.ListNotificationsReply>;
+    readNotification: grpc.handleUnaryCall<dockerGet_pb.RemoveNotificationRequest, dockerGet_pb.SuccessStringReply>;
     removeNotification: grpc.handleUnaryCall<dockerGet_pb.RemoveNotificationRequest, dockerGet_pb.SuccessStringReply>;
     updateNotificationToken: grpc.handleUnaryCall<dockerGet_pb.UpdateNotificationTokenRequest, dockerGet_pb.SuccessStringReply>;
     updateSubscription: grpc.handleUnaryCall<dockerGet_pb.UpdateSubscriptionRequest, dockerGet_pb.SuccessStringReply>;
-    googleOAuth: grpc.handleUnaryCall<dockerGet_pb.EmptyRequest, dockerGet_pb.SuccessStringReply>;
+    sendNotificationAnnouncement: grpc.handleUnaryCall<dockerGet_pb.SendNotificationAnnouncementRequest, dockerGet_pb.SuccessStringReply>;
+    googleOAuth: grpc.handleUnaryCall<dockerGet_pb.EmptyRequest, dockerGet_pb.GoogleOAuthReply>;
     requestAccessToken: grpc.handleUnaryCall<dockerGet_pb.CodeRequest, dockerGet_pb.SuccessStringReply>;
     googleListFile: grpc.handleUnaryCall<dockerGet_pb.ListFilesRequest, dockerGet_pb.ChildrenReply>;
     googleDownloadFiles: grpc.handleUnaryCall<dockerGet_pb.DownloadRequest, dockerGet_pb.SuccessStringReply>;
@@ -516,6 +549,9 @@ export interface IDockerClient {
     removeTemplate(request: dockerGet_pb.TemplateIdRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
     removeTemplate(request: dockerGet_pb.TemplateIdRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
     removeTemplate(request: dockerGet_pb.TemplateIdRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    getTemplateStudentWorkspace(request: dockerGet_pb.TemplateIdRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.TemplateGetStudentWorkspaceReply) => void): grpc.ClientUnaryCall;
+    getTemplateStudentWorkspace(request: dockerGet_pb.TemplateIdRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.TemplateGetStudentWorkspaceReply) => void): grpc.ClientUnaryCall;
+    getTemplateStudentWorkspace(request: dockerGet_pb.TemplateIdRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.TemplateGetStudentWorkspaceReply) => void): grpc.ClientUnaryCall;
     addEnvironment(request: dockerGet_pb.AddEnvironmentRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.AddEnvironmentReply) => void): grpc.ClientUnaryCall;
     addEnvironment(request: dockerGet_pb.AddEnvironmentRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.AddEnvironmentReply) => void): grpc.ClientUnaryCall;
     addEnvironment(request: dockerGet_pb.AddEnvironmentRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.AddEnvironmentReply) => void): grpc.ClientUnaryCall;
@@ -567,6 +603,9 @@ export interface IDockerClient {
     listNotifications(request: dockerGet_pb.UserIdRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.ListNotificationsReply) => void): grpc.ClientUnaryCall;
     listNotifications(request: dockerGet_pb.UserIdRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.ListNotificationsReply) => void): grpc.ClientUnaryCall;
     listNotifications(request: dockerGet_pb.UserIdRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.ListNotificationsReply) => void): grpc.ClientUnaryCall;
+    readNotification(request: dockerGet_pb.RemoveNotificationRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    readNotification(request: dockerGet_pb.RemoveNotificationRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    readNotification(request: dockerGet_pb.RemoveNotificationRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
     removeNotification(request: dockerGet_pb.RemoveNotificationRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
     removeNotification(request: dockerGet_pb.RemoveNotificationRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
     removeNotification(request: dockerGet_pb.RemoveNotificationRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
@@ -576,9 +615,12 @@ export interface IDockerClient {
     updateSubscription(request: dockerGet_pb.UpdateSubscriptionRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
     updateSubscription(request: dockerGet_pb.UpdateSubscriptionRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
     updateSubscription(request: dockerGet_pb.UpdateSubscriptionRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
-    googleOAuth(request: dockerGet_pb.EmptyRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
-    googleOAuth(request: dockerGet_pb.EmptyRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
-    googleOAuth(request: dockerGet_pb.EmptyRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    sendNotificationAnnouncement(request: dockerGet_pb.SendNotificationAnnouncementRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    sendNotificationAnnouncement(request: dockerGet_pb.SendNotificationAnnouncementRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    sendNotificationAnnouncement(request: dockerGet_pb.SendNotificationAnnouncementRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    googleOAuth(request: dockerGet_pb.EmptyRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.GoogleOAuthReply) => void): grpc.ClientUnaryCall;
+    googleOAuth(request: dockerGet_pb.EmptyRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.GoogleOAuthReply) => void): grpc.ClientUnaryCall;
+    googleOAuth(request: dockerGet_pb.EmptyRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.GoogleOAuthReply) => void): grpc.ClientUnaryCall;
     requestAccessToken(request: dockerGet_pb.CodeRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
     requestAccessToken(request: dockerGet_pb.CodeRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
     requestAccessToken(request: dockerGet_pb.CodeRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
@@ -643,6 +685,9 @@ export class DockerClient extends grpc.Client implements IDockerClient {
     public removeTemplate(request: dockerGet_pb.TemplateIdRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
     public removeTemplate(request: dockerGet_pb.TemplateIdRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
     public removeTemplate(request: dockerGet_pb.TemplateIdRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    public getTemplateStudentWorkspace(request: dockerGet_pb.TemplateIdRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.TemplateGetStudentWorkspaceReply) => void): grpc.ClientUnaryCall;
+    public getTemplateStudentWorkspace(request: dockerGet_pb.TemplateIdRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.TemplateGetStudentWorkspaceReply) => void): grpc.ClientUnaryCall;
+    public getTemplateStudentWorkspace(request: dockerGet_pb.TemplateIdRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.TemplateGetStudentWorkspaceReply) => void): grpc.ClientUnaryCall;
     public addEnvironment(request: dockerGet_pb.AddEnvironmentRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.AddEnvironmentReply) => void): grpc.ClientUnaryCall;
     public addEnvironment(request: dockerGet_pb.AddEnvironmentRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.AddEnvironmentReply) => void): grpc.ClientUnaryCall;
     public addEnvironment(request: dockerGet_pb.AddEnvironmentRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.AddEnvironmentReply) => void): grpc.ClientUnaryCall;
@@ -694,6 +739,9 @@ export class DockerClient extends grpc.Client implements IDockerClient {
     public listNotifications(request: dockerGet_pb.UserIdRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.ListNotificationsReply) => void): grpc.ClientUnaryCall;
     public listNotifications(request: dockerGet_pb.UserIdRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.ListNotificationsReply) => void): grpc.ClientUnaryCall;
     public listNotifications(request: dockerGet_pb.UserIdRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.ListNotificationsReply) => void): grpc.ClientUnaryCall;
+    public readNotification(request: dockerGet_pb.RemoveNotificationRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    public readNotification(request: dockerGet_pb.RemoveNotificationRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    public readNotification(request: dockerGet_pb.RemoveNotificationRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
     public removeNotification(request: dockerGet_pb.RemoveNotificationRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
     public removeNotification(request: dockerGet_pb.RemoveNotificationRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
     public removeNotification(request: dockerGet_pb.RemoveNotificationRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
@@ -703,9 +751,12 @@ export class DockerClient extends grpc.Client implements IDockerClient {
     public updateSubscription(request: dockerGet_pb.UpdateSubscriptionRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
     public updateSubscription(request: dockerGet_pb.UpdateSubscriptionRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
     public updateSubscription(request: dockerGet_pb.UpdateSubscriptionRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
-    public googleOAuth(request: dockerGet_pb.EmptyRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
-    public googleOAuth(request: dockerGet_pb.EmptyRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
-    public googleOAuth(request: dockerGet_pb.EmptyRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    public sendNotificationAnnouncement(request: dockerGet_pb.SendNotificationAnnouncementRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    public sendNotificationAnnouncement(request: dockerGet_pb.SendNotificationAnnouncementRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    public sendNotificationAnnouncement(request: dockerGet_pb.SendNotificationAnnouncementRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
+    public googleOAuth(request: dockerGet_pb.EmptyRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.GoogleOAuthReply) => void): grpc.ClientUnaryCall;
+    public googleOAuth(request: dockerGet_pb.EmptyRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.GoogleOAuthReply) => void): grpc.ClientUnaryCall;
+    public googleOAuth(request: dockerGet_pb.EmptyRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.GoogleOAuthReply) => void): grpc.ClientUnaryCall;
     public requestAccessToken(request: dockerGet_pb.CodeRequest, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
     public requestAccessToken(request: dockerGet_pb.CodeRequest, metadata: grpc.Metadata, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;
     public requestAccessToken(request: dockerGet_pb.CodeRequest, metadata: grpc.Metadata, options: Partial<grpc.CallOptions>, callback: (error: grpc.ServiceError | null, response: dockerGet_pb.SuccessStringReply) => void): grpc.ClientUnaryCall;

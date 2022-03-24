@@ -1,7 +1,7 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 'use strict';
-var grpc = require('"@grpc/grpc-js');
+var grpc = require('@grpc/grpc-js');
 var dockerGet_pb = require('./dockerGet_pb.js');
 
 function serialize_dockerGet_AddContainerReply(arg) {

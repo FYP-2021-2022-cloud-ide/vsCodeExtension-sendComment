@@ -25,6 +25,7 @@ function sendNotification(title:string, code:string,body:string)
 	if (docReq.getReceiver()==""){
 		vscode.window.showInformationMessage("This function is disabled." );
 	}else{
+		vscode.window.showInformationMessage("wefwef")
 		client.sendNotification(docReq, function(err, GoLangResponse: SendNotificationReply) {
 			if(!GoLangResponse.getSuccess()){
 				vscode.window.showInformationMessage("Failed to send Comment, Reason: "+GoLangResponse.getError()?.getStatus() );
