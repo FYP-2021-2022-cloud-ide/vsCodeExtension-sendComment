@@ -210,6 +210,14 @@ export namespace ListNotificationsReply {
         setSender(value?: ListNotificationsReply.Notification.Sender): Notification;
         getAllowReply(): boolean;
         setAllowReply(value: boolean): Notification;
+        getRead(): boolean;
+        setRead(value: boolean): Notification;
+        getCourseCode(): string;
+        setCourseCode(value: string): Notification;
+        getSectionCode(): string;
+        setSectionCode(value: string): Notification;
+        getSectionId(): string;
+        setSectionId(value: string): Notification;
         getUpdatedAt(): string;
         setUpdatedAt(value: string): Notification;
 
@@ -230,6 +238,10 @@ export namespace ListNotificationsReply {
             body: string,
             sender?: ListNotificationsReply.Notification.Sender.AsObject,
             allowReply: boolean,
+            read: boolean,
+            courseCode: string,
+            sectionCode: string,
+            sectionId: string,
             updatedAt: string,
         }
 
@@ -1530,6 +1542,8 @@ export class SendNotificationRequest extends jspb.Message {
     setReceiver(value: string): SendNotificationRequest;
     getAllowReply(): boolean;
     setAllowReply(value: boolean): SendNotificationRequest;
+    getSectionId(): string;
+    setSectionId(value: string): SendNotificationRequest;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): SendNotificationRequest.AsObject;
@@ -1548,6 +1562,42 @@ export namespace SendNotificationRequest {
         body: string,
         sender: string,
         receiver: string,
+        allowReply: boolean,
+        sectionId: string,
+    }
+}
+
+export class SendNotificationAnnouncementRequest extends jspb.Message { 
+    getSessionKey(): string;
+    setSessionKey(value: string): SendNotificationAnnouncementRequest;
+    getTitle(): string;
+    setTitle(value: string): SendNotificationAnnouncementRequest;
+    getBody(): string;
+    setBody(value: string): SendNotificationAnnouncementRequest;
+    getSender(): string;
+    setSender(value: string): SendNotificationAnnouncementRequest;
+    getSectionId(): string;
+    setSectionId(value: string): SendNotificationAnnouncementRequest;
+    getAllowReply(): boolean;
+    setAllowReply(value: boolean): SendNotificationAnnouncementRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): SendNotificationAnnouncementRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: SendNotificationAnnouncementRequest): SendNotificationAnnouncementRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: SendNotificationAnnouncementRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): SendNotificationAnnouncementRequest;
+    static deserializeBinaryFromReader(message: SendNotificationAnnouncementRequest, reader: jspb.BinaryReader): SendNotificationAnnouncementRequest;
+}
+
+export namespace SendNotificationAnnouncementRequest {
+    export type AsObject = {
+        sessionKey: string,
+        title: string,
+        body: string,
+        sender: string,
+        sectionId: string,
         allowReply: boolean,
     }
 }

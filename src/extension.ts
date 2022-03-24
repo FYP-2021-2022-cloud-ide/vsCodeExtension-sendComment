@@ -19,6 +19,7 @@ function sendNotification(title:string, code:string,body:string)
     docReq.setSender(process.env.USER_THIS!)
     docReq.setReceiver(process.env.USER_RESPONSIBLE!)
     docReq.setAllowReply(true)
+	docReq.setSectionId(process.env.USER_RESPONSIBLE_SECTION_ID!)
 	docReq.setSessionKey(process.env.SESSION_KEY!)
 	//disabled send comment to instructor
 	if (docReq.getReceiver()==""){

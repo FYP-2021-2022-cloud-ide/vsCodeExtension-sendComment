@@ -1,7 +1,7 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 'use strict';
-var grpc = require('@grpc/grpc-js');
+var grpc = require('"@grpc/grpc-js');
 var dockerGet_pb = require('./dockerGet_pb.js');
 
 function serialize_dockerGet_AddContainerReply(arg) {
@@ -442,6 +442,17 @@ function serialize_dockerGet_SectionAndSubRequest(arg) {
 
 function deserialize_dockerGet_SectionAndSubRequest(buffer_arg) {
   return dockerGet_pb.SectionAndSubRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_dockerGet_SendNotificationAnnouncementRequest(arg) {
+  if (!(arg instanceof dockerGet_pb.SendNotificationAnnouncementRequest)) {
+    throw new Error('Expected argument of type dockerGet.SendNotificationAnnouncementRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_dockerGet_SendNotificationAnnouncementRequest(buffer_arg) {
+  return dockerGet_pb.SendNotificationAnnouncementRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_dockerGet_SendNotificationReply(arg) {
@@ -985,6 +996,17 @@ var DockerService = exports.DockerService = {
     responseSerialize: serialize_dockerGet_ListNotificationsReply,
     responseDeserialize: deserialize_dockerGet_ListNotificationsReply,
   },
+  readNotification: {
+    path: '/dockerGet.Docker/readNotification',
+    requestStream: false,
+    responseStream: false,
+    requestType: dockerGet_pb.RemoveNotificationRequest,
+    responseType: dockerGet_pb.SuccessStringReply,
+    requestSerialize: serialize_dockerGet_RemoveNotificationRequest,
+    requestDeserialize: deserialize_dockerGet_RemoveNotificationRequest,
+    responseSerialize: serialize_dockerGet_SuccessStringReply,
+    responseDeserialize: deserialize_dockerGet_SuccessStringReply,
+  },
   removeNotification: {
     path: '/dockerGet.Docker/removeNotification',
     requestStream: false,
@@ -1015,6 +1037,17 @@ var DockerService = exports.DockerService = {
     responseType: dockerGet_pb.SuccessStringReply,
     requestSerialize: serialize_dockerGet_UpdateSubscriptionRequest,
     requestDeserialize: deserialize_dockerGet_UpdateSubscriptionRequest,
+    responseSerialize: serialize_dockerGet_SuccessStringReply,
+    responseDeserialize: deserialize_dockerGet_SuccessStringReply,
+  },
+  sendNotificationAnnouncement: {
+    path: '/dockerGet.Docker/sendNotificationAnnouncement',
+    requestStream: false,
+    responseStream: false,
+    requestType: dockerGet_pb.SendNotificationAnnouncementRequest,
+    responseType: dockerGet_pb.SuccessStringReply,
+    requestSerialize: serialize_dockerGet_SendNotificationAnnouncementRequest,
+    requestDeserialize: deserialize_dockerGet_SendNotificationAnnouncementRequest,
     responseSerialize: serialize_dockerGet_SuccessStringReply,
     responseDeserialize: deserialize_dockerGet_SuccessStringReply,
   },
