@@ -23,7 +23,6 @@ function sendNotification(title, code, body) {
         vscode.window.showInformationMessage("This function is disabled.");
     }
     else {
-        vscode.window.showInformationMessage("wefwef");
         client.sendNotification(docReq, function (err, GoLangResponse) {
             if (!GoLangResponse.getSuccess()) {
                 vscode.window.showInformationMessage("Failed to send Comment, Reason: " + GoLangResponse.getError()?.getStatus());
@@ -42,7 +41,7 @@ async function getContainerTime() {
     docReq.setSub(process.env.USER_SUB);
     docReq.setSessionKey(process.env.SESSION_KEY);
     return new Promise(resolve => {
-        client.getContainerTime(docReq, function (err, GoLangResponse) {
+        client.getTemplateContainerTime(docReq, function (err, GoLangResponse) {
             if (err)
                 resolve({
                     Success: false,
@@ -103,15 +102,15 @@ function activate(context) {
         var assignment = process.env.ASSIGNMENT_NAME;
         //console.log(thisFilename.toString())
         var title = "Comment on Assignment " + assignment + ": ";
-        var code = "in ".concat(thisFilename.toString(), ": "
-            + firstLine + ":" + firstChar + "-" + lastLine + ":" + lastChar + '\n' +
+        var body = "in ".concat(thisFilename.toString(), ": "
+            + firstLine + ":" + firstChar + "-" + lastLine + ":" + lastChar + '\n\n' +
             "Code: " + '\n' + highlight);
         const userResponse = await vscode.window.showInputBox({
             placeHolder: 'Type your comment about the selected text...'
         });
         if (userResponse !== undefined) {
             vscode.window.showInformationMessage(userResponse);
-            sendNotification(title, code, userResponse);
+            sendNotification(title, body, userResponse);
         }
     });
     context.subscriptions.push(disposable);

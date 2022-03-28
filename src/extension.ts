@@ -61,7 +61,7 @@ async function  getContainerTime():Promise<containerTime>{
 	docReq.setSub(process.env.USER_SUB!)
 	docReq.setSessionKey(process.env.SESSION_KEY!)
 	return new Promise(resolve=>{
-	client.getContainerTime(docReq, function(err, GoLangResponse: ContainerTimeReply) {
+	client.getTemplateContainerTime(docReq, function(err, GoLangResponse: ContainerTimeReply) {
 		if (err) resolve({
 			Success:false,
 			Error:{

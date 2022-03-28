@@ -218,8 +218,8 @@ export namespace ListNotificationsReply {
         setSectionCode(value: string): Notification;
         getSectionId(): string;
         setSectionId(value: string): Notification;
-        getUpdatedAt(): string;
-        setUpdatedAt(value: string): Notification;
+        getSentAt(): string;
+        setSentAt(value: string): Notification;
 
         serializeBinary(): Uint8Array;
         toObject(includeInstance?: boolean): Notification.AsObject;
@@ -242,7 +242,7 @@ export namespace ListNotificationsReply {
             courseCode: string,
             sectionCode: string,
             sectionId: string,
-            updatedAt: string,
+            sentAt: string,
         }
 
 
@@ -313,10 +313,6 @@ export class ListContainerReply extends jspb.Message {
     getContainersList(): Array<ListContainerReply.Container>;
     setContainersList(value: Array<ListContainerReply.Container>): ListContainerReply;
     addContainers(value?: ListContainerReply.Container, index?: number): ListContainerReply.Container;
-    clearTempcontainersList(): void;
-    getTempcontainersList(): Array<ListContainerReply.Container>;
-    setTempcontainersList(value: Array<ListContainerReply.Container>): ListContainerReply;
-    addTempcontainers(value?: ListContainerReply.Container, index?: number): ListContainerReply.Container;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): ListContainerReply.AsObject;
@@ -334,7 +330,6 @@ export namespace ListContainerReply {
         error?: Error.AsObject,
         containerinfo?: ListContainerReply.ContainersInfo.AsObject,
         containersList: Array<ListContainerReply.Container.AsObject>,
-        tempcontainersList: Array<ListContainerReply.Container.AsObject>,
     }
 
 
@@ -362,14 +357,16 @@ export namespace ListContainerReply {
     }
 
     export class Container extends jspb.Message { 
-        getCoursetitle(): string;
-        setCoursetitle(value: string): Container;
-        getAssignmentname(): string;
-        setAssignmentname(value: string): Container;
+        getTitle(): string;
+        setTitle(value: string): Container;
+        getSubtitle(): string;
+        setSubtitle(value: string): Container;
         getExistedtime(): string;
         setExistedtime(value: string): Container;
         getContainerid(): string;
         setContainerid(value: string): Container;
+        getType(): ListContainerReply.Container.CONTAINER_TYPE;
+        setType(value: ListContainerReply.Container.CONTAINER_TYPE): Container;
 
         serializeBinary(): Uint8Array;
         toObject(includeInstance?: boolean): Container.AsObject;
@@ -383,11 +380,19 @@ export namespace ListContainerReply {
 
     export namespace Container {
         export type AsObject = {
-            coursetitle: string,
-            assignmentname: string,
+            title: string,
+            subtitle: string,
             existedtime: string,
             containerid: string,
+            type: ListContainerReply.Container.CONTAINER_TYPE,
         }
+
+        export enum CONTAINER_TYPE {
+    TEMPORARY = 0,
+    TEMPLATE_WORKSPACE = 1,
+    SANDBOX = 2,
+        }
+
     }
 
 }
@@ -1654,6 +1659,37 @@ export namespace UpdateNotificationTokenRequest {
         sessionKey: string,
         sub: string,
         token: string,
+    }
+}
+
+export class ChangeNotificationReadRequest extends jspb.Message { 
+    getSessionKey(): string;
+    setSessionKey(value: string): ChangeNotificationReadRequest;
+    getUserid(): string;
+    setUserid(value: string): ChangeNotificationReadRequest;
+    clearNotificationidList(): void;
+    getNotificationidList(): Array<string>;
+    setNotificationidList(value: Array<string>): ChangeNotificationReadRequest;
+    addNotificationid(value: string, index?: number): string;
+    getRead(): boolean;
+    setRead(value: boolean): ChangeNotificationReadRequest;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): ChangeNotificationReadRequest.AsObject;
+    static toObject(includeInstance: boolean, msg: ChangeNotificationReadRequest): ChangeNotificationReadRequest.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: ChangeNotificationReadRequest, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): ChangeNotificationReadRequest;
+    static deserializeBinaryFromReader(message: ChangeNotificationReadRequest, reader: jspb.BinaryReader): ChangeNotificationReadRequest;
+}
+
+export namespace ChangeNotificationReadRequest {
+    export type AsObject = {
+        sessionKey: string,
+        userid: string,
+        notificationidList: Array<string>,
+        read: boolean,
     }
 }
 
