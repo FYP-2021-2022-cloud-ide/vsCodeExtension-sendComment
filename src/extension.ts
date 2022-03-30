@@ -125,7 +125,7 @@ export function activate(context: vscode.ExtensionContext) {
 		//console.log(thisFilename.toString())
 		var title ="Comment on Assignment "+ assignment+": "
 		var body="in ".concat(thisFilename.toString(),": "+ firstLine+":"+firstChar+"-"+lastLine+":"+lastChar+'\n\n'+
-		"**Code:** \n"+'\n```js'+highlight+"\n```")
+		"**Code:** \n"+'\n```js\n'+highlight+"\n```")
 		
 		const userResponse = await vscode.window.showInputBox({
 			placeHolder: 'Type your comment about the selected text...'
